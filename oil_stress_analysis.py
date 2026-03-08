@@ -12,6 +12,7 @@ network topology   = directed weighted graph G(V, E, w)
 layout             = spring_layout with sector cluster constraints
 """
 
+import os
 import numpy as np
 import pandas as pd
 import matplotlib
@@ -25,6 +26,11 @@ import networkx as nx
 import seaborn as sns
 import warnings
 warnings.filterwarnings("ignore")
+
+# Output directory — falls back to script directory if /mnt/user-data/outputs/ is unavailable
+_DEFAULT_OUT = "/mnt/user-data/outputs"
+OUTPUT_DIR = _DEFAULT_OUT if os.path.isdir(_DEFAULT_OUT) else os.path.dirname(os.path.abspath(__file__))
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # ── STYLE ────────────────────────────────────────────────────────────────────
 plt.rcParams.update({
@@ -346,7 +352,7 @@ fig1.legend(handles=stress_handles, loc="lower center", ncol=5,
             edgecolor="#1c2535", labelcolor="#94a3b8")
 
 plt.tight_layout(rect=[0,0.04,1,0.97])
-fig1.savefig("/mnt/user-data/outputs/fig1_network_comparison.png",
+fig1.savefig(os.path.join(OUTPUT_DIR, "fig1_network_comparison.png"),
              dpi=130, bbox_inches="tight", facecolor="#07080a")
 print("✓ Fig 1 saved")
 plt.close()
@@ -539,7 +545,7 @@ plt.colorbar(im, ax=ax, shrink=0.6, pad=0.02,
 ax.set_title("#05 — DEPENDENCY FLOW HEATMAP (Feb → Mar)",
              color="#94a3b8", fontsize=9, fontfamily="monospace", pad=6)
 
-fig2.savefig("/mnt/user-data/outputs/fig2_analytics_dashboard.png",
+fig2.savefig(os.path.join(OUTPUT_DIR, "fig2_analytics_dashboard.png"),
              dpi=130, bbox_inches="tight", facecolor="#07080a")
 print("✓ Fig 2 saved")
 plt.close()
@@ -654,7 +660,7 @@ for (r, c), cell in tbl.get_celld().items():
             cell.set_facecolor("#0d1117")
             cell.set_text_props(color="#64748b", fontfamily="monospace")
 
-fig3.savefig("/mnt/user-data/outputs/fig3_network_metrics.png",
+fig3.savefig(os.path.join(OUTPUT_DIR, "fig3_network_metrics.png"),
              dpi=130, bbox_inches="tight", facecolor="#07080a")
 print("✓ Fig 3 saved")
 plt.close()
@@ -699,4 +705,4 @@ for _, e in df_edges.sort_values("delta", ascending=False).head(6).iterrows():
     print(f"    {e['source']:<10} → {e['target']:<10}  "
           f"{e['w_feb']:.2f} → {e['w_mar']:.2f}  (Δ {e['delta']:+.2f})")
 print("═"*62)
-print("\nAll figures saved to /mnt/user-data/outputs/")
+print(f"\nAll figures saved to {OUTPUT_DIR}/")
