@@ -1,0 +1,1236 @@
+{
+  "_meta": {
+    "description": "Scenario shock ranges auto-computed from conditional episode distributions. All magnitudes are data-driven (percentiles of historical analog returns). Stress directions are from DIRECTION_CONFIG in build_shocks.py \u2014 the only authored input.",
+    "generated_by": "build_shocks.py",
+    "generated_at": "2026-03-15 19:57 UTC",
+    "data_source": "config/episodes.json + data/raw/monthly_prices.csv",
+    "reference_month": "2026-03",
+    "ref_date": "2026-03",
+    "horizon": "1-month window (monthly price data)",
+    "methodology": {
+      "baseline": "p35\u2013p65 of conditional distribution (central tendency)",
+      "adverse": "p10\u2013p35 (down) or p65\u2013p90 (up) \u2014 one-sigma tail",
+      "severe": "p2\u2013p10  (down) or p90\u2013p98  (up) \u2014 two-sigma tail",
+      "direction": "Stress direction per asset \u00d7 scenario from DIRECTION_CONFIG. Economic prior: OIL_IRAN\u2192WTI=up, HAWKISH\u2192YIELD=up, etc. 'auto' assets infer direction from conditional median.",
+      "min_width": "Ranges widened to MIN_WIDTH floor if distribution is narrow",
+      "units": "Price assets: decimal returns (0.05 = +5%). YIELD_10Y_CHG: basis points. VIX_CHG: index points. HY/IG_SPREAD_CHG: basis points."
+    }
+  },
+  "scenarios": {
+    "OIL_IRAN": {
+      "label": "Oil / Iran Supply Shock",
+      "n_episodes": 10,
+      "episode_ids": [
+        "OIL_EMBARGO_1973_10",
+        "IRAN_REV_OIL_1979_02",
+        "IRAN_HOSTAGE_1979_11",
+        "GULF_WAR_SHOCK_1990_08",
+        "GULF_WAR_RELIEF_1991_01",
+        "OIL_CRASH_2014_11",
+        "IRAN_NUCLEAR_2019_06",
+        "ABQAIQ_2019_09",
+        "COVID_OIL_CRASH_2020_03",
+        "RUSSIA_UKRAINE_2022_02"
+      ],
+      "reference_prices": {
+        "SP500": 6779.656,
+        "NASDAQ": 22573.6219,
+        "WTI": 85.227,
+        "BRENT": 89.675,
+        "GOLD": 5139.95,
+        "SILVER": 84.3536,
+        "COPPER_MT": 5.8164,
+        "DXY": 99.185,
+        "USDJPY": 158.0518,
+        "EURUSD": 1.1603,
+        "AUDUSD": 0.7058,
+        "VIX": 24.854,
+        "COPPER_LB": 0.0026
+      },
+      "shocks": {
+        "SP500": {
+          "baseline": [
+            -0.077,
+            -0.0024
+          ],
+          "adverse": [
+            -0.0889,
+            -0.0141
+          ],
+          "severe": [
+            -0.1435,
+            -0.0889
+          ]
+        },
+        "NASDAQ": {
+          "baseline": [
+            -0.089,
+            0.0021
+          ],
+          "adverse": [
+            -0.1207,
+            -0.0187
+          ],
+          "severe": [
+            -0.2118,
+            -0.1207
+          ]
+        },
+        "WTI": {
+          "baseline": [
+            -0.1012,
+            0.2128
+          ],
+          "adverse": [
+            -0.0716,
+            0.0881
+          ],
+          "severe": [
+            0.0881,
+            0.1628
+          ]
+        },
+        "BRENT": {
+          "baseline": [
+            -0.0988,
+            0.1588
+          ],
+          "adverse": [
+            -0.0639,
+            0.0994
+          ],
+          "severe": [
+            0.0994,
+            0.1767
+          ]
+        },
+        "GOLD": {
+          "baseline": [
+            0.0144,
+            0.0557
+          ],
+          "adverse": [
+            0.0557,
+            0.1015
+          ],
+          "severe": [
+            0.0612,
+            0.1069
+          ]
+        },
+        "SILVER": {
+          "baseline": [
+            -0.051,
+            0.0055
+          ],
+          "adverse": [
+            0.0055,
+            0.059
+          ],
+          "severe": [
+            0.059,
+            0.1464
+          ]
+        },
+        "COPPER": {
+          "baseline": [
+            -0.0541,
+            0.0009
+          ],
+          "adverse": [
+            -0.0738,
+            -0.0165
+          ],
+          "severe": [
+            -0.1007,
+            -0.0738
+          ]
+        },
+        "DXY": {
+          "baseline": [
+            -0.0029,
+            0.01
+          ],
+          "adverse": [
+            0.01,
+            0.0276
+          ],
+          "severe": [
+            0.0276,
+            0.0417
+          ]
+        },
+        "USDJPY": {
+          "baseline": [
+            -0.008,
+            0.0196
+          ],
+          "adverse": [
+            0.0196,
+            0.0568
+          ],
+          "severe": [
+            0.0568,
+            0.072
+          ]
+        },
+        "EURUSD": {
+          "baseline": [
+            -0.0111,
+            0.0006
+          ],
+          "adverse": [
+            -0.0233,
+            -0.0111
+          ],
+          "severe": [
+            -0.0383,
+            -0.0233
+          ]
+        },
+        "AUDUSD": {
+          "baseline": [
+            -0.0328,
+            -0.0015
+          ],
+          "adverse": [
+            -0.0395,
+            -0.0092
+          ],
+          "severe": [
+            -0.0533,
+            -0.0395
+          ]
+        },
+        "YIELD_10Y_CHG": {
+          "baseline": [
+            -5.1,
+            2.7
+          ],
+          "adverse": [
+            2.7,
+            28.7
+          ],
+          "severe": [
+            28.7,
+            33.7
+          ]
+        },
+        "VIX_CHG": {
+          "baseline": [
+            -0.81,
+            1.09
+          ],
+          "adverse": [
+            1.09,
+            14.6
+          ],
+          "severe": [
+            14.6,
+            20.38
+          ]
+        },
+        "HY_SPREAD_CHG": {
+          "baseline": [
+            0.1,
+            15.1
+          ],
+          "adverse": [
+            0.2,
+            15.2
+          ],
+          "severe": [
+            2.6,
+            17.6
+          ]
+        },
+        "IG_SPREAD_CHG": {
+          "baseline": [
+            0.1,
+            5.1
+          ],
+          "adverse": [
+            0.2,
+            5.2
+          ],
+          "severe": [
+            1.0,
+            6.0
+          ]
+        }
+      }
+    },
+    "GLOBAL_RECESSION": {
+      "label": "Global Recession",
+      "n_episodes": 13,
+      "episode_ids": [
+        "DOT_COM_CRASH_2000_04",
+        "RECESSION_2001_11",
+        "GFC_BEAR_STEARNS_2008_03",
+        "GFC_LEHMAN_2008_09",
+        "GFC_CRASH_2008_10",
+        "GFC_RECESSION_2008_11",
+        "GFC_QE1_2008_12",
+        "GFC_RECESSION_2009_02",
+        "EU_SOVEREIGN_2011_08",
+        "OIL_CRASH_2014_11",
+        "CHINA_DEVALUE_2015_08",
+        "COVID_CRASH_2020_02",
+        "COVID_OIL_CRASH_2020_03"
+      ],
+      "reference_prices": {
+        "SP500": 6779.656,
+        "NASDAQ": 22573.6219,
+        "WTI": 85.227,
+        "BRENT": 89.675,
+        "GOLD": 5139.95,
+        "SILVER": 84.3536,
+        "COPPER_MT": 5.8164,
+        "DXY": 99.185,
+        "USDJPY": 158.0518,
+        "EURUSD": 1.1603,
+        "AUDUSD": 0.7058,
+        "VIX": 24.854,
+        "COPPER_LB": 0.0026
+      },
+      "shocks": {
+        "SP500": {
+          "baseline": [
+            -0.0847,
+            -0.0318
+          ],
+          "adverse": [
+            -0.184,
+            -0.0847
+          ],
+          "severe": [
+            -0.2681,
+            -0.184
+          ]
+        },
+        "NASDAQ": {
+          "baseline": [
+            -0.1088,
+            -0.0342
+          ],
+          "adverse": [
+            -0.1914,
+            -0.1088
+          ],
+          "severe": [
+            -0.2908,
+            -0.1914
+          ]
+        },
+        "WTI": {
+          "baseline": [
+            -0.2527,
+            -0.1093
+          ],
+          "adverse": [
+            -0.3846,
+            -0.2527
+          ],
+          "severe": [
+            -0.6098,
+            -0.3846
+          ]
+        },
+        "BRENT": {
+          "baseline": [
+            -0.2378,
+            -0.0766
+          ],
+          "adverse": [
+            -0.3908,
+            -0.2378
+          ],
+          "severe": [
+            -0.4934,
+            -0.3908
+          ]
+        },
+        "GOLD": {
+          "baseline": [
+            -0.0108,
+            0.0441
+          ],
+          "adverse": [
+            0.0441,
+            0.0933
+          ],
+          "severe": [
+            0.0933,
+            0.1103
+          ]
+        },
+        "SILVER": {
+          "baseline": [
+            -0.0794,
+            -0.002
+          ],
+          "adverse": [
+            -0.1556,
+            -0.0794
+          ],
+          "severe": [
+            -0.2669,
+            -0.1556
+          ]
+        },
+        "COPPER": {
+          "baseline": [
+            -0.0887,
+            -0.0028
+          ],
+          "adverse": [
+            -0.2238,
+            -0.0887
+          ],
+          "severe": [
+            -0.288,
+            -0.2238
+          ]
+        },
+        "DXY": {
+          "baseline": [
+            0.0021,
+            0.0223
+          ],
+          "adverse": [
+            0.0223,
+            0.0378
+          ],
+          "severe": [
+            0.0378,
+            0.0566
+          ]
+        },
+        "USDJPY": {
+          "baseline": [
+            -0.0291,
+            -0.0206
+          ],
+          "adverse": [
+            -0.0544,
+            -0.0291
+          ],
+          "severe": [
+            -0.0915,
+            -0.0544
+          ]
+        },
+        "EURUSD": {
+          "baseline": [
+            -0.0204,
+            0.0055
+          ],
+          "adverse": [
+            -0.0469,
+            -0.0204
+          ],
+          "severe": [
+            -0.0683,
+            -0.0469
+          ]
+        },
+        "AUDUSD": {
+          "baseline": [
+            -0.0517,
+            -0.0284
+          ],
+          "adverse": [
+            -0.0716,
+            -0.0517
+          ],
+          "severe": [
+            -0.1417,
+            -0.0716
+          ]
+        },
+        "YIELD_10Y_CHG": {
+          "baseline": [
+            -27.8,
+            -4.0
+          ],
+          "adverse": [
+            -81.2,
+            -27.8
+          ],
+          "severe": [
+            -104.5,
+            -81.2
+          ]
+        },
+        "VIX_CHG": {
+          "baseline": [
+            1.5,
+            8.62
+          ],
+          "adverse": [
+            8.62,
+            29.12
+          ],
+          "severe": [
+            29.12,
+            36.39
+          ]
+        },
+        "HY_SPREAD_CHG": {
+          "baseline": [
+            0.6,
+            15.6
+          ],
+          "adverse": [
+            2.2,
+            17.2
+          ],
+          "severe": [
+            4.1,
+            19.1
+          ]
+        },
+        "IG_SPREAD_CHG": {
+          "baseline": [
+            0.2,
+            5.2
+          ],
+          "adverse": [
+            0.5,
+            5.5
+          ],
+          "severe": [
+            1.5,
+            6.5
+          ]
+        }
+      }
+    },
+    "GLOBAL_BLOWUP": {
+      "label": "Global Financial Blowup",
+      "n_episodes": 9,
+      "episode_ids": [
+        "LTCM_1998_08",
+        "GFC_BEAR_STEARNS_2008_03",
+        "GFC_LEHMAN_2008_09",
+        "GFC_CRASH_2008_10",
+        "EU_SOVEREIGN_2011_08",
+        "EUROCRISIS_2011_11",
+        "COVID_CRASH_2020_02",
+        "COVID_OIL_CRASH_2020_03",
+        "JAPAN_CARRY_UNWIND_2024_08"
+      ],
+      "reference_prices": {
+        "SP500": 6779.656,
+        "NASDAQ": 22573.6219,
+        "WTI": 85.227,
+        "BRENT": 89.675,
+        "GOLD": 5139.95,
+        "SILVER": 84.3536,
+        "COPPER_MT": 5.8164,
+        "DXY": 99.185,
+        "USDJPY": 158.0518,
+        "EURUSD": 1.1603,
+        "AUDUSD": 0.7058,
+        "VIX": 24.854,
+        "COPPER_LB": 0.0026
+      },
+      "shocks": {
+        "SP500": {
+          "baseline": [
+            -0.1159,
+            -0.0458
+          ],
+          "adverse": [
+            -0.1934,
+            -0.1159
+          ],
+          "severe": [
+            -0.2742,
+            -0.1934
+          ]
+        },
+        "NASDAQ": {
+          "baseline": [
+            -0.111,
+            -0.0621
+          ],
+          "adverse": [
+            -0.1829,
+            -0.111
+          ],
+          "severe": [
+            -0.209,
+            -0.1829
+          ]
+        },
+        "WTI": {
+          "baseline": [
+            -0.1942,
+            -0.0843
+          ],
+          "adverse": [
+            -0.4792,
+            -0.1942
+          ],
+          "severe": [
+            -0.6315,
+            -0.4792
+          ]
+        },
+        "BRENT": {
+          "baseline": [
+            -0.2026,
+            -0.0595
+          ],
+          "adverse": [
+            -0.4293,
+            -0.2026
+          ],
+          "severe": [
+            -0.5011,
+            -0.4293
+          ]
+        },
+        "GOLD": {
+          "baseline": [
+            0.0136,
+            0.0423
+          ],
+          "adverse": [
+            0.0423,
+            0.0781
+          ],
+          "severe": [
+            0.0781,
+            0.1076
+          ]
+        },
+        "SILVER": {
+          "baseline": [
+            -0.1511,
+            0.0018
+          ],
+          "adverse": [
+            -0.2577,
+            -0.1511
+          ],
+          "severe": [
+            -0.2649,
+            -0.1582
+          ]
+        },
+        "COPPER": {
+          "baseline": [
+            -0.1748,
+            -0.0654
+          ],
+          "adverse": [
+            -0.1666,
+            -0.0847
+          ],
+          "severe": [
+            -0.277,
+            -0.1666
+          ]
+        },
+        "DXY": {
+          "baseline": [
+            -0.0102,
+            0.0098
+          ],
+          "adverse": [
+            0.0098,
+            0.0356
+          ],
+          "severe": [
+            0.0356,
+            0.0566
+          ]
+        },
+        "USDJPY": {
+          "baseline": [
+            -0.056,
+            -0.0261
+          ],
+          "adverse": [
+            -0.0706,
+            -0.056
+          ],
+          "severe": [
+            -0.0988,
+            -0.0706
+          ]
+        },
+        "EURUSD": {
+          "baseline": [
+            -0.0065,
+            0.0091
+          ],
+          "adverse": [
+            -0.0392,
+            -0.0065
+          ],
+          "severe": [
+            -0.0668,
+            -0.0392
+          ]
+        },
+        "AUDUSD": {
+          "baseline": [
+            -0.062,
+            -0.0135
+          ],
+          "adverse": [
+            -0.0979,
+            -0.062
+          ],
+          "severe": [
+            -0.1469,
+            -0.0979
+          ]
+        },
+        "YIELD_10Y_CHG": {
+          "baseline": [
+            -55.0,
+            -22.4
+          ],
+          "adverse": [
+            -72.8,
+            -55.0
+          ],
+          "severe": [
+            -81.8,
+            -72.8
+          ]
+        },
+        "VIX_CHG": {
+          "baseline": [
+            6.26,
+            17.0
+          ],
+          "adverse": [
+            17.0,
+            32.37
+          ],
+          "severe": [
+            32.37,
+            36.96
+          ]
+        },
+        "HY_SPREAD_CHG": {
+          "baseline": [
+            1.0,
+            16.0
+          ],
+          "adverse": [
+            2.1,
+            17.1
+          ],
+          "severe": [
+            4.5,
+            19.5
+          ]
+        },
+        "IG_SPREAD_CHG": {
+          "baseline": [
+            0.4,
+            5.4
+          ],
+          "adverse": [
+            0.9,
+            5.9
+          ],
+          "severe": [
+            1.6,
+            6.6
+          ]
+        }
+      }
+    },
+    "FED_HAWKISH": {
+      "label": "Fed Hawkish Surprise",
+      "n_episodes": 11,
+      "episode_ids": [
+        "IRAN_HOSTAGE_1979_11",
+        "VOLCKER_1980_03",
+        "BOND_MASSACRE_1994_02",
+        "FED_HAWKISH_1994_03",
+        "FED_HAWKISH_1994_05",
+        "DOT_COM_CRASH_2000_04",
+        "FED_HAWKISH_2013_06",
+        "FED_HAWKISH_2022_01",
+        "RUSSIA_UKRAINE_2022_02",
+        "FED_HAWKISH_2022_06",
+        "FED_HAWKISH_2022_09"
+      ],
+      "reference_prices": {
+        "SP500": 6779.656,
+        "NASDAQ": 22573.6219,
+        "WTI": 85.227,
+        "BRENT": 89.675,
+        "GOLD": 5139.95,
+        "SILVER": 84.3536,
+        "COPPER_MT": 5.8164,
+        "DXY": 99.185,
+        "USDJPY": 158.0518,
+        "EURUSD": 1.1603,
+        "AUDUSD": 0.7058,
+        "VIX": 24.854,
+        "COPPER_LB": 0.0026
+      },
+      "shocks": {
+        "SP500": {
+          "baseline": [
+            -0.042,
+            -0.0089
+          ],
+          "adverse": [
+            -0.0741,
+            -0.0283
+          ],
+          "severe": [
+            -0.1072,
+            -0.0741
+          ]
+        },
+        "NASDAQ": {
+          "baseline": [
+            -0.0645,
+            -0.0161
+          ],
+          "adverse": [
+            -0.1271,
+            -0.0645
+          ],
+          "severe": [
+            -0.1819,
+            -0.1271
+          ]
+        },
+        "WTI": {
+          "baseline": [
+            0.025,
+            0.1131
+          ],
+          "adverse": [
+            0.1131,
+            0.1719
+          ],
+          "severe": [
+            0.1719,
+            0.281
+          ]
+        },
+        "BRENT": {
+          "baseline": [
+            0.0217,
+            0.1087
+          ],
+          "adverse": [
+            0.1087,
+            0.1753
+          ],
+          "severe": [
+            0.1753,
+            0.2845
+          ]
+        },
+        "GOLD": {
+          "baseline": [
+            -0.031,
+            0.0061
+          ],
+          "adverse": [
+            -0.0506,
+            -0.031
+          ],
+          "severe": [
+            -0.0937,
+            -0.0506
+          ]
+        },
+        "SILVER": {
+          "baseline": [
+            -0.0309,
+            0.0124
+          ],
+          "adverse": [
+            -0.0677,
+            -0.0309
+          ],
+          "severe": [
+            -0.132,
+            -0.0677
+          ]
+        },
+        "COPPER": {
+          "baseline": [
+            -0.0334,
+            0.0019
+          ],
+          "adverse": [
+            -0.0699,
+            -0.0334
+          ],
+          "severe": [
+            -0.0734,
+            -0.0369
+          ]
+        },
+        "DXY": {
+          "baseline": [
+            -0.0012,
+            0.0091
+          ],
+          "adverse": [
+            0.0091,
+            0.0335
+          ],
+          "severe": [
+            0.0335,
+            0.043
+          ]
+        },
+        "USDJPY": {
+          "baseline": [
+            0.0051,
+            0.0309
+          ],
+          "adverse": [
+            0.0309,
+            0.0485
+          ],
+          "severe": [
+            0.0485,
+            0.0813
+          ]
+        },
+        "EURUSD": {
+          "baseline": [
+            -0.0127,
+            0.0011
+          ],
+          "adverse": [
+            -0.0253,
+            -0.0127
+          ],
+          "severe": [
+            -0.0433,
+            -0.0253
+          ]
+        },
+        "AUDUSD": {
+          "baseline": [
+            -0.0234,
+            0.0017
+          ],
+          "adverse": [
+            -0.0442,
+            -0.0234
+          ],
+          "severe": [
+            -0.0762,
+            -0.0442
+          ]
+        },
+        "YIELD_10Y_CHG": {
+          "baseline": [
+            23.0,
+            34.5
+          ],
+          "adverse": [
+            34.5,
+            49.0
+          ],
+          "severe": [
+            49.0,
+            59.4
+          ]
+        },
+        "VIX_CHG": {
+          "baseline": [
+            1.24,
+            2.64
+          ],
+          "adverse": [
+            2.64,
+            4.61
+          ],
+          "severe": [
+            4.61,
+            6.8
+          ]
+        },
+        "HY_SPREAD_CHG": {
+          "baseline": [
+            0.3,
+            15.3
+          ],
+          "adverse": [
+            0.5,
+            15.5
+          ],
+          "severe": [
+            0.6,
+            15.6
+          ]
+        },
+        "IG_SPREAD_CHG": {
+          "baseline": [
+            0.1,
+            5.1
+          ],
+          "adverse": [
+            0.2,
+            5.2
+          ],
+          "severe": [
+            0.2,
+            5.2
+          ]
+        }
+      }
+    },
+    "TAIWAN_CONFLICT": {
+      "label": "Taiwan Conflict",
+      "n_episodes": 7,
+      "episode_ids": [
+        "TAIWAN_STRAIT_1996_03",
+        "NINE_ELEVEN_2001_09",
+        "CHINA_DEVALUE_2015_08",
+        "COVID_CRASH_2020_02",
+        "PELOSI_TAIWAN_2022_08",
+        "TAIWAN_TECH_2022_10",
+        "JAPAN_CARRY_UNWIND_2024_08"
+      ],
+      "reference_prices": {
+        "SP500": 6779.656,
+        "NASDAQ": 22573.6219,
+        "WTI": 85.227,
+        "BRENT": 89.675,
+        "GOLD": 5139.95,
+        "SILVER": 84.3536,
+        "COPPER_MT": 5.8164,
+        "DXY": 99.185,
+        "USDJPY": 158.0518,
+        "EURUSD": 1.1603,
+        "AUDUSD": 0.7058,
+        "VIX": 24.854,
+        "COPPER_LB": 0.0026
+      },
+      "shocks": {
+        "SP500": {
+          "baseline": [
+            -0.0302,
+            -0.0045
+          ],
+          "adverse": [
+            -0.1044,
+            -0.0302
+          ],
+          "severe": [
+            -0.1734,
+            -0.1044
+          ]
+        },
+        "NASDAQ": {
+          "baseline": [
+            -0.0386,
+            -0.0049
+          ],
+          "adverse": [
+            -0.1015,
+            -0.0386
+          ],
+          "severe": [
+            -0.1601,
+            -0.1015
+          ]
+        },
+        "WTI": {
+          "baseline": [
+            -0.0954,
+            -0.0374
+          ],
+          "adverse": [
+            -0.0374,
+            0.0493
+          ],
+          "severe": [
+            0.0493,
+            0.2148
+          ]
+        },
+        "BRENT": {
+          "baseline": [
+            -0.063,
+            -0.0205
+          ],
+          "adverse": [
+            -0.0205,
+            0.0235
+          ],
+          "severe": [
+            0.0235,
+            0.1944
+          ]
+        },
+        "GOLD": {
+          "baseline": [
+            -0.0019,
+            0.0133
+          ],
+          "adverse": [
+            0.0082,
+            0.0249
+          ],
+          "severe": [
+            0.0249,
+            0.0401
+          ]
+        },
+        "SILVER": {
+          "baseline": [
+            -0.0188,
+            0.0058
+          ],
+          "adverse": [
+            -0.1028,
+            -0.0188
+          ],
+          "severe": [
+            -0.1518,
+            -0.1028
+          ]
+        },
+        "COPPER": {
+          "baseline": [
+            -0.0403,
+            0.0027
+          ],
+          "adverse": [
+            -0.0714,
+            -0.0403
+          ],
+          "severe": [
+            -0.1253,
+            -0.0714
+          ]
+        },
+        "DXY": {
+          "baseline": [
+            0.0,
+            0.0112
+          ],
+          "adverse": [
+            0.0025,
+            0.0136
+          ],
+          "severe": [
+            0.0091,
+            0.0203
+          ]
+        },
+        "USDJPY": {
+          "baseline": [
+            -0.0229,
+            -0.0035
+          ],
+          "adverse": [
+            -0.0491,
+            -0.0229
+          ],
+          "severe": [
+            -0.0692,
+            -0.0491
+          ]
+        },
+        "EURUSD": {
+          "baseline": [
+            -0.0004,
+            0.0125
+          ],
+          "adverse": [
+            -0.0118,
+            -0.0004
+          ],
+          "severe": [
+            -0.0184,
+            -0.007
+          ]
+        },
+        "AUDUSD": {
+          "baseline": [
+            -0.0425,
+            -0.016
+          ],
+          "adverse": [
+            -0.0594,
+            -0.0425
+          ],
+          "severe": [
+            -0.0921,
+            -0.0594
+          ]
+        },
+        "YIELD_10Y_CHG": {
+          "baseline": [
+            -14.4,
+            0.0
+          ],
+          "adverse": [
+            -48.0,
+            -14.4
+          ],
+          "severe": [
+            -60.0,
+            -48.0
+          ]
+        },
+        "VIX_CHG": {
+          "baseline": [
+            2.61,
+            4.63
+          ],
+          "adverse": [
+            4.63,
+            18.21
+          ],
+          "severe": [
+            18.21,
+            34.13
+          ]
+        },
+        "HY_SPREAD_CHG": {
+          "baseline": [
+            0.2,
+            15.2
+          ],
+          "adverse": [
+            0.3,
+            15.3
+          ],
+          "severe": [
+            2.2,
+            17.2
+          ]
+        },
+        "IG_SPREAD_CHG": {
+          "baseline": [
+            0.1,
+            5.1
+          ],
+          "adverse": [
+            0.1,
+            5.1
+          ],
+          "severe": [
+            0.8,
+            5.8
+          ]
+        }
+      }
+    }
+  }
+}

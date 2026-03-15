@@ -1,0 +1,3707 @@
+{
+  "_meta": {
+    "description": "Historical analog episodes for macro stress scenario backtest. All returns COMPUTED from data/raw/monthly_prices.csv (FRED SP500/DGS10, CBOE, EIA, LBMA). Re-run build_episodes.py to reproduce.",
+    "generated_by": "build_episodes.py",
+    "generated_at": "2026-03-15 19:57 UTC",
+    "data_source_csv": "data/raw/monthly_prices.csv",
+    "download_script": "download_data.py",
+    "units": "decimal returns (0.05=+5%) except YIELD_10Y_CHG (bps), VIX_CHG (pts), HY/IG_SPREAD_CHG (bps)",
+    "alignment_rule": "start_anchor: if start_day\u22647 \u2192 prior month, else current month. end_anchor: if end_day\u22647 \u2192 prior month, else current month.",
+    "primary_sources": {
+      "sp500": "FRED:SP500 (fred.stlouisfed.org/series/SP500)",
+      "nasdaq": "FRED:NASDAQCOM",
+      "yield_10y": "FRED:DGS10 (fred.stlouisfed.org/series/DGS10)",
+      "vix": "CBOE / FRED:VIXCLS (from Jan 1990)",
+      "wti": "FRED:DCOILWTICO / EIA pre-1986",
+      "brent": "EIA / FRED:DCOILBRENTEU",
+      "gold": "FRED:GOLDAMGBD228NLBM (LBMA PM fix)",
+      "silver": "LBMA silver fix / Silver Institute",
+      "copper": "FRED:PCOPPUSDM / LME",
+      "dxy": "ICE DXY / FRED:DTWEXBGS",
+      "usdjpy": "FRED:DEXJPUS",
+      "eurusd": "FRED:DEXUSEU (pre-1999: DEM/USD proxy)",
+      "audusd": "FRED:DEXUSAL",
+      "hy_spread": "FRED:BAMLH0A0HYM2 (from Dec 1997; pre-1997: academic est.)",
+      "ig_spread": "FRED:BAMLC0A0CM (from Dec 1997; pre-1997: academic est.)"
+    }
+  },
+  "episodes": [
+    {
+      "id": "OIL_EMBARGO_1973_10",
+      "name": "OPEC Embargo \u2014 Acute shock (Oct 1973)",
+      "date_start": "1973-10-17",
+      "date_end": "1973-11-17",
+      "scenario_tags": [
+        "OIL_IRAN"
+      ],
+      "description": "OPEC embargo Oct 17. WTI posted price surges ~70% in one month.",
+      "source": "EIA petroleum; Barsky-Kilian (2004) JEP; Shiller CAPE",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1973-10",
+        "end_anchor": "1973-11"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1973-10",
+          "end_ym": "1973-11"
+        },
+        "NASDAQ": {
+          "start_ym": "1973-10",
+          "end_ym": "1973-11"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1973-10",
+          "end_ym": "1973-11"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1973-10",
+          "end_ym": "1973-11"
+        },
+        "VIX_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0711,
+        "NASDAQ": -0.0985,
+        "DXY": 0.0452,
+        "YIELD_10Y_CHG": -6.0
+      }
+    },
+    {
+      "id": "IRAN_REV_OIL_1979_02",
+      "name": "Iranian Revolution \u2014 Supply Collapse (Feb 1979)",
+      "date_start": "1979-02-01",
+      "date_end": "1979-03-01",
+      "scenario_tags": [
+        "OIL_IRAN"
+      ],
+      "description": "Iranian oil production collapses ~4 mb/d.",
+      "source": "EIA; Hamilton (2009) JEL",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1979-01",
+        "end_anchor": "1979-02"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1979-01",
+          "end_ym": "1979-02"
+        },
+        "NASDAQ": {
+          "start_ym": "1979-01",
+          "end_ym": "1979-02"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1979-01",
+          "end_ym": "1979-02"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1979-01",
+          "end_ym": "1979-02"
+        },
+        "VIX_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0148,
+        "NASDAQ": 0.0067,
+        "DXY": 0.0054,
+        "YIELD_10Y_CHG": 0.0
+      }
+    },
+    {
+      "id": "IRAN_HOSTAGE_1979_11",
+      "name": "Iran Hostage Crisis + Volcker hike (Nov 1979)",
+      "date_start": "1979-11-01",
+      "date_end": "1979-12-01",
+      "scenario_tags": [
+        "OIL_IRAN",
+        "FED_HAWKISH"
+      ],
+      "description": "US hostages taken Nov 4. Volcker raises fed funds to 13.65%.",
+      "source": "EIA; LBMA; Federal Reserve H.15; Volcker Fed minutes",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1979-10",
+        "end_anchor": "1979-11"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1979-10",
+          "end_ym": "1979-11"
+        },
+        "NASDAQ": {
+          "start_ym": "1979-10",
+          "end_ym": "1979-11"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1979-10",
+          "end_ym": "1979-11"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1979-10",
+          "end_ym": "1979-11"
+        },
+        "VIX_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0077,
+        "NASDAQ": -0.0124,
+        "DXY": 0.0051,
+        "YIELD_10Y_CHG": 35.0
+      }
+    },
+    {
+      "id": "VOLCKER_1980_03",
+      "name": "Volcker Shock \u2014 Peak Tightening (Mar 1980)",
+      "date_start": "1980-03-01",
+      "date_end": "1980-04-01",
+      "scenario_tags": [
+        "FED_HAWKISH"
+      ],
+      "description": "Volcker credit controls announced Mar 14. Fed Funds at 17.6%.",
+      "source": "Federal Reserve H.15; FRED:SP500",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1980-02",
+        "end_anchor": "1980-03"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1980-02",
+          "end_ym": "1980-03"
+        },
+        "NASDAQ": {
+          "start_ym": "1980-02",
+          "end_ym": "1980-03"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1980-02",
+          "end_ym": "1980-03"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1980-02",
+          "end_ym": "1980-03"
+        },
+        "VIX_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0924,
+        "NASDAQ": -0.1271,
+        "DXY": 0.0454,
+        "YIELD_10Y_CHG": 34.0
+      }
+    },
+    {
+      "id": "GULF_WAR_SHOCK_1990_08",
+      "name": "Gulf War \u2014 Iraq invades Kuwait (Aug 1990)",
+      "date_start": "1990-08-02",
+      "date_end": "1990-09-02",
+      "scenario_tags": [
+        "OIL_IRAN",
+        "GEOPOLITICAL"
+      ],
+      "description": "Iraq invades Kuwait Aug 2. WTI $16.50\u2192$28 (+71%). S&P -9.1%.",
+      "source": "EIA petroleum; FRED:SP500; Federal Reserve H.15; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1990-07",
+        "end_anchor": "1990-08"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1990-07",
+          "end_ym": "1990-08"
+        },
+        "NASDAQ": {
+          "start_ym": "1990-07",
+          "end_ym": "1990-08"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1990-07",
+          "end_ym": "1990-08"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1990-07",
+          "end_ym": "1990-08"
+        },
+        "VIX_CHG": {
+          "start_ym": "1990-07",
+          "end_ym": "1990-08"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0813,
+        "NASDAQ": -0.1305,
+        "DXY": -0.0345,
+        "YIELD_10Y_CHG": 28.0,
+        "VIX_CHG": 9.78
+      }
+    },
+    {
+      "id": "GULF_WAR_RELIEF_1991_01",
+      "name": "Gulf War Resolution \u2014 Relief rally (Jan 1991)",
+      "date_start": "1991-01-16",
+      "date_end": "1991-02-16",
+      "scenario_tags": [
+        "OIL_IRAN"
+      ],
+      "description": "Air campaign starts Jan 17. WTI collapses $28\u2192$20. S&P relief rally.",
+      "source": "EIA; FRED:SP500; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1991-01",
+        "end_anchor": "1991-02"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1991-01",
+          "end_ym": "1991-02"
+        },
+        "NASDAQ": {
+          "start_ym": "1991-01",
+          "end_ym": "1991-02"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1991-01",
+          "end_ym": "1991-02"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1991-01",
+          "end_ym": "1991-02"
+        },
+        "VIX_CHG": {
+          "start_ym": "1991-01",
+          "end_ym": "1991-02"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.113,
+        "NASDAQ": 0.175,
+        "DXY": -0.0161,
+        "YIELD_10Y_CHG": -24.0,
+        "VIX_CHG": -5.83
+      }
+    },
+    {
+      "id": "BOND_MASSACRE_1994_02",
+      "name": "Fed Surprise Hike \u2014 Bond Massacre (Feb 4, 1994)",
+      "date_start": "1994-02-04",
+      "date_end": "1994-03-04",
+      "scenario_tags": [
+        "FED_HAWKISH"
+      ],
+      "description": "Fed raises funds rate 25bps \u2014 first hike since 1989. VIX peaked 28.3.",
+      "source": "Federal Reserve FOMC minutes 1994; FRED:SP500; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1994-01",
+        "end_anchor": "1994-02"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1994-01",
+          "end_ym": "1994-02"
+        },
+        "NASDAQ": {
+          "start_ym": "1994-01",
+          "end_ym": "1994-02"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1994-01",
+          "end_ym": "1994-02"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1994-01",
+          "end_ym": "1994-02"
+        },
+        "VIX_CHG": {
+          "start_ym": "1994-01",
+          "end_ym": "1994-02"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.003,
+        "NASDAQ": 0.0001,
+        "DXY": -0.0085,
+        "YIELD_10Y_CHG": 22.0,
+        "VIX_CHG": 2.35
+      }
+    },
+    {
+      "id": "FED_HAWKISH_1994_03",
+      "name": "Fed Hiking Cycle \u2014 Mar 1994",
+      "date_start": "1994-03-22",
+      "date_end": "1994-04-22",
+      "scenario_tags": [
+        "FED_HAWKISH"
+      ],
+      "description": "Fed hikes 25bps Mar 22, then 50bps Apr 18.",
+      "source": "Federal Reserve FOMC 1994; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1994-03",
+        "end_anchor": "1994-04"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1994-03",
+          "end_ym": "1994-04"
+        },
+        "NASDAQ": {
+          "start_ym": "1994-03",
+          "end_ym": "1994-04"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1994-03",
+          "end_ym": "1994-04"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1994-03",
+          "end_ym": "1994-04"
+        },
+        "VIX_CHG": {
+          "start_ym": "1994-03",
+          "end_ym": "1994-04"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0357,
+        "NASDAQ": -0.0682,
+        "DXY": -0.0001,
+        "YIELD_10Y_CHG": 49.0,
+        "VIX_CHG": 1.25
+      }
+    },
+    {
+      "id": "FED_HAWKISH_1994_05",
+      "name": "Fed 50bps Hike \u2014 May 1994",
+      "date_start": "1994-05-17",
+      "date_end": "1994-06-17",
+      "scenario_tags": [
+        "FED_HAWKISH"
+      ],
+      "description": "Fed hikes 50bps May 17.",
+      "source": "Federal Reserve FOMC 1994; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1994-05",
+        "end_anchor": "1994-06"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1994-05",
+          "end_ym": "1994-06"
+        },
+        "NASDAQ": {
+          "start_ym": "1994-05",
+          "end_ym": "1994-06"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1994-05",
+          "end_ym": "1994-06"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1994-05",
+          "end_ym": "1994-06"
+        },
+        "VIX_CHG": {
+          "start_ym": "1994-05",
+          "end_ym": "1994-06"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0087,
+        "NASDAQ": -0.0063,
+        "DXY": -0.013,
+        "YIELD_10Y_CHG": -8.0,
+        "VIX_CHG": -0.49
+      }
+    },
+    {
+      "id": "TAIWAN_STRAIT_1996_03",
+      "name": "Taiwan Strait Crisis 1996 (Mar 1996)",
+      "date_start": "1996-03-01",
+      "date_end": "1996-03-31",
+      "scenario_tags": [
+        "TAIWAN_CONFLICT"
+      ],
+      "description": "PLA fires missiles near Taiwan. Minimal global market impact.",
+      "source": "FRED:SP500; Federal Reserve H.15; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1996-02",
+        "end_anchor": "1996-03"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1996-02",
+          "end_ym": "1996-03"
+        },
+        "NASDAQ": {
+          "start_ym": "1996-02",
+          "end_ym": "1996-03"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1996-02",
+          "end_ym": "1996-03"
+        },
+        "USDJPY": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1996-02",
+          "end_ym": "1996-03"
+        },
+        "VIX_CHG": {
+          "start_ym": "1996-02",
+          "end_ym": "1996-03"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": null,
+          "end_ym": null
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0038,
+        "NASDAQ": -0.0013,
+        "DXY": 0.0026,
+        "YIELD_10Y_CHG": 46.0,
+        "VIX_CHG": 2.73
+      }
+    },
+    {
+      "id": "LTCM_1998_08",
+      "name": "LTCM / Russia Default (Aug 1998)",
+      "date_start": "1998-08-17",
+      "date_end": "1998-09-17",
+      "scenario_tags": [
+        "GLOBAL_BLOWUP"
+      ],
+      "description": "Russia devalues ruble Aug 17. LTCM near-failure. VIX spikes to 45.74.",
+      "source": "S&P Compustat; Dunbar (2001); CBOE VIX archive; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "1998-08",
+        "end_anchor": "1998-09"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "1998-08",
+          "end_ym": "1998-09"
+        },
+        "NASDAQ": {
+          "start_ym": "1998-08",
+          "end_ym": "1998-09"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "1998-08",
+          "end_ym": "1998-09"
+        },
+        "USDJPY": {
+          "start_ym": "1998-08",
+          "end_ym": "1998-09"
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "1998-08",
+          "end_ym": "1998-09"
+        },
+        "VIX_CHG": {
+          "start_ym": "1998-08",
+          "end_ym": "1998-09"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "1998-08",
+          "end_ym": "1998-09"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "1998-08",
+          "end_ym": "1998-09"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0502,
+        "NASDAQ": -0.068,
+        "DXY": -0.0448,
+        "USDJPY": -0.0697,
+        "YIELD_10Y_CHG": -53.0,
+        "VIX_CHG": 6.62,
+        "HY_SPREAD_CHG": 1.7,
+        "IG_SPREAD_CHG": 0.4
+      }
+    },
+    {
+      "id": "DOT_COM_CRASH_2000_04",
+      "name": "Dot-com Crash Peak (Apr 2000)",
+      "date_start": "2000-04-01",
+      "date_end": "2000-04-30",
+      "scenario_tags": [
+        "GLOBAL_RECESSION",
+        "FED_HAWKISH"
+      ],
+      "description": "NASDAQ -15.6% in April 2000. Fed at 6%.",
+      "source": "NASDAQ/S&P Compustat; Federal Reserve H.15; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2000-03",
+        "end_anchor": "2000-04"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2000-03",
+          "end_ym": "2000-04"
+        },
+        "NASDAQ": {
+          "start_ym": "2000-03",
+          "end_ym": "2000-04"
+        },
+        "WTI": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "SILVER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "COPPER": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "DXY": {
+          "start_ym": "2000-03",
+          "end_ym": "2000-04"
+        },
+        "USDJPY": {
+          "start_ym": "2000-03",
+          "end_ym": "2000-04"
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2000-03",
+          "end_ym": "2000-04"
+        },
+        "VIX_CHG": {
+          "start_ym": "2000-03",
+          "end_ym": "2000-04"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2000-03",
+          "end_ym": "2000-04"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2000-03",
+          "end_ym": "2000-04"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0133,
+        "NASDAQ": -0.1956,
+        "DXY": 0.0116,
+        "USDJPY": -0.0066,
+        "YIELD_10Y_CHG": -27.0,
+        "VIX_CHG": 4.45,
+        "HY_SPREAD_CHG": 0.5,
+        "IG_SPREAD_CHG": 0.2
+      }
+    },
+    {
+      "id": "NINE_ELEVEN_2001_09",
+      "name": "9/11 Terrorist Attack (Sep 2001)",
+      "date_start": "2001-09-10",
+      "date_end": "2001-10-10",
+      "scenario_tags": [
+        "TAIWAN_CONFLICT",
+        "GEOPOLITICAL"
+      ],
+      "description": "Markets reopen Sep 17. S&P -11.6% first week. VIX to 43.7.",
+      "source": "S&P Compustat; CBOE VIX (43.74 Sep 21); Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2001-09",
+        "end_anchor": "2001-10"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "NASDAQ": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "WTI": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "SILVER": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "COPPER": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "DXY": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "USDJPY": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "VIX_CHG": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2001-09",
+          "end_ym": "2001-10"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0306,
+        "NASDAQ": 0.0528,
+        "WTI": -0.1432,
+        "GOLD": -0.0056,
+        "SILVER": -0.0024,
+        "COPPER": -0.0341,
+        "DXY": 0.008,
+        "USDJPY": 0.0221,
+        "YIELD_10Y_CHG": -16.0,
+        "VIX_CHG": -2.34,
+        "HY_SPREAD_CHG": 0.6,
+        "IG_SPREAD_CHG": 0.1
+      }
+    },
+    {
+      "id": "RECESSION_2001_11",
+      "name": "2001 Recession \u2014 Post-9/11 recovery attempt",
+      "date_start": "2001-10-10",
+      "date_end": "2001-11-10",
+      "scenario_tags": [
+        "GLOBAL_RECESSION"
+      ],
+      "description": "Fed emergency 50bps cut. Slow recovery from 9/11 lows.",
+      "source": "S&P Compustat; Federal Reserve H.15; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2001-10",
+        "end_anchor": "2001-11"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "NASDAQ": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "WTI": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "BRENT": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "GOLD": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "SILVER": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "COPPER": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "DXY": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "USDJPY": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "EURUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "AUDUSD": {
+          "start_ym": null,
+          "end_ym": null
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "VIX_CHG": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2001-10",
+          "end_ym": "2001-11"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0493,
+        "NASDAQ": 0.129,
+        "WTI": -0.1145,
+        "GOLD": -0.0256,
+        "SILVER": -0.0675,
+        "COPPER": 0.0457,
+        "DXY": 0.0157,
+        "USDJPY": 0.0087,
+        "YIELD_10Y_CHG": 8.0,
+        "VIX_CHG": -6.09,
+        "HY_SPREAD_CHG": -1.0,
+        "IG_SPREAD_CHG": -0.0
+      }
+    },
+    {
+      "id": "GFC_BEAR_STEARNS_2008_03",
+      "name": "GFC Bear Stearns Bailout (Mar 2008)",
+      "date_start": "2008-03-01",
+      "date_end": "2008-03-31",
+      "scenario_tags": [
+        "GLOBAL_BLOWUP",
+        "GLOBAL_RECESSION"
+      ],
+      "description": "Bear Stearns bailout Mar 14-16. WTI still RISING \u2014 oil did NOT fall yet.",
+      "source": "NYMEX WTI; LBMA; S&P Compustat; Federal Reserve H.15; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2008-02",
+        "end_anchor": "2008-03"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "NASDAQ": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "WTI": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "BRENT": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "GOLD": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "SILVER": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "COPPER": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "DXY": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "USDJPY": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "EURUSD": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "AUDUSD": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "VIX_CHG": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2008-02",
+          "end_ym": "2008-03"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.028,
+        "NASDAQ": -0.0305,
+        "WTI": 0.1056,
+        "BRENT": 0.0861,
+        "GOLD": 0.0409,
+        "SILVER": 0.0851,
+        "COPPER": 0.0617,
+        "DXY": -0.0425,
+        "USDJPY": -0.0594,
+        "EURUSD": 0.0491,
+        "AUDUSD": 0.0106,
+        "YIELD_10Y_CHG": -23.0,
+        "VIX_CHG": 1.65,
+        "HY_SPREAD_CHG": 0.8,
+        "IG_SPREAD_CHG": 0.5
+      }
+    },
+    {
+      "id": "GFC_LEHMAN_2008_09",
+      "name": "GFC Lehman Failure (Sep 2008)",
+      "date_start": "2008-09-01",
+      "date_end": "2008-09-30",
+      "scenario_tags": [
+        "GLOBAL_BLOWUP",
+        "GLOBAL_RECESSION"
+      ],
+      "description": "Lehman Ch11 Sep 15. AIG bailout Sep 16. Credit markets freeze.",
+      "source": "S&P Compustat; BofA ICE HY OAS; Federal Reserve H.15; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2008-08",
+        "end_anchor": "2008-09"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "NASDAQ": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "WTI": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "BRENT": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "GOLD": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "SILVER": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "COPPER": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "DXY": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "USDJPY": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "EURUSD": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "AUDUSD": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "VIX_CHG": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2008-08",
+          "end_ym": "2008-09"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0503,
+        "NASDAQ": -0.0768,
+        "WTI": -0.1108,
+        "BRENT": -0.1286,
+        "GOLD": -0.0082,
+        "SILVER": -0.1557,
+        "COPPER": -0.0854,
+        "DXY": 0.029,
+        "USDJPY": -0.027,
+        "EURUSD": -0.0244,
+        "AUDUSD": -0.0716,
+        "YIELD_10Y_CHG": -20.0,
+        "VIX_CHG": 9.54,
+        "HY_SPREAD_CHG": 1.0,
+        "IG_SPREAD_CHG": 0.8
+      }
+    },
+    {
+      "id": "GFC_CRASH_2008_10",
+      "name": "GFC Worst Month (Oct 2008)",
+      "date_start": "2008-10-01",
+      "date_end": "2008-10-31",
+      "scenario_tags": [
+        "GLOBAL_BLOWUP",
+        "GLOBAL_RECESSION"
+      ],
+      "description": "S&P -16.9%. VIX intraday peak 89.53. WTI -32.6%. AUD -18%. JPY strongest.",
+      "source": "S&P Compustat; CBOE VIX archive; NYMEX WTI; LME copper; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2008-09",
+        "end_anchor": "2008-10"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "NASDAQ": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "WTI": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "BRENT": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "GOLD": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "SILVER": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "COPPER": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "DXY": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "USDJPY": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "EURUSD": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "AUDUSD": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "VIX_CHG": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2008-09",
+          "end_ym": "2008-10"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.204,
+        "NASDAQ": -0.2155,
+        "WTI": -0.2606,
+        "BRENT": -0.2632,
+        "GOLD": -0.0325,
+        "SILVER": -0.1543,
+        "COPPER": -0.3046,
+        "DXY": 0.0619,
+        "USDJPY": -0.0552,
+        "EURUSD": -0.0737,
+        "AUDUSD": -0.1592,
+        "YIELD_10Y_CHG": 12.0,
+        "VIX_CHG": 30.94,
+        "HY_SPREAD_CHG": 5.8,
+        "IG_SPREAD_CHG": 1.8
+      }
+    },
+    {
+      "id": "GFC_RECESSION_2008_11",
+      "name": "GFC Recession Deepens (Nov 2008)",
+      "date_start": "2008-11-01",
+      "date_end": "2008-11-30",
+      "scenario_tags": [
+        "GLOBAL_RECESSION"
+      ],
+      "description": "Recession confirmed. S&P -7.2%. Copper -24%. Dollar surges.",
+      "source": "S&P Compustat; Federal Reserve H.15; NYMEX WTI; LME copper",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2008-10",
+        "end_anchor": "2008-11"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "NASDAQ": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "WTI": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "BRENT": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "GOLD": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "SILVER": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "COPPER": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "DXY": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "USDJPY": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "EURUSD": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "AUDUSD": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "VIX_CHG": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2008-10",
+          "end_ym": "2008-11"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0885,
+        "NASDAQ": -0.1084,
+        "WTI": -0.2513,
+        "BRENT": -0.2571,
+        "GOLD": -0.0587,
+        "SILVER": -0.0537,
+        "COPPER": -0.2291,
+        "DXY": 0.04,
+        "USDJPY": -0.039,
+        "EURUSD": -0.0469,
+        "AUDUSD": -0.0467,
+        "YIELD_10Y_CHG": -28.0,
+        "VIX_CHG": 1.46,
+        "HY_SPREAD_CHG": 3.0,
+        "IG_SPREAD_CHG": 0.4
+      }
+    },
+    {
+      "id": "GFC_QE1_2008_12",
+      "name": "GFC Fed ZLB + QE1 (Dec 2008)",
+      "date_start": "2008-12-01",
+      "date_end": "2008-12-31",
+      "scenario_tags": [
+        "GLOBAL_RECESSION"
+      ],
+      "description": "Fed cuts to ZLB Dec 16. QE1 announced. 10Y yield -130bps single month.",
+      "source": "Federal Reserve H.15 Dec 2008; FOMC minutes Dec 16 2008",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2008-11",
+        "end_anchor": "2008-12"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "NASDAQ": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "WTI": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "BRENT": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "GOLD": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "SILVER": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "COPPER": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "DXY": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "USDJPY": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "EURUSD": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "AUDUSD": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "VIX_CHG": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2008-11",
+          "end_ym": "2008-12"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0062,
+        "NASDAQ": -0.0109,
+        "WTI": -0.2681,
+        "BRENT": -0.2184,
+        "GOLD": 0.0898,
+        "SILVER": 0.0564,
+        "COPPER": -0.1763,
+        "DXY": -0.0385,
+        "USDJPY": -0.0512,
+        "EURUSD": 0.0722,
+        "AUDUSD": 0.0263,
+        "YIELD_10Y_CHG": -111.0,
+        "VIX_CHG": -10.23,
+        "HY_SPREAD_CHG": 2.3,
+        "IG_SPREAD_CHG": 0.3
+      }
+    },
+    {
+      "id": "GFC_RECESSION_2009_02",
+      "name": "GFC Deep Recession Trough (Feb 2009)",
+      "date_start": "2009-02-01",
+      "date_end": "2009-02-28",
+      "scenario_tags": [
+        "GLOBAL_RECESSION"
+      ],
+      "description": "S&P hits new lows. US GDP fell -8.9% annualised Q4 2008.",
+      "source": "S&P Compustat; BEA GDP; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2009-01",
+        "end_anchor": "2009-02"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "NASDAQ": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "WTI": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "BRENT": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "GOLD": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "SILVER": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "COPPER": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "DXY": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "USDJPY": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "EURUSD": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "AUDUSD": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "VIX_CHG": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2009-01",
+          "end_ym": "2009-02"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0697,
+        "NASDAQ": -0.0333,
+        "WTI": -0.0636,
+        "BRENT": -0.0278,
+        "GOLD": 0.0937,
+        "SILVER": 0.1775,
+        "COPPER": 0.0189,
+        "DXY": 0.0289,
+        "USDJPY": 0.0262,
+        "EURUSD": -0.0364,
+        "AUDUSD": -0.0395,
+        "YIELD_10Y_CHG": 35.0,
+        "VIX_CHG": 0.89,
+        "HY_SPREAD_CHG": -0.2,
+        "IG_SPREAD_CHG": -0.3
+      }
+    },
+    {
+      "id": "EU_SOVEREIGN_2011_08",
+      "name": "EU Sovereign Debt Crisis \u2014 Contagion (Aug 2011)",
+      "date_start": "2011-08-01",
+      "date_end": "2011-08-31",
+      "scenario_tags": [
+        "GLOBAL_BLOWUP",
+        "GLOBAL_RECESSION"
+      ],
+      "description": "US debt ceiling + S&P downgrade Aug 5 + EU contagion. Gold ATH $1,917.",
+      "source": "S&P Compustat; ECB BTP-Bund; LBMA; Federal Reserve H.15; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2011-07",
+        "end_anchor": "2011-08"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "NASDAQ": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "WTI": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "BRENT": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "GOLD": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "SILVER": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "COPPER": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "DXY": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "USDJPY": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "EURUSD": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "AUDUSD": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "VIX_CHG": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2011-07",
+          "end_ym": "2011-08"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.1056,
+        "NASDAQ": -0.1089,
+        "WTI": -0.113,
+        "BRENT": -0.0615,
+        "GOLD": 0.115,
+        "SILVER": 0.051,
+        "COPPER": -0.0733,
+        "DXY": -0.007,
+        "USDJPY": -0.0296,
+        "EURUSD": 0.0021,
+        "AUDUSD": -0.0242,
+        "YIELD_10Y_CHG": -70.0,
+        "VIX_CHG": 15.8,
+        "HY_SPREAD_CHG": 1.6,
+        "IG_SPREAD_CHG": 0.4
+      }
+    },
+    {
+      "id": "EUROCRISIS_2011_11",
+      "name": "EU Sovereign Crisis \u2014 Italy contagion (Nov 2011)",
+      "date_start": "2011-11-01",
+      "date_end": "2011-11-30",
+      "scenario_tags": [
+        "GLOBAL_BLOWUP"
+      ],
+      "description": "Italian BTP-Bund spread hits 575bps Nov 9. Italy 10Y hits 7.48%.",
+      "source": "ECB BTP/Bund; S&P Compustat; Federal Reserve H.15; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2011-10",
+        "end_anchor": "2011-11"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "NASDAQ": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "WTI": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "BRENT": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "GOLD": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "SILVER": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "COPPER": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "DXY": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "USDJPY": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "EURUSD": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "AUDUSD": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "VIX_CHG": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2011-10",
+          "end_ym": "2011-11"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0159,
+        "NASDAQ": 0.0044,
+        "WTI": 0.1242,
+        "BRENT": 0.0159,
+        "GOLD": 0.0435,
+        "SILVER": 0.0371,
+        "COPPER": 0.0295,
+        "DXY": 0.0096,
+        "USDJPY": 0.0123,
+        "EURUSD": -0.0092,
+        "AUDUSD": 0.0002,
+        "YIELD_10Y_CHG": -14.0,
+        "VIX_CHG": -0.89,
+        "HY_SPREAD_CHG": -0.3,
+        "IG_SPREAD_CHG": -0.0
+      }
+    },
+    {
+      "id": "FED_HAWKISH_2013_06",
+      "name": "Taper Tantrum (Jun 2013)",
+      "date_start": "2013-06-01",
+      "date_end": "2013-06-30",
+      "scenario_tags": [
+        "FED_HAWKISH"
+      ],
+      "description": "Bernanke taper hint May 22. Jun 2013: 10Y +36bps. Gold -12.3%.",
+      "source": "Federal Reserve H.15; S&P Compustat; CBOE VIX; LBMA",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2013-05",
+        "end_anchor": "2013-06"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "NASDAQ": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "WTI": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "BRENT": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "GOLD": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "SILVER": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "COPPER": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "DXY": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "USDJPY": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "EURUSD": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "AUDUSD": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "VIX_CHG": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2013-05",
+          "end_ym": "2013-06"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0128,
+        "NASDAQ": -0.0069,
+        "WTI": 0.0106,
+        "BRENT": -0.0007,
+        "GOLD": -0.0526,
+        "SILVER": -0.0855,
+        "COPPER": -0.0362,
+        "DXY": -0.0164,
+        "USDJPY": -0.033,
+        "EURUSD": 0.016,
+        "AUDUSD": -0.0485,
+        "YIELD_10Y_CHG": 37.0,
+        "VIX_CHG": 3.78,
+        "HY_SPREAD_CHG": 0.7,
+        "IG_SPREAD_CHG": 0.2
+      }
+    },
+    {
+      "id": "OIL_CRASH_2014_11",
+      "name": "OPEC Price War \u2014 Demand-side oil collapse (Nov 2014)",
+      "date_start": "2014-11-01",
+      "date_end": "2014-11-30",
+      "scenario_tags": [
+        "GLOBAL_RECESSION",
+        "OIL_IRAN"
+      ],
+      "description": "OPEC Nov 27 decision to not cut. Brent -18.3% in Nov alone.",
+      "source": "ICE Brent; NYMEX WTI; Federal Reserve H.15; S&P Compustat",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2014-10",
+        "end_anchor": "2014-11"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "NASDAQ": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "WTI": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "BRENT": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "GOLD": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "SILVER": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "COPPER": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "DXY": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "USDJPY": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "EURUSD": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "AUDUSD": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "VIX_CHG": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2014-10",
+          "end_ym": "2014-11"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0554,
+        "NASDAQ": 0.0646,
+        "WTI": -0.1011,
+        "BRENT": -0.0917,
+        "GOLD": -0.0382,
+        "SILVER": -0.0675,
+        "COPPER": -0.0061,
+        "DXY": 0.024,
+        "USDJPY": 0.0758,
+        "EURUSD": -0.0164,
+        "AUDUSD": -0.0136,
+        "YIELD_10Y_CHG": 3.0,
+        "VIX_CHG": -4.6,
+        "HY_SPREAD_CHG": -0.0,
+        "IG_SPREAD_CHG": 0.1
+      }
+    },
+    {
+      "id": "CHINA_DEVALUE_2015_08",
+      "name": "China Devaluation Shock (Aug 2015)",
+      "date_start": "2015-08-11",
+      "date_end": "2015-09-11",
+      "scenario_tags": [
+        "TAIWAN_CONFLICT",
+        "GLOBAL_RECESSION"
+      ],
+      "description": "China devalues CNY Aug 11 (3 consecutive days). S&P -6.3%. VIX to 40.7.",
+      "source": "S&P Compustat; CBOE VIX; Federal Reserve H.15; LME copper",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2015-08",
+        "end_anchor": "2015-09"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "NASDAQ": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "WTI": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "BRENT": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "GOLD": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "SILVER": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "COPPER": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "DXY": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "USDJPY": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "EURUSD": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "AUDUSD": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "VIX_CHG": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2015-08",
+          "end_ym": "2015-09"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0468,
+        "NASDAQ": -0.0378,
+        "WTI": 0.0601,
+        "BRENT": 0.0044,
+        "GOLD": 0.0046,
+        "SILVER": -0.0113,
+        "COPPER": 0.016,
+        "DXY": -0.0064,
+        "USDJPY": -0.0241,
+        "EURUSD": 0.0089,
+        "AUDUSD": -0.0327,
+        "YIELD_10Y_CHG": 0.0,
+        "VIX_CHG": 4.95,
+        "HY_SPREAD_CHG": 0.2,
+        "IG_SPREAD_CHG": 0.0
+      }
+    },
+    {
+      "id": "NORMAL_2017_05",
+      "name": "Normal Calm Month (May 2017)",
+      "date_start": "2017-05-01",
+      "date_end": "2017-05-31",
+      "scenario_tags": [
+        "NORMAL"
+      ],
+      "description": "S&P +1.2%. VIX near record lows ~9-10.",
+      "source": "S&P Compustat; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2017-04",
+        "end_anchor": "2017-05"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "NASDAQ": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "WTI": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "BRENT": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "GOLD": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "SILVER": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "COPPER": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "DXY": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "USDJPY": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "EURUSD": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "AUDUSD": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "VIX_CHG": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2017-04",
+          "end_ym": "2017-05"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0153,
+        "NASDAQ": 0.036,
+        "WTI": -0.0504,
+        "BRENT": -0.0459,
+        "GOLD": -0.0196,
+        "SILVER": -0.0718,
+        "COPPER": -0.0144,
+        "DXY": -0.0178,
+        "USDJPY": 0.0197,
+        "EURUSD": 0.0306,
+        "AUDUSD": -0.0141,
+        "YIELD_10Y_CHG": 0.0,
+        "VIX_CHG": -2.27,
+        "HY_SPREAD_CHG": -0.2,
+        "IG_SPREAD_CHG": -0.1
+      }
+    },
+    {
+      "id": "IRAN_NUCLEAR_2019_06",
+      "name": "Iran Tanker Attacks (Jun 2019)",
+      "date_start": "2019-06-01",
+      "date_end": "2019-06-30",
+      "scenario_tags": [
+        "OIL_IRAN",
+        "GEOPOLITICAL"
+      ],
+      "description": "Iran attacks tankers in Hormuz Jun 2019. Mild oil reaction.",
+      "source": "ICE Brent; EIA; S&P Compustat",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2019-05",
+        "end_anchor": "2019-06"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "NASDAQ": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "WTI": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "BRENT": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "GOLD": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "SILVER": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "COPPER": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "DXY": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "USDJPY": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "EURUSD": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "AUDUSD": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "VIX_CHG": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2019-05",
+          "end_ym": "2019-06"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0124,
+        "NASDAQ": 0.0026,
+        "WTI": -0.1012,
+        "BRENT": -0.1035,
+        "GOLD": 0.0595,
+        "SILVER": 0.0267,
+        "COPPER": -0.0235,
+        "DXY": -0.0096,
+        "USDJPY": -0.0177,
+        "EURUSD": 0.009,
+        "AUDUSD": -0.0009,
+        "YIELD_10Y_CHG": -33.0,
+        "VIX_CHG": -0.89,
+        "HY_SPREAD_CHG": 0.2,
+        "IG_SPREAD_CHG": 0.1
+      }
+    },
+    {
+      "id": "NORMAL_2019_07",
+      "name": "Normal Calm Month (Jul 2019)",
+      "date_start": "2019-07-01",
+      "date_end": "2019-07-31",
+      "scenario_tags": [
+        "NORMAL"
+      ],
+      "description": "Fed cuts 25bps Jul 31. S&P +1.3%. VIX ~12-14.",
+      "source": "S&P Compustat; CBOE VIX; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2019-06",
+        "end_anchor": "2019-07"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "NASDAQ": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "WTI": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "BRENT": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "GOLD": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "SILVER": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "COPPER": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "DXY": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "USDJPY": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "EURUSD": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "AUDUSD": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "VIX_CHG": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2019-06",
+          "end_ym": "2019-07"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0367,
+        "NASDAQ": 0.0486,
+        "WTI": 0.0519,
+        "BRENT": 0.0193,
+        "GOLD": 0.0394,
+        "SILVER": 0.0499,
+        "COPPER": 0.003,
+        "DXY": 0.0058,
+        "USDJPY": 0.0013,
+        "EURUSD": -0.0056,
+        "AUDUSD": 0.0061,
+        "YIELD_10Y_CHG": -1.0,
+        "VIX_CHG": -2.53,
+        "HY_SPREAD_CHG": -0.2,
+        "IG_SPREAD_CHG": -0.1
+      }
+    },
+    {
+      "id": "ABQAIQ_2019_09",
+      "name": "Abqaiq-Khurais Drone Attack (Sep 2019)",
+      "date_start": "2019-09-14",
+      "date_end": "2019-10-14",
+      "scenario_tags": [
+        "OIL_IRAN"
+      ],
+      "description": "Largest-ever single-day oil price spike (+14.6% Brent on Sep 16). Reversed in 2 weeks.",
+      "source": "ICE Brent; EIA weekly petroleum Sep 18 2019",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2019-09",
+        "end_anchor": "2019-10"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "NASDAQ": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "WTI": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "BRENT": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "GOLD": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "SILVER": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "COPPER": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "DXY": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "USDJPY": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "EURUSD": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "AUDUSD": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "VIX_CHG": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2019-09",
+          "end_ym": "2019-10"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0015,
+        "NASDAQ": -0.001,
+        "WTI": -0.052,
+        "BRENT": -0.0454,
+        "GOLD": -0.0093,
+        "SILVER": -0.0262,
+        "COPPER": 0.0055,
+        "DXY": -0.0043,
+        "USDJPY": 0.0065,
+        "EURUSD": 0.0031,
+        "AUDUSD": -0.0025,
+        "YIELD_10Y_CHG": 1.0,
+        "VIX_CHG": -0.09,
+        "HY_SPREAD_CHG": 0.2,
+        "IG_SPREAD_CHG": -0.0
+      }
+    },
+    {
+      "id": "COVID_CRASH_2020_02",
+      "name": "COVID First Crash (Feb-Mar 2020)",
+      "date_start": "2020-02-20",
+      "date_end": "2020-03-20",
+      "scenario_tags": [
+        "GLOBAL_RECESSION",
+        "GLOBAL_BLOWUP",
+        "TAIWAN_CONFLICT"
+      ],
+      "description": "COVID spreads globally. S&P -34% peak-to-trough in 33 days. VIX peaks 82.69.",
+      "source": "S&P Compustat; CBOE VIX archive (peak 82.69 Mar 18); Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2020-02",
+        "end_anchor": "2020-03"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "NASDAQ": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "WTI": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "BRENT": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "GOLD": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "SILVER": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "COPPER": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "DXY": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "USDJPY": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "EURUSD": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "AUDUSD": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "VIX_CHG": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-03"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.1907,
+        "NASDAQ": -0.1748,
+        "WTI": -0.3976,
+        "BRENT": -0.3908,
+        "GOLD": -0.0006,
+        "SILVER": -0.1641,
+        "COPPER": -0.0839,
+        "DXY": -0.0001,
+        "USDJPY": -0.0225,
+        "EURUSD": 0.0149,
+        "AUDUSD": -0.0663,
+        "YIELD_10Y_CHG": -63.0,
+        "VIX_CHG": 38.11,
+        "HY_SPREAD_CHG": 3.9,
+        "IG_SPREAD_CHG": 1.5
+      }
+    },
+    {
+      "id": "COVID_OIL_CRASH_2020_03",
+      "name": "COVID Oil Demand Destruction (Mar 2020)",
+      "date_start": "2020-03-01",
+      "date_end": "2020-04-30",
+      "scenario_tags": [
+        "GLOBAL_RECESSION",
+        "GLOBAL_BLOWUP",
+        "OIL_IRAN"
+      ],
+      "description": "COVID lockdowns. WTI -54.3%. Worst S&P month since GFC. VIX peaks 82.7.",
+      "source": "NYMEX WTI; S&P Compustat; CBOE VIX; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2020-02",
+        "end_anchor": "2020-04"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "NASDAQ": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "WTI": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "BRENT": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "GOLD": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "SILVER": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "COPPER": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "DXY": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "USDJPY": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "EURUSD": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "AUDUSD": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "VIX_CHG": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2020-02",
+          "end_ym": "2020-04"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.1572,
+        "NASDAQ": -0.1196,
+        "WTI": -0.6696,
+        "BRENT": -0.519,
+        "GOLD": 0.0623,
+        "SILVER": -0.1471,
+        "COPPER": -0.1074,
+        "DXY": 0.0108,
+        "USDJPY": -0.0201,
+        "EURUSD": -0.0032,
+        "AUDUSD": -0.0567,
+        "YIELD_10Y_CHG": -84.0,
+        "VIX_CHG": 21.82,
+        "HY_SPREAD_CHG": 4.2,
+        "IG_SPREAD_CHG": 1.5
+      }
+    },
+    {
+      "id": "FED_HAWKISH_2022_01",
+      "name": "Fed Pivot Hawkish \u2014 FOMC minutes shock (Jan 2022)",
+      "date_start": "2022-01-01",
+      "date_end": "2022-01-31",
+      "scenario_tags": [
+        "FED_HAWKISH"
+      ],
+      "description": "Fed signals aggressive tightening Jan 5. NASDAQ -8.7%.",
+      "source": "Federal Reserve FOMC minutes Jan 5 2022; S&P/NASDAQ Compustat; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2021-12",
+        "end_anchor": "2022-01"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "NASDAQ": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "WTI": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "BRENT": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "GOLD": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "SILVER": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "COPPER": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "DXY": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "USDJPY": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "EURUSD": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "AUDUSD": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "VIX_CHG": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2021-12",
+          "end_ym": "2022-01"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0216,
+        "NASDAQ": -0.0609,
+        "WTI": 0.1575,
+        "BRENT": 0.1443,
+        "GOLD": 0.0143,
+        "SILVER": 0.031,
+        "COPPER": 0.0226,
+        "DXY": -0.0023,
+        "USDJPY": 0.009,
+        "EURUSD": 0.0016,
+        "AUDUSD": 0.0042,
+        "YIELD_10Y_CHG": 29.0,
+        "VIX_CHG": 1.83,
+        "HY_SPREAD_CHG": -0.0,
+        "IG_SPREAD_CHG": 0.0
+      }
+    },
+    {
+      "id": "RUSSIA_UKRAINE_2022_02",
+      "name": "Russia-Ukraine Invasion \u2014 Oil spike (Feb-Mar 2022)",
+      "date_start": "2022-02-24",
+      "date_end": "2022-03-31",
+      "scenario_tags": [
+        "OIL_IRAN",
+        "GEOPOLITICAL",
+        "FED_HAWKISH"
+      ],
+      "description": "Russia invades Feb 24. Brent to $139.13 Mar 7. 10Y yield ROSE despite war.",
+      "source": "ICE Brent; NYMEX WTI; Federal Reserve H.15; S&P Compustat; CBOE VIX",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2022-02",
+        "end_anchor": "2022-03"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "NASDAQ": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "WTI": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "BRENT": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "GOLD": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "SILVER": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "COPPER": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "DXY": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "USDJPY": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "EURUSD": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "AUDUSD": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "VIX_CHG": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2022-02",
+          "end_ym": "2022-03"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0101,
+        "NASDAQ": -0.0198,
+        "WTI": 0.1815,
+        "BRENT": 0.196,
+        "GOLD": 0.05,
+        "SILVER": 0.0806,
+        "COPPER": 0.04,
+        "DXY": 0.0257,
+        "USDJPY": 0.0283,
+        "EURUSD": -0.0279,
+        "AUDUSD": 0.0298,
+        "YIELD_10Y_CHG": 20.0,
+        "VIX_CHG": 1.22,
+        "HY_SPREAD_CHG": 0.1,
+        "IG_SPREAD_CHG": 0.2
+      }
+    },
+    {
+      "id": "FED_HAWKISH_2022_06",
+      "name": "Fed 75bps shock \u2014 Equity/Gold crash (Jun 2022)",
+      "date_start": "2022-06-01",
+      "date_end": "2022-06-30",
+      "scenario_tags": [
+        "FED_HAWKISH"
+      ],
+      "description": "Fed hikes 75bps Jun 15 (first since 1994). S&P worst month of 2022.",
+      "source": "Federal Reserve H.15; S&P Compustat; CBOE VIX; LBMA",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2022-05",
+        "end_anchor": "2022-06"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "NASDAQ": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "WTI": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "BRENT": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "GOLD": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "SILVER": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "COPPER": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "DXY": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "USDJPY": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "EURUSD": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "AUDUSD": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "VIX_CHG": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2022-05",
+          "end_ym": "2022-06"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.035,
+        "NASDAQ": -0.0347,
+        "WTI": 0.0465,
+        "BRENT": 0.0553,
+        "GOLD": -0.0062,
+        "SILVER": -0.0155,
+        "COPPER": -0.0292,
+        "DXY": 0.0066,
+        "USDJPY": 0.0387,
+        "EURUSD": 0.0003,
+        "AUDUSD": -0.002,
+        "YIELD_10Y_CHG": 24.0,
+        "VIX_CHG": -1.35,
+        "HY_SPREAD_CHG": 0.4,
+        "IG_SPREAD_CHG": 0.0
+      }
+    },
+    {
+      "id": "PELOSI_TAIWAN_2022_08",
+      "name": "Pelosi Taiwan Visit (Aug 2022)",
+      "date_start": "2022-08-02",
+      "date_end": "2022-09-02",
+      "scenario_tags": [
+        "TAIWAN_CONFLICT"
+      ],
+      "description": "Speaker Pelosi visits Taiwan Aug 2. Global markets barely moved.",
+      "source": "S&P Compustat; CBOE VIX; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2022-07",
+        "end_anchor": "2022-08"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "NASDAQ": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "WTI": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "BRENT": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "GOLD": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "SILVER": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "COPPER": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "DXY": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "USDJPY": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "EURUSD": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "AUDUSD": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "VIX_CHG": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2022-07",
+          "end_ym": "2022-08"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0631,
+        "NASDAQ": 0.0815,
+        "WTI": -0.0795,
+        "BRENT": -0.0665,
+        "GOLD": 0.0189,
+        "SILVER": 0.0352,
+        "COPPER": 0.0645,
+        "DXY": 0.0011,
+        "USDJPY": -0.012,
+        "EURUSD": -0.0066,
+        "AUDUSD": 0.0146,
+        "YIELD_10Y_CHG": 0.0,
+        "VIX_CHG": -2.7,
+        "HY_SPREAD_CHG": -0.8,
+        "IG_SPREAD_CHG": -0.1
+      }
+    },
+    {
+      "id": "FED_HAWKISH_2022_09",
+      "name": "Fed 75bps Hike \u2014 Worst Bond Month (Sep 2022)",
+      "date_start": "2022-09-01",
+      "date_end": "2022-09-30",
+      "scenario_tags": [
+        "FED_HAWKISH"
+      ],
+      "description": "Worst calendar month for US bonds since 1980s. 10Y +64bps.",
+      "source": "Federal Reserve H.15; S&P Compustat; CBOE VIX; ICE BofA HY OAS",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2022-08",
+        "end_anchor": "2022-09"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "NASDAQ": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "WTI": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "BRENT": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "GOLD": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "SILVER": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "COPPER": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "DXY": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "USDJPY": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "EURUSD": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "AUDUSD": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "VIX_CHG": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2022-08",
+          "end_ym": "2022-09"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0741,
+        "NASDAQ": -0.0929,
+        "WTI": -0.084,
+        "BRENT": -0.0759,
+        "GOLD": -0.0476,
+        "SILVER": -0.0411,
+        "COPPER": -0.0373,
+        "DXY": 0.0335,
+        "USDJPY": 0.0582,
+        "EURUSD": -0.0214,
+        "AUDUSD": -0.0377,
+        "YIELD_10Y_CHG": 62.0,
+        "VIX_CHG": 5.24,
+        "HY_SPREAD_CHG": 0.5,
+        "IG_SPREAD_CHG": 0.1
+      }
+    },
+    {
+      "id": "TAIWAN_TECH_2022_10",
+      "name": "US Chip Export Controls to China (Oct 2022)",
+      "date_start": "2022-10-01",
+      "date_end": "2022-10-31",
+      "scenario_tags": [
+        "TAIWAN_CONFLICT"
+      ],
+      "description": "Biden admin sweeping semiconductor export controls Oct 7. SOX -17.4%.",
+      "source": "S&P Compustat; SOX index; CBOE VIX; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2022-09",
+        "end_anchor": "2022-10"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "NASDAQ": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "WTI": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "BRENT": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "GOLD": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "SILVER": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "COPPER": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "DXY": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "USDJPY": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "EURUSD": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "AUDUSD": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "VIX_CHG": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2022-09",
+          "end_ym": "2022-10"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0323,
+        "NASDAQ": -0.0527,
+        "WTI": 0.0385,
+        "BRENT": 0.0362,
+        "GOLD": -0.0076,
+        "SILVER": 0.0305,
+        "COPPER": -0.0018,
+        "DXY": 0.0108,
+        "USDJPY": 0.0278,
+        "EURUSD": -0.0073,
+        "AUDUSD": -0.049,
+        "YIELD_10Y_CHG": 46.0,
+        "VIX_CHG": 2.6,
+        "HY_SPREAD_CHG": 0.0,
+        "IG_SPREAD_CHG": 0.1
+      }
+    },
+    {
+      "id": "NORMAL_2024_06",
+      "name": "Normal Month \u2014 2024 reference (Jun 2024)",
+      "date_start": "2024-06-01",
+      "date_end": "2024-06-30",
+      "scenario_tags": [
+        "NORMAL"
+      ],
+      "description": "S&P +3.5%. Fed on hold. AI rally.",
+      "source": "S&P Compustat; CBOE VIX; Federal Reserve H.15",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2024-05",
+        "end_anchor": "2024-06"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "NASDAQ": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "WTI": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "BRENT": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "GOLD": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "SILVER": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "COPPER": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "DXY": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "USDJPY": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "EURUSD": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "AUDUSD": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "VIX_CHG": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2024-05",
+          "end_ym": "2024-06"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": 0.0344,
+        "NASDAQ": 0.058,
+        "WTI": 0.001,
+        "BRENT": -0.0012,
+        "GOLD": -0.01,
+        "SILVER": 0.0074,
+        "COPPER": -0.0528,
+        "DXY": 0.0019,
+        "USDJPY": 0.012,
+        "EURUSD": -0.0031,
+        "AUDUSD": 0.0036,
+        "YIELD_10Y_CHG": -17.0,
+        "VIX_CHG": -0.41,
+        "HY_SPREAD_CHG": 0.1,
+        "IG_SPREAD_CHG": 0.0
+      }
+    },
+    {
+      "id": "JAPAN_CARRY_UNWIND_2024_08",
+      "name": "JPY Carry Trade Unwind (Aug 2024)",
+      "date_start": "2024-08-01",
+      "date_end": "2024-08-30",
+      "scenario_tags": [
+        "GLOBAL_BLOWUP",
+        "TAIWAN_CONFLICT"
+      ],
+      "description": "BoJ hike Jul 31. USD/JPY 161\u2192142 in 3 weeks. Nikkei -12.4% single session.",
+      "source": "Bank of Japan; Federal Reserve H.10; CBOE VIX 65.7 Aug 5 2024",
+      "data_method": "computed_from_csv_price_series",
+      "data_source_csv": "data/raw/monthly_prices.csv",
+      "alignment": {
+        "start_anchor": "2024-07",
+        "end_anchor": "2024-08"
+      },
+      "alignment_log": {
+        "SP500": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "NASDAQ": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "WTI": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "BRENT": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "GOLD": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "SILVER": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "COPPER": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "DXY": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "USDJPY": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "EURUSD": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "AUDUSD": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "YIELD_10Y_CHG": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "VIX_CHG": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "HY_SPREAD_CHG": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        },
+        "IG_SPREAD_CHG": {
+          "start_ym": "2024-07",
+          "end_ym": "2024-08"
+        }
+      },
+      "computed_at": "2026-03-15 19:57 UTC",
+      "assets": {
+        "SP500": -0.0108,
+        "NASDAQ": -0.0387,
+        "WTI": -0.0627,
+        "BRENT": -0.0578,
+        "GOLD": 0.0309,
+        "SILVER": -0.0414,
+        "COPPER": -0.059,
+        "DXY": -0.0229,
+        "USDJPY": -0.0742,
+        "EURUSD": 0.016,
+        "AUDUSD": -0.0048,
+        "YIELD_10Y_CHG": -38.0,
+        "VIX_CHG": 4.84,
+        "HY_SPREAD_CHG": 0.2,
+        "IG_SPREAD_CHG": 0.1
+      }
+    }
+  ]
+}

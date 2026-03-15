@@ -1,0 +1,1633 @@
+{
+  "_meta": {
+    "description": "Futures price shocks per scenario \u00d7 contract, derived entirely from FRED reference prices and episode-conditional shock distributions. No external input beyond the CSV and scenario_shocks.json.",
+    "generated_by": "build_futures_shocks.py",
+    "generated_at": "2026-03-15 19:57 UTC",
+    "reference_month": "2026-03",
+    "data_sources": {
+      "reference_prices": "data/raw/monthly_prices.csv (FRED API download)",
+      "shock_ranges": "config/scenario_shocks.json (build_shocks.py)",
+      "zn_dv01": "Bond-pricing formula: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20 (coupon=yield, on-the-run convention). DV01 = symmetric 1bp FD."
+    },
+    "conversion_rules": {
+      "price_return": "futures_price_change = reference_price \u00d7 decimal_return. Gives absolute change in the futures price in its native units.",
+      "yield_bps": "ZN price change (per $100 face) = DV01 \u00d7 bps_change. DV01 from bond-pricing formula at current 10Y yield. Sign: yield rise \u2192 ZN price falls. Also reports bps change directly (standard rates convention).",
+      "vix_absolute": "VIX point change reported as-is (absolute, as requested). VX futures price = VIX level in index points.",
+      "spread_bps": "bps OAS change reported as-is. CDX HY / CDX IG are standard proxy instruments."
+    },
+    "units_by_contract": {
+      "ES": "S&P 500 index points (1 pt = $50/contract)",
+      "NQ": "NASDAQ index points (1 pt = $20/contract)",
+      "CL": "USD per barrel",
+      "BZ": "USD per barrel",
+      "GC": "USD per troy oz",
+      "SI": "USD per troy oz",
+      "HG": "USD per lb",
+      "DX": "Dollar index points",
+      "6E": "USD per EUR",
+      "6J": "JPY per USD",
+      "6A": "USD per AUD",
+      "ZN": "Price points per $100 face (bps also included)",
+      "VX": "VIX index points (absolute change)",
+      "CDX HY": "Basis points of OAS",
+      "CDX IG": "Basis points of OAS"
+    }
+  },
+  "scenarios": {
+    "OIL_IRAN": {
+      "label": "Oil / Iran Supply Shock",
+      "n_episodes": 10,
+      "reference_month": "2026-03",
+      "contracts": {
+        "ES": {
+          "asset": "SP500",
+          "exchange": "CME",
+          "description": "E-mini S&P 500",
+          "price_unit": "index pts",
+          "reference_price": 6779.656,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -522.03,
+            "hi": -16.27
+          },
+          "adverse": {
+            "lo": -602.71,
+            "hi": -95.59
+          },
+          "severe": {
+            "lo": -972.88,
+            "hi": -602.71
+          }
+        },
+        "NQ": {
+          "asset": "NASDAQ",
+          "exchange": "CME",
+          "description": "E-mini NASDAQ-100",
+          "price_unit": "index pts",
+          "reference_price": 22573.6219,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -2009.05,
+            "hi": 47.4
+          },
+          "adverse": {
+            "lo": -2724.64,
+            "hi": -422.13
+          },
+          "severe": {
+            "lo": -4781.09,
+            "hi": -2724.64
+          }
+        },
+        "CL": {
+          "asset": "WTI",
+          "exchange": "NYMEX",
+          "description": "WTI Crude Oil front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 85.227,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -8.625,
+            "hi": 18.136
+          },
+          "adverse": {
+            "lo": -6.102,
+            "hi": 7.508
+          },
+          "severe": {
+            "lo": 7.508,
+            "hi": 13.875
+          }
+        },
+        "BZ": {
+          "asset": "BRENT",
+          "exchange": "ICE",
+          "description": "Brent Crude front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 89.675,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -8.86,
+            "hi": 14.24
+          },
+          "adverse": {
+            "lo": -5.73,
+            "hi": 8.914
+          },
+          "severe": {
+            "lo": 8.914,
+            "hi": 15.846
+          }
+        },
+        "GC": {
+          "asset": "GOLD",
+          "exchange": "COMEX",
+          "description": "Gold front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 5139.95,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": 74.02,
+            "hi": 286.3
+          },
+          "adverse": {
+            "lo": 286.3,
+            "hi": 521.7
+          },
+          "severe": {
+            "lo": 314.56,
+            "hi": 549.46
+          }
+        },
+        "SI": {
+          "asset": "SILVER",
+          "exchange": "COMEX",
+          "description": "Silver front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 84.3536,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -4.302,
+            "hi": 0.464
+          },
+          "adverse": {
+            "lo": 0.464,
+            "hi": 4.977
+          },
+          "severe": {
+            "lo": 4.977,
+            "hi": 12.349
+          }
+        },
+        "HG": {
+          "asset": "COPPER",
+          "exchange": "COMEX",
+          "description": "Copper front-month",
+          "price_unit": "USD/lb",
+          "reference_price": 5.8164,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.3147,
+            "hi": 0.0052
+          },
+          "adverse": {
+            "lo": -0.4293,
+            "hi": -0.096
+          },
+          "severe": {
+            "lo": -0.5857,
+            "hi": -0.4293
+          }
+        },
+        "DX": {
+          "asset": "DXY",
+          "exchange": "ICE",
+          "description": "US Dollar Index",
+          "price_unit": "index pts",
+          "reference_price": 99.185,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.288,
+            "hi": 0.992
+          },
+          "adverse": {
+            "lo": 0.992,
+            "hi": 2.738
+          },
+          "severe": {
+            "lo": 2.738,
+            "hi": 4.136
+          }
+        },
+        "6E": {
+          "asset": "EURUSD",
+          "exchange": "CME",
+          "description": "Euro FX",
+          "price_unit": "USD/EUR",
+          "reference_price": 1.1603,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.01288,
+            "hi": 0.0007
+          },
+          "adverse": {
+            "lo": -0.02704,
+            "hi": -0.01288
+          },
+          "severe": {
+            "lo": -0.04444,
+            "hi": -0.02704
+          }
+        },
+        "6J": {
+          "asset": "USDJPY",
+          "exchange": "CME",
+          "description": "Japanese Yen",
+          "price_unit": "JPY/USD",
+          "reference_price": 158.0518,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -1.26,
+            "hi": 3.1
+          },
+          "adverse": {
+            "lo": 3.1,
+            "hi": 8.98
+          },
+          "severe": {
+            "lo": 8.98,
+            "hi": 11.38
+          }
+        },
+        "6A": {
+          "asset": "AUDUSD",
+          "exchange": "CME",
+          "description": "Australian Dollar",
+          "price_unit": "USD/AUD",
+          "reference_price": 0.7058,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.02315,
+            "hi": -0.00106
+          },
+          "adverse": {
+            "lo": -0.02788,
+            "hi": -0.00649
+          },
+          "severe": {
+            "lo": -0.03762,
+            "hi": -0.02788
+          }
+        },
+        "ZN": {
+          "asset": "YIELD_10Y_CHG",
+          "exchange": "CBOT",
+          "description": "10-Year T-Note (yield\u2192price via DV01)",
+          "price_unit": "pts per $100 face",
+          "reference_price": 4.13,
+          "conv_type": "yield_bps",
+          "baseline": {
+            "zn_price_lo": -0.219,
+            "zn_price_hi": 0.414,
+            "bps_lo": -5.1,
+            "bps_hi": 2.7,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "adverse": {
+            "zn_price_lo": -2.332,
+            "zn_price_hi": -0.219,
+            "bps_lo": 2.7,
+            "bps_hi": 28.7,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "severe": {
+            "zn_price_lo": -2.738,
+            "zn_price_hi": -2.332,
+            "bps_lo": 28.7,
+            "bps_hi": 33.7,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          }
+        },
+        "VX": {
+          "asset": "VIX_CHG",
+          "exchange": "CBOE",
+          "description": "VIX futures",
+          "price_unit": "VIX pts",
+          "reference_price": 24.854,
+          "conv_type": "vix_absolute",
+          "baseline": {
+            "lo": -0.81,
+            "hi": 1.09
+          },
+          "adverse": {
+            "lo": 1.09,
+            "hi": 14.6
+          },
+          "severe": {
+            "lo": 14.6,
+            "hi": 20.38
+          }
+        },
+        "CDX HY": {
+          "asset": "HY_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX HY (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 2.92,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 0.1,
+            "hi": 15.1
+          },
+          "adverse": {
+            "lo": 0.2,
+            "hi": 15.2
+          },
+          "severe": {
+            "lo": 2.6,
+            "hi": 17.6
+          }
+        },
+        "CDX IG": {
+          "asset": "IG_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX IG (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 0.79,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 0.1,
+            "hi": 5.1
+          },
+          "adverse": {
+            "lo": 0.2,
+            "hi": 5.2
+          },
+          "severe": {
+            "lo": 1.0,
+            "hi": 6.0
+          }
+        }
+      }
+    },
+    "GLOBAL_RECESSION": {
+      "label": "Global Recession",
+      "n_episodes": 13,
+      "reference_month": "2026-03",
+      "contracts": {
+        "ES": {
+          "asset": "SP500",
+          "exchange": "CME",
+          "description": "E-mini S&P 500",
+          "price_unit": "index pts",
+          "reference_price": 6779.656,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -574.24,
+            "hi": -215.59
+          },
+          "adverse": {
+            "lo": -1247.46,
+            "hi": -574.24
+          },
+          "severe": {
+            "lo": -1817.63,
+            "hi": -1247.46
+          }
+        },
+        "NQ": {
+          "asset": "NASDAQ",
+          "exchange": "CME",
+          "description": "E-mini NASDAQ-100",
+          "price_unit": "index pts",
+          "reference_price": 22573.6219,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -2456.01,
+            "hi": -772.02
+          },
+          "adverse": {
+            "lo": -4320.59,
+            "hi": -2456.01
+          },
+          "severe": {
+            "lo": -6564.41,
+            "hi": -4320.59
+          }
+        },
+        "CL": {
+          "asset": "WTI",
+          "exchange": "NYMEX",
+          "description": "WTI Crude Oil front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 85.227,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -21.537,
+            "hi": -9.315
+          },
+          "adverse": {
+            "lo": -32.778,
+            "hi": -21.537
+          },
+          "severe": {
+            "lo": -51.971,
+            "hi": -32.778
+          }
+        },
+        "BZ": {
+          "asset": "BRENT",
+          "exchange": "ICE",
+          "description": "Brent Crude front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 89.675,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -21.325,
+            "hi": -6.869
+          },
+          "adverse": {
+            "lo": -35.045,
+            "hi": -21.325
+          },
+          "severe": {
+            "lo": -44.246,
+            "hi": -35.045
+          }
+        },
+        "GC": {
+          "asset": "GOLD",
+          "exchange": "COMEX",
+          "description": "Gold front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 5139.95,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -55.51,
+            "hi": 226.67
+          },
+          "adverse": {
+            "lo": 226.67,
+            "hi": 479.56
+          },
+          "severe": {
+            "lo": 479.56,
+            "hi": 566.94
+          }
+        },
+        "SI": {
+          "asset": "SILVER",
+          "exchange": "COMEX",
+          "description": "Silver front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 84.3536,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -6.698,
+            "hi": -0.169
+          },
+          "adverse": {
+            "lo": -13.125,
+            "hi": -6.698
+          },
+          "severe": {
+            "lo": -22.514,
+            "hi": -13.125
+          }
+        },
+        "HG": {
+          "asset": "COPPER",
+          "exchange": "COMEX",
+          "description": "Copper front-month",
+          "price_unit": "USD/lb",
+          "reference_price": 5.8164,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.5159,
+            "hi": -0.0163
+          },
+          "adverse": {
+            "lo": -1.3017,
+            "hi": -0.5159
+          },
+          "severe": {
+            "lo": -1.6751,
+            "hi": -1.3017
+          }
+        },
+        "DX": {
+          "asset": "DXY",
+          "exchange": "ICE",
+          "description": "US Dollar Index",
+          "price_unit": "index pts",
+          "reference_price": 99.185,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": 0.208,
+            "hi": 2.212
+          },
+          "adverse": {
+            "lo": 2.212,
+            "hi": 3.749
+          },
+          "severe": {
+            "lo": 3.749,
+            "hi": 5.614
+          }
+        },
+        "6E": {
+          "asset": "EURUSD",
+          "exchange": "CME",
+          "description": "Euro FX",
+          "price_unit": "USD/EUR",
+          "reference_price": 1.1603,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.02367,
+            "hi": 0.00638
+          },
+          "adverse": {
+            "lo": -0.05442,
+            "hi": -0.02367
+          },
+          "severe": {
+            "lo": -0.07925,
+            "hi": -0.05442
+          }
+        },
+        "6J": {
+          "asset": "USDJPY",
+          "exchange": "CME",
+          "description": "Japanese Yen",
+          "price_unit": "JPY/USD",
+          "reference_price": 158.0518,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -4.6,
+            "hi": -3.26
+          },
+          "adverse": {
+            "lo": -8.6,
+            "hi": -4.6
+          },
+          "severe": {
+            "lo": -14.46,
+            "hi": -8.6
+          }
+        },
+        "6A": {
+          "asset": "AUDUSD",
+          "exchange": "CME",
+          "description": "Australian Dollar",
+          "price_unit": "USD/AUD",
+          "reference_price": 0.7058,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.03649,
+            "hi": -0.02004
+          },
+          "adverse": {
+            "lo": -0.05053,
+            "hi": -0.03649
+          },
+          "severe": {
+            "lo": -0.10001,
+            "hi": -0.05053
+          }
+        },
+        "ZN": {
+          "asset": "YIELD_10Y_CHG",
+          "exchange": "CBOT",
+          "description": "10-Year T-Note (yield\u2192price via DV01)",
+          "price_unit": "pts per $100 face",
+          "reference_price": 4.13,
+          "conv_type": "yield_bps",
+          "baseline": {
+            "zn_price_lo": 0.325,
+            "zn_price_hi": 2.259,
+            "bps_lo": -27.8,
+            "bps_hi": -4.0,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "adverse": {
+            "zn_price_lo": 2.259,
+            "zn_price_hi": 6.597,
+            "bps_lo": -81.2,
+            "bps_hi": -27.8,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "severe": {
+            "zn_price_lo": 6.597,
+            "zn_price_hi": 8.49,
+            "bps_lo": -104.5,
+            "bps_hi": -81.2,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          }
+        },
+        "VX": {
+          "asset": "VIX_CHG",
+          "exchange": "CBOE",
+          "description": "VIX futures",
+          "price_unit": "VIX pts",
+          "reference_price": 24.854,
+          "conv_type": "vix_absolute",
+          "baseline": {
+            "lo": 1.5,
+            "hi": 8.62
+          },
+          "adverse": {
+            "lo": 8.62,
+            "hi": 29.12
+          },
+          "severe": {
+            "lo": 29.12,
+            "hi": 36.39
+          }
+        },
+        "CDX HY": {
+          "asset": "HY_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX HY (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 2.92,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 0.6,
+            "hi": 15.6
+          },
+          "adverse": {
+            "lo": 2.2,
+            "hi": 17.2
+          },
+          "severe": {
+            "lo": 4.1,
+            "hi": 19.1
+          }
+        },
+        "CDX IG": {
+          "asset": "IG_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX IG (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 0.79,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 0.2,
+            "hi": 5.2
+          },
+          "adverse": {
+            "lo": 0.5,
+            "hi": 5.5
+          },
+          "severe": {
+            "lo": 1.5,
+            "hi": 6.5
+          }
+        }
+      }
+    },
+    "GLOBAL_BLOWUP": {
+      "label": "Global Financial Blowup",
+      "n_episodes": 9,
+      "reference_month": "2026-03",
+      "contracts": {
+        "ES": {
+          "asset": "SP500",
+          "exchange": "CME",
+          "description": "E-mini S&P 500",
+          "price_unit": "index pts",
+          "reference_price": 6779.656,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -785.76,
+            "hi": -310.51
+          },
+          "adverse": {
+            "lo": -1311.19,
+            "hi": -785.76
+          },
+          "severe": {
+            "lo": -1858.98,
+            "hi": -1311.19
+          }
+        },
+        "NQ": {
+          "asset": "NASDAQ",
+          "exchange": "CME",
+          "description": "E-mini NASDAQ-100",
+          "price_unit": "index pts",
+          "reference_price": 22573.6219,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -2505.67,
+            "hi": -1401.82
+          },
+          "adverse": {
+            "lo": -4128.72,
+            "hi": -2505.67
+          },
+          "severe": {
+            "lo": -4717.89,
+            "hi": -4128.72
+          }
+        },
+        "CL": {
+          "asset": "WTI",
+          "exchange": "NYMEX",
+          "description": "WTI Crude Oil front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 85.227,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -16.551,
+            "hi": -7.185
+          },
+          "adverse": {
+            "lo": -40.841,
+            "hi": -16.551
+          },
+          "severe": {
+            "lo": -53.821,
+            "hi": -40.841
+          }
+        },
+        "BZ": {
+          "asset": "BRENT",
+          "exchange": "ICE",
+          "description": "Brent Crude front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 89.675,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -18.168,
+            "hi": -5.336
+          },
+          "adverse": {
+            "lo": -38.497,
+            "hi": -18.168
+          },
+          "severe": {
+            "lo": -44.936,
+            "hi": -38.497
+          }
+        },
+        "GC": {
+          "asset": "GOLD",
+          "exchange": "COMEX",
+          "description": "Gold front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 5139.95,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": 69.9,
+            "hi": 217.42
+          },
+          "adverse": {
+            "lo": 217.42,
+            "hi": 401.43
+          },
+          "severe": {
+            "lo": 401.43,
+            "hi": 553.06
+          }
+        },
+        "SI": {
+          "asset": "SILVER",
+          "exchange": "COMEX",
+          "description": "Silver front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 84.3536,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -12.746,
+            "hi": 0.152
+          },
+          "adverse": {
+            "lo": -21.738,
+            "hi": -12.746
+          },
+          "severe": {
+            "lo": -22.345,
+            "hi": -13.345
+          }
+        },
+        "HG": {
+          "asset": "COPPER",
+          "exchange": "COMEX",
+          "description": "Copper front-month",
+          "price_unit": "USD/lb",
+          "reference_price": 5.8164,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -1.0167,
+            "hi": -0.3804
+          },
+          "adverse": {
+            "lo": -0.969,
+            "hi": -0.4927
+          },
+          "severe": {
+            "lo": -1.6112,
+            "hi": -0.969
+          }
+        },
+        "DX": {
+          "asset": "DXY",
+          "exchange": "ICE",
+          "description": "US Dollar Index",
+          "price_unit": "index pts",
+          "reference_price": 99.185,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -1.012,
+            "hi": 0.972
+          },
+          "adverse": {
+            "lo": 0.972,
+            "hi": 3.531
+          },
+          "severe": {
+            "lo": 3.531,
+            "hi": 5.614
+          }
+        },
+        "6E": {
+          "asset": "EURUSD",
+          "exchange": "CME",
+          "description": "Euro FX",
+          "price_unit": "USD/EUR",
+          "reference_price": 1.1603,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.00754,
+            "hi": 0.01056
+          },
+          "adverse": {
+            "lo": -0.04548,
+            "hi": -0.00754
+          },
+          "severe": {
+            "lo": -0.07751,
+            "hi": -0.04548
+          }
+        },
+        "6J": {
+          "asset": "USDJPY",
+          "exchange": "CME",
+          "description": "Japanese Yen",
+          "price_unit": "JPY/USD",
+          "reference_price": 158.0518,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -8.85,
+            "hi": -4.13
+          },
+          "adverse": {
+            "lo": -11.16,
+            "hi": -8.85
+          },
+          "severe": {
+            "lo": -15.62,
+            "hi": -11.16
+          }
+        },
+        "6A": {
+          "asset": "AUDUSD",
+          "exchange": "CME",
+          "description": "Australian Dollar",
+          "price_unit": "USD/AUD",
+          "reference_price": 0.7058,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.04376,
+            "hi": -0.00953
+          },
+          "adverse": {
+            "lo": -0.06909,
+            "hi": -0.04376
+          },
+          "severe": {
+            "lo": -0.10368,
+            "hi": -0.06909
+          }
+        },
+        "ZN": {
+          "asset": "YIELD_10Y_CHG",
+          "exchange": "CBOT",
+          "description": "10-Year T-Note (yield\u2192price via DV01)",
+          "price_unit": "pts per $100 face",
+          "reference_price": 4.13,
+          "conv_type": "yield_bps",
+          "baseline": {
+            "zn_price_lo": 1.82,
+            "zn_price_hi": 4.469,
+            "bps_lo": -55.0,
+            "bps_hi": -22.4,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "adverse": {
+            "zn_price_lo": 4.469,
+            "zn_price_hi": 5.915,
+            "bps_lo": -72.8,
+            "bps_hi": -55.0,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "severe": {
+            "zn_price_lo": 5.915,
+            "zn_price_hi": 6.646,
+            "bps_lo": -81.8,
+            "bps_hi": -72.8,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          }
+        },
+        "VX": {
+          "asset": "VIX_CHG",
+          "exchange": "CBOE",
+          "description": "VIX futures",
+          "price_unit": "VIX pts",
+          "reference_price": 24.854,
+          "conv_type": "vix_absolute",
+          "baseline": {
+            "lo": 6.26,
+            "hi": 17.0
+          },
+          "adverse": {
+            "lo": 17.0,
+            "hi": 32.37
+          },
+          "severe": {
+            "lo": 32.37,
+            "hi": 36.96
+          }
+        },
+        "CDX HY": {
+          "asset": "HY_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX HY (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 2.92,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 1.0,
+            "hi": 16.0
+          },
+          "adverse": {
+            "lo": 2.1,
+            "hi": 17.1
+          },
+          "severe": {
+            "lo": 4.5,
+            "hi": 19.5
+          }
+        },
+        "CDX IG": {
+          "asset": "IG_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX IG (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 0.79,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 0.4,
+            "hi": 5.4
+          },
+          "adverse": {
+            "lo": 0.9,
+            "hi": 5.9
+          },
+          "severe": {
+            "lo": 1.6,
+            "hi": 6.6
+          }
+        }
+      }
+    },
+    "FED_HAWKISH": {
+      "label": "Fed Hawkish Surprise",
+      "n_episodes": 11,
+      "reference_month": "2026-03",
+      "contracts": {
+        "ES": {
+          "asset": "SP500",
+          "exchange": "CME",
+          "description": "E-mini S&P 500",
+          "price_unit": "index pts",
+          "reference_price": 6779.656,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -284.75,
+            "hi": -60.34
+          },
+          "adverse": {
+            "lo": -502.37,
+            "hi": -191.86
+          },
+          "severe": {
+            "lo": -726.78,
+            "hi": -502.37
+          }
+        },
+        "NQ": {
+          "asset": "NASDAQ",
+          "exchange": "CME",
+          "description": "E-mini NASDAQ-100",
+          "price_unit": "index pts",
+          "reference_price": 22573.6219,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -1456.0,
+            "hi": -363.44
+          },
+          "adverse": {
+            "lo": -2869.11,
+            "hi": -1456.0
+          },
+          "severe": {
+            "lo": -4106.14,
+            "hi": -2869.11
+          }
+        },
+        "CL": {
+          "asset": "WTI",
+          "exchange": "NYMEX",
+          "description": "WTI Crude Oil front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 85.227,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": 2.131,
+            "hi": 9.639
+          },
+          "adverse": {
+            "lo": 9.639,
+            "hi": 14.651
+          },
+          "severe": {
+            "lo": 14.651,
+            "hi": 23.949
+          }
+        },
+        "BZ": {
+          "asset": "BRENT",
+          "exchange": "ICE",
+          "description": "Brent Crude front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 89.675,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": 1.946,
+            "hi": 9.748
+          },
+          "adverse": {
+            "lo": 9.748,
+            "hi": 15.72
+          },
+          "severe": {
+            "lo": 15.72,
+            "hi": 25.513
+          }
+        },
+        "GC": {
+          "asset": "GOLD",
+          "exchange": "COMEX",
+          "description": "Gold front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 5139.95,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -159.34,
+            "hi": 31.35
+          },
+          "adverse": {
+            "lo": -260.08,
+            "hi": -159.34
+          },
+          "severe": {
+            "lo": -481.61,
+            "hi": -260.08
+          }
+        },
+        "SI": {
+          "asset": "SILVER",
+          "exchange": "COMEX",
+          "description": "Silver front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 84.3536,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -2.607,
+            "hi": 1.046
+          },
+          "adverse": {
+            "lo": -5.711,
+            "hi": -2.607
+          },
+          "severe": {
+            "lo": -11.135,
+            "hi": -5.711
+          }
+        },
+        "HG": {
+          "asset": "COPPER",
+          "exchange": "COMEX",
+          "description": "Copper front-month",
+          "price_unit": "USD/lb",
+          "reference_price": 5.8164,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.1943,
+            "hi": 0.0111
+          },
+          "adverse": {
+            "lo": -0.4066,
+            "hi": -0.1943
+          },
+          "severe": {
+            "lo": -0.4269,
+            "hi": -0.2146
+          }
+        },
+        "DX": {
+          "asset": "DXY",
+          "exchange": "ICE",
+          "description": "US Dollar Index",
+          "price_unit": "index pts",
+          "reference_price": 99.185,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.119,
+            "hi": 0.903
+          },
+          "adverse": {
+            "lo": 0.903,
+            "hi": 3.323
+          },
+          "severe": {
+            "lo": 3.323,
+            "hi": 4.265
+          }
+        },
+        "6E": {
+          "asset": "EURUSD",
+          "exchange": "CME",
+          "description": "Euro FX",
+          "price_unit": "USD/EUR",
+          "reference_price": 1.1603,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.01474,
+            "hi": 0.00128
+          },
+          "adverse": {
+            "lo": -0.02936,
+            "hi": -0.01474
+          },
+          "severe": {
+            "lo": -0.05024,
+            "hi": -0.02936
+          }
+        },
+        "6J": {
+          "asset": "USDJPY",
+          "exchange": "CME",
+          "description": "Japanese Yen",
+          "price_unit": "JPY/USD",
+          "reference_price": 158.0518,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": 0.81,
+            "hi": 4.88
+          },
+          "adverse": {
+            "lo": 4.88,
+            "hi": 7.67
+          },
+          "severe": {
+            "lo": 7.67,
+            "hi": 12.85
+          }
+        },
+        "6A": {
+          "asset": "AUDUSD",
+          "exchange": "CME",
+          "description": "Australian Dollar",
+          "price_unit": "USD/AUD",
+          "reference_price": 0.7058,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.01651,
+            "hi": 0.0012
+          },
+          "adverse": {
+            "lo": -0.03119,
+            "hi": -0.01651
+          },
+          "severe": {
+            "lo": -0.05378,
+            "hi": -0.03119
+          }
+        },
+        "ZN": {
+          "asset": "YIELD_10Y_CHG",
+          "exchange": "CBOT",
+          "description": "10-Year T-Note (yield\u2192price via DV01)",
+          "price_unit": "pts per $100 face",
+          "reference_price": 4.13,
+          "conv_type": "yield_bps",
+          "baseline": {
+            "zn_price_lo": -2.803,
+            "zn_price_hi": -1.869,
+            "bps_lo": 23.0,
+            "bps_hi": 34.5,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "adverse": {
+            "zn_price_lo": -3.981,
+            "zn_price_hi": -2.803,
+            "bps_lo": 34.5,
+            "bps_hi": 49.0,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "severe": {
+            "zn_price_lo": -4.826,
+            "zn_price_hi": -3.981,
+            "bps_lo": 49.0,
+            "bps_hi": 59.4,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          }
+        },
+        "VX": {
+          "asset": "VIX_CHG",
+          "exchange": "CBOE",
+          "description": "VIX futures",
+          "price_unit": "VIX pts",
+          "reference_price": 24.854,
+          "conv_type": "vix_absolute",
+          "baseline": {
+            "lo": 1.24,
+            "hi": 2.64
+          },
+          "adverse": {
+            "lo": 2.64,
+            "hi": 4.61
+          },
+          "severe": {
+            "lo": 4.61,
+            "hi": 6.8
+          }
+        },
+        "CDX HY": {
+          "asset": "HY_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX HY (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 2.92,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 0.3,
+            "hi": 15.3
+          },
+          "adverse": {
+            "lo": 0.5,
+            "hi": 15.5
+          },
+          "severe": {
+            "lo": 0.6,
+            "hi": 15.6
+          }
+        },
+        "CDX IG": {
+          "asset": "IG_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX IG (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 0.79,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 0.1,
+            "hi": 5.1
+          },
+          "adverse": {
+            "lo": 0.2,
+            "hi": 5.2
+          },
+          "severe": {
+            "lo": 0.2,
+            "hi": 5.2
+          }
+        }
+      }
+    },
+    "TAIWAN_CONFLICT": {
+      "label": "Taiwan Conflict",
+      "n_episodes": 7,
+      "reference_month": "2026-03",
+      "contracts": {
+        "ES": {
+          "asset": "SP500",
+          "exchange": "CME",
+          "description": "E-mini S&P 500",
+          "price_unit": "index pts",
+          "reference_price": 6779.656,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -204.75,
+            "hi": -30.51
+          },
+          "adverse": {
+            "lo": -707.8,
+            "hi": -204.75
+          },
+          "severe": {
+            "lo": -1175.59,
+            "hi": -707.8
+          }
+        },
+        "NQ": {
+          "asset": "NASDAQ",
+          "exchange": "CME",
+          "description": "E-mini NASDAQ-100",
+          "price_unit": "index pts",
+          "reference_price": 22573.6219,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -871.34,
+            "hi": -110.61
+          },
+          "adverse": {
+            "lo": -2291.22,
+            "hi": -871.34
+          },
+          "severe": {
+            "lo": -3614.04,
+            "hi": -2291.22
+          }
+        },
+        "CL": {
+          "asset": "WTI",
+          "exchange": "NYMEX",
+          "description": "WTI Crude Oil front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 85.227,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -8.131,
+            "hi": -3.187
+          },
+          "adverse": {
+            "lo": -3.187,
+            "hi": 4.202
+          },
+          "severe": {
+            "lo": 4.202,
+            "hi": 18.307
+          }
+        },
+        "BZ": {
+          "asset": "BRENT",
+          "exchange": "ICE",
+          "description": "Brent Crude front-month",
+          "price_unit": "USD/bbl",
+          "reference_price": 89.675,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -5.65,
+            "hi": -1.838
+          },
+          "adverse": {
+            "lo": -1.838,
+            "hi": 2.107
+          },
+          "severe": {
+            "lo": 2.107,
+            "hi": 17.433
+          }
+        },
+        "GC": {
+          "asset": "GOLD",
+          "exchange": "COMEX",
+          "description": "Gold front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 5139.95,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -9.77,
+            "hi": 68.36
+          },
+          "adverse": {
+            "lo": 42.15,
+            "hi": 127.98
+          },
+          "severe": {
+            "lo": 127.98,
+            "hi": 206.11
+          }
+        },
+        "SI": {
+          "asset": "SILVER",
+          "exchange": "COMEX",
+          "description": "Silver front-month",
+          "price_unit": "USD/troy oz",
+          "reference_price": 84.3536,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -1.586,
+            "hi": 0.489
+          },
+          "adverse": {
+            "lo": -8.672,
+            "hi": -1.586
+          },
+          "severe": {
+            "lo": -12.805,
+            "hi": -8.672
+          }
+        },
+        "HG": {
+          "asset": "COPPER",
+          "exchange": "COMEX",
+          "description": "Copper front-month",
+          "price_unit": "USD/lb",
+          "reference_price": 5.8164,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.2344,
+            "hi": 0.0157
+          },
+          "adverse": {
+            "lo": -0.4153,
+            "hi": -0.2344
+          },
+          "severe": {
+            "lo": -0.7288,
+            "hi": -0.4153
+          }
+        },
+        "DX": {
+          "asset": "DXY",
+          "exchange": "ICE",
+          "description": "US Dollar Index",
+          "price_unit": "index pts",
+          "reference_price": 99.185,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": 0.0,
+            "hi": 1.111
+          },
+          "adverse": {
+            "lo": 0.248,
+            "hi": 1.349
+          },
+          "severe": {
+            "lo": 0.903,
+            "hi": 2.013
+          }
+        },
+        "6E": {
+          "asset": "EURUSD",
+          "exchange": "CME",
+          "description": "Euro FX",
+          "price_unit": "USD/EUR",
+          "reference_price": 1.1603,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.00046,
+            "hi": 0.0145
+          },
+          "adverse": {
+            "lo": -0.01369,
+            "hi": -0.00046
+          },
+          "severe": {
+            "lo": -0.02135,
+            "hi": -0.00812
+          }
+        },
+        "6J": {
+          "asset": "USDJPY",
+          "exchange": "CME",
+          "description": "Japanese Yen",
+          "price_unit": "JPY/USD",
+          "reference_price": 158.0518,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -3.62,
+            "hi": -0.55
+          },
+          "adverse": {
+            "lo": -7.76,
+            "hi": -3.62
+          },
+          "severe": {
+            "lo": -10.94,
+            "hi": -7.76
+          }
+        },
+        "6A": {
+          "asset": "AUDUSD",
+          "exchange": "CME",
+          "description": "Australian Dollar",
+          "price_unit": "USD/AUD",
+          "reference_price": 0.7058,
+          "conv_type": "price_return",
+          "baseline": {
+            "lo": -0.02999,
+            "hi": -0.01129
+          },
+          "adverse": {
+            "lo": -0.04192,
+            "hi": -0.02999
+          },
+          "severe": {
+            "lo": -0.065,
+            "hi": -0.04192
+          }
+        },
+        "ZN": {
+          "asset": "YIELD_10Y_CHG",
+          "exchange": "CBOT",
+          "description": "10-Year T-Note (yield\u2192price via DV01)",
+          "price_unit": "pts per $100 face",
+          "reference_price": 4.13,
+          "conv_type": "yield_bps",
+          "baseline": {
+            "zn_price_lo": -0.0,
+            "zn_price_hi": 1.17,
+            "bps_lo": -14.4,
+            "bps_hi": 0.0,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "adverse": {
+            "zn_price_lo": 1.17,
+            "zn_price_hi": 3.9,
+            "bps_lo": -48.0,
+            "bps_hi": -14.4,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          },
+          "severe": {
+            "zn_price_lo": 3.9,
+            "zn_price_hi": 4.875,
+            "bps_lo": -60.0,
+            "bps_hi": -48.0,
+            "dv01_used": 0.08125,
+            "dv01_source": "Bond pricing formula at 4.13% yield: P(y) = \u03a3 C/(1+y/2)^t + 100/(1+y/2)^20, DV01 = (P(y-0.5bp)-P(y+0.5bp))"
+          }
+        },
+        "VX": {
+          "asset": "VIX_CHG",
+          "exchange": "CBOE",
+          "description": "VIX futures",
+          "price_unit": "VIX pts",
+          "reference_price": 24.854,
+          "conv_type": "vix_absolute",
+          "baseline": {
+            "lo": 2.61,
+            "hi": 4.63
+          },
+          "adverse": {
+            "lo": 4.63,
+            "hi": 18.21
+          },
+          "severe": {
+            "lo": 18.21,
+            "hi": 34.13
+          }
+        },
+        "CDX HY": {
+          "asset": "HY_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX HY (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 2.92,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 0.2,
+            "hi": 15.2
+          },
+          "adverse": {
+            "lo": 0.3,
+            "hi": 15.3
+          },
+          "severe": {
+            "lo": 2.2,
+            "hi": 17.2
+          }
+        },
+        "CDX IG": {
+          "asset": "IG_SPREAD_CHG",
+          "exchange": "Markit",
+          "description": "CDX IG (OAS proxy)",
+          "price_unit": "bps OAS",
+          "reference_price": 0.79,
+          "conv_type": "spread_bps",
+          "baseline": {
+            "lo": 0.1,
+            "hi": 5.1
+          },
+          "adverse": {
+            "lo": 0.1,
+            "hi": 5.1
+          },
+          "severe": {
+            "lo": 0.8,
+            "hi": 5.8
+          }
+        }
+      }
+    }
+  }
+}
