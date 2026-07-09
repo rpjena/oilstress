@@ -1,0 +1,89 @@
+# ============================================================================
+# ANCHOR DATE: 2026-07-09 (Thursday, trading day)
+#
+# SCENARIO PROBABILITIES (revised this anchor):
+#   A iran_2026_rapid_resolution  : 0.15  (deal signed then broke down)
+#   B iran_2026_extended_stalemate : 0.50  (base case: MoU nominal, brinkmanship)
+#   C iran_2026_full_escalation    : 0.35  (elevated: active strikes underway)
+#
+# KEY GEOPOLITICAL FACTS DRIVING ASSIGNMENT:
+#   - Jun 17: Trump and Pezeshkian SIGNED the 14-point MoU at Versailles;
+#     Hormuz reopening, 60-day nuclear window, blockade lifting, sanctions
+#     relief. Resolution briefly realised.
+#   - Late Jun-early Jul: MoU partially honoured but fragile; Iran attacked
+#     vessels in Hormuz (incl. a Qatari LNG carrier and a Saudi tanker Jul 5-6),
+#     seeking to assert control/tolls over the strait.
+#   - Jul 7: US struck Kharg Island + 80+ targets; revoked Iran oil-sales
+#     waiver. Iran retaliated vs US bases in Kuwait and Bahrain (~85 sites).
+#   - Jul 7-8: Trump declared the truce "over," threatened a second night of
+#     strikes (delivered: Bandar Abbas, Bushehr, Chabahar, Konarak, Iranshahr),
+#     threatened to reinstate the naval blockade and "take over" Kharg Island
+#     and hit electricity/water plants -- BUT also said he does NOT want
+#     full-fledged war and talks "may" continue. Genuine two-sided ambiguity.
+#   - Market confirmation: Brent settled ~78.0 (+5.2% on the day) but BELOW the
+#     Jun-15 ~80 anchor because physical crude is weak (OPEC+ quota hikes,
+#     glut fears); WTI ~73.5-74.6; TTF ~44-48 (front bid on the escalation);
+#     S&P ~7483 (only -0.3%, resilient); VIX ~16.9 (+4.8%, still low);
+#     DXY ~100.76; 10Y ~4.58%; GOLD FELL to ~4083-4088 (-1.7%) despite the
+#     war -- hawkish-Fed/real-yield channel dominating the haven bid.
+#
+# DIRECTION REVISIONS FROM EMPIRICAL PRIORS TABLE:
+#   - Gold stalemate held at '-' (this anchor is a live confirmation: gold fell
+#     ON an escalation day because the Fed/real-yield channel dominated).
+#   - No instrument direction overridden against the priors table.
+# ============================================================================
+
+iran_2026_rapid_resolution:
+  description: "The signed MoU is restored and honoured: strikes stop, Hormuz normalises under the Oman-administered framework, idled Gulf production and LNG restart and the war premium (already thin, given weak physical crude) fully exits. Disinflation revives Fed-cut pricing and EM/petro-credit compresses, though Qatar LNG damage and shut-in restart lags plus a July heatwave keep a floor under gas."
+  shock_direction_oil: "down"
+  instances:
+    - name: "Iran 2026 Rapid Resolution"
+      t0: "2026-07-09"
+      notes: >
+        Path back to the Jun-17 signed MoU: ceasefire re-holds, blockade threat
+        withdrawn, Hormuz tolls dropped. Brent target ~68-72 (from ~78 anchor;
+        limited downside since physical crude is already soft and near pre-war
+        ~71 on OPEC+ supply). TTF ~38-42 (from ~44-48; capped by low ~49%
+        EU storage and heatwave power demand). S&P direction up (+2 to +4%
+        from ~7483). Gold stays soft as the rate-hike channel dominates even
+        in relief. [WINDOW FLAG: 30-day window is roughly FAIR here -- little
+        further oil downside to capture given the weak physical base, unlike
+        the Jun-15 resolution case where much more premium remained to exit.]
+        Structural caveat: Qatar LNG train damage + restart lags floor TTF.
+
+iran_2026_extended_stalemate:
+  description: "BASE CASE. The MoU survives on paper but is not honoured: intermittent US-Iran strikes, Iran asserting toll/control over Hormuz, insurance and traffic not normalised. War premium grinds on top of a weak physical crude base rather than spiking. Sticky energy plus a hawkish Fed (9-9 split on 2026 hikes) keep real yields elevated, so gold is pressured by the USD/real-rate channel rather than bid as a haven -- empirically confirmed and directly observed this anchor."
+  shock_direction_oil: "up"
+  instances:
+    - name: "Iran 2026 Extended Stalemate"
+      t0: "2026-07-09"
+      notes: >
+        Nominal MoU, no durable ceasefire; Hormuz partial, war-risk insurance
+        elevated, tanker attacks recur. Brent target range ~85-95 (from ~78
+        anchor). TTF ~50-62 (EU storage only ~49% full vs ~60% a year ago;
+        heatwave compounds). Compounding: Gulf floating storage, Iranian oil
+        waiver revoked, shut-ins persist, OVX elevated. Gold direction '-'
+        (stagflation + hawkish-Fed + strong-USD dominates the haven bid;
+        confirmed this anchor -- gold fell on the Jul-8 escalation). S&P
+        modestly lower. [WINDOW FLAG: 30-day window roughly FAIR for this
+        grind case.]
+
+iran_2026_full_escalation:
+  description: "ELEVATED (0.35). The current strike exchange tips into sustained war: US reinstates the naval blockade, seizes/strikes Kharg Island and Iranian electricity/water plants; Iran mines Hormuz and hits Gulf infrastructure and bases. A hard chokepoint closure removes ~20-25% of seaborne crude and ~20% of LNG, producing a disorderly oil spike off the weak ~78 base, a global growth shock and a classic flight-to-quality once the Fed-tightening fear is overwhelmed by recession risk."
+  shock_direction_oil: "up"
+  instances:
+    - name: "Iran 2026 Full Escalation"
+      t0: "2026-07-09"
+      notes: >
+        Blockade reinstated + Kharg seizure + power/desal-plant strikes +
+        Hormuz mining. Brent target ~140-180 (from ~78 anchor; slightly lower
+        band than prior refreshes because the physical base is softer and OPEC+
+        spare capacity is higher, though the chokepoint dominates). TTF
+        ~90-130 on LNG chokepoint + low storage + heatwave. S&P down sharply
+        (-12 to -20%); VIX +25 to +40 vol pts (from a low ~17 base -- large
+        room to spike). Recession probability ~40-55% within 12m. Gold '+'
+        (only escalation of THIS magnitude tips the balance back to the haven
+        bid, overriding the Fed channel). [WINDOW FLAG: 30-day window
+        OVERSTATES sustained stress if mines are cleared fast, UNDERSTATES the
+        initial gap-spike; treat the 30d mean as a blend of an extreme first
+        week and partial mean-reversion.]
