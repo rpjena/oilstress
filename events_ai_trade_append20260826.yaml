@@ -1,0 +1,330 @@
+prior_mean_convention: 'price-like: 100*(exp(b.x)-1) in percent. level-like (VIX, VSTOXX, CDX, Tech OAS):
+  b.x in native units. Vol instruments split into prior_mean_shock plus carry.'
+latent_covariance:
+  window: 2016-01-01..2026-08-25
+  frequency: 21-day overlapping, Newey-West lag 21
+  calibration: sigma is fitted so that b' Sigma b reproduces observed 21-day instrument volatility for
+    the instruments the latent set is meant to explain (SPX, NDX, MSCI Taiwan, ZN, Tech IG OAS, CDX IG,
+    gold, PJM Cal+1). E_AI is identified off the power complex, which loads on E_AI and not on RP_AI --
+    index vol alone cannot separate an earnings-path move from a risk-premium move. EFF and BE are pinned,
+    not identified by the targets.
+  units:
+    E_AI: decimal_log
+    RP_AI: bp
+    EFF: decimal_log
+    CR_AI: bp
+    ERP_G: bp
+    RSTAR: bp
+    TP: bp
+    BE: bp
+  sigma:
+    E_AI: 0.0464
+    RP_AI: 23.32
+    EFF: 0.03
+    CR_AI: 5.15
+    ERP_G: 28.43
+    RSTAR: 21.22
+    TP: 12.0
+    BE: 11.0
+  corr:
+    E_AI:
+      E_AI: 1.0
+      RP_AI: -0.55
+      EFF: -0.2
+      CR_AI: -0.5
+      ERP_G: -0.42
+      RSTAR: 0.3
+      TP: 0.05
+      BE: 0.12
+    RP_AI:
+      E_AI: -0.55
+      RP_AI: 1.0
+      EFF: 0.15
+      CR_AI: 0.6
+      ERP_G: 0.65
+      RSTAR: -0.22
+      TP: 0.18
+      BE: -0.08
+    EFF:
+      E_AI: -0.2
+      RP_AI: 0.15
+      EFF: 1.0
+      CR_AI: 0.05
+      ERP_G: -0.05
+      RSTAR: 0.1
+      TP: 0.0
+      BE: -0.15
+    CR_AI:
+      E_AI: -0.5
+      RP_AI: 0.6
+      EFF: 0.05
+      CR_AI: 1.0
+      ERP_G: 0.58
+      RSTAR: -0.25
+      TP: 0.22
+      BE: -0.1
+    ERP_G:
+      E_AI: -0.42
+      RP_AI: 0.65
+      EFF: -0.05
+      CR_AI: 0.58
+      ERP_G: 1.0
+      RSTAR: -0.3
+      TP: 0.2
+      BE: -0.12
+    RSTAR:
+      E_AI: 0.3
+      RP_AI: -0.22
+      EFF: 0.1
+      CR_AI: -0.25
+      ERP_G: -0.3
+      RSTAR: 1.0
+      TP: -0.15
+      BE: 0.2
+    TP:
+      E_AI: 0.05
+      RP_AI: 0.18
+      EFF: 0.0
+      CR_AI: 0.22
+      ERP_G: 0.2
+      RSTAR: -0.15
+      TP: 1.0
+      BE: 0.35
+    BE:
+      E_AI: 0.12
+      RP_AI: -0.08
+      EFF: -0.15
+      CR_AI: -0.1
+      ERP_G: -0.12
+      RSTAR: 0.2
+      TP: 0.35
+      BE: 1.0
+plausibility_gate:
+  band:
+  - 0.005
+  - 0.1
+  reference: multivariate t, nu = 12
+  radius_convention: marginal
+  note: TWO DEVIATIONS FROM v2, both load-bearing. (1) The radius is computed on the MARGINAL sub-covariance
+    of the shocked nodes. Using the full inverse with zeros gives x_A' (Sigma^-1)_AA x_A, which is the
+    Mahalanobis distance of A CONDITIONAL on the unshocked nodes being pinned at zero; testing that against
+    the marginal F(d,4) mixes two distributions and inflates R, because the Schur complement is no larger
+    than Sigma_AA. A scenario declines to speak about the unshocked nodes, it does not assert they are
+    zero. (2) nu = 12, not 4. A tail index of 4 is a DAILY figure; these shocks are 21-day aggregates
+    and aggregation pulls the multivariate law toward Gaussian. At nu = 4 a capitulation sized to exactly
+    the realised 2026 cycle drawdown (NDX -17.6 percent peak to trough) scores a 21 percent tail and fails
+    the ceiling, so the gate as written can only be satisfied by authoring roughly twice the severity
+    the cycle has actually produced. Both p_t4 and p_t12 are reported per scenario so nothing is hidden.
+probability_update:
+  prior_from: no prior anchor date in this session
+  evidence:
+  - observable: Combined hyperscaler 2026 capex guidance
+    value: USD 732.5bn, 39 percent above Nov-2025 expectations; 2027 consensus near USD 1tn
+    source: Goldman Sachs / FactSet via io-fund, Aug-2026
+    favours: ai_compute_supercycle
+    bayes_factor: 2.1
+  - observable: Oracle 5-year CDS and rating
+    value: roughly 200bp versus roughly 40bp a year ago; S&P cut to BBB-
+    source: Reuters / LSEG via Qz, 15-Aug-2026
+    favours: ai_credit_event
+    bayes_factor: 2.6
+  - observable: Alphabet 5-year CDS
+    value: record 67bp after negative Q2 free cash flow
+    source: LSEG via Yahoo Finance, Jul-2026
+    favours: ai_credit_event
+    bayes_factor: 1.7
+  - observable: Off-balance-sheet contingent liabilities under scrutiny
+    value: roughly USD 70bn linked to major AI borrowers
+    source: Qz update, 17-Aug-2026
+    favours: ai_credit_event
+    bayes_factor: 1.5
+  - observable: SOX versus its 52-week high
+    value: roughly 11,900-12,100 against a 52-week high of 14,655, about -18 percent
+    source: Investing.com / Nasdaq index history, Aug-2026
+    favours: ai_capex_capitulation
+    bayes_factor: 1.6
+  - observable: Hardware versus platform dispersion year to date
+    value: SanDisk +411 percent, Micron and Intel more than doubled, against Mag7 +5.2 percent through
+      10-Aug
+    source: Zacks / BeInCrypto, Aug-2026
+    favours: ai_efficiency_shock
+    bayes_factor: 1.4
+  - observable: DRAM supply-demand sufficiency ratio
+    value: -1 to -2 percent for 2026, gap widening into 2027
+    source: TrendForce 2027 Memory Market Outlook, 30-Jul-2026
+    favours: ai_supply_rupture
+    bayes_factor: 1.3
+  posterior_check: No previous anchor date exists in this session, so these are initialising likelihood
+    ratios applied to a uniform 0.20 prior rather than a genuine update. The sequence is unscored until
+    a second anchor date exists -- an unscored probability sequence is a narrative, not a forecast.
+ai_capex_capitulation:
+  probability: 0.22
+  description: Hyperscaler boards blink on the 2027 capex path after a year in which guidance was raised
+    repeatedly and free cash flow went to zero. The earnings hit lands on the hardware layer first and
+    hardest, because order books are the thing being cut; the platform layer takes a smaller earnings
+    hit and a larger multiple hit.
+  horizon_days: 21
+  latent_shocks:
+    E_AI: -0.1612
+    RP_AI: 77.0
+    CR_AI: 12.5
+    ERP_G: 54.3
+    RSTAR: -27.9
+    TP: 8.7
+  regime_switches:
+    fed_reaction: neutral
+    stock_bond_regime:
+      deflationary: 0.45
+      inflationary: 0.55
+    corr_shock: 1.5
+  plausibility:
+    d: 6
+    mahalanobis: 3.9351
+    p_t12: 0.076516
+    p_t4: 0.188978
+  diagnostics:
+    reversal_share: 0.9421
+  instances:
+  - name: Ai Capex Capitulation
+    t0: '2026-08-26'
+    notes: 'NQ -16.8 pct; TWN -20.2 pct; SMP -3.4 pct spread; Tech IG OAS +32 bp; deferred gas NGC2 -5.5
+      pct; R 3.94; regime twin rates-leg gap 3.82 pct vs top-two scenario rates-leg spread 4.90 pct --
+      shock bet dominates. [WINDOW FLAG: deleveraging second-round peaks around days 5-15, so a 10-day
+      window understates this path; 21 days captures it]'
+ai_efficiency_shock:
+  probability: 0.14
+  description: A credible step-change in tokens-per-watt decouples the hardware and platform layers. Aggregate
+    compute demand does not fall -- Jevons keeps the capex envelope roughly intact -- but the per-unit
+    hardware content of a unit of intelligence does, so the earnings path splits in sign across the two
+    buckets.
+  horizon_days: 21
+  latent_shocks:
+    E_AI: -0.0314
+    RP_AI: 26.3
+    EFF: 0.1127
+    ERP_G: -10.7
+    RSTAR: -1.6
+    TP: 4.7
+  regime_switches:
+    fed_reaction: neutral
+    stock_bond_regime:
+      deflationary: 0.5
+      inflationary: 0.5
+    corr_shock: -4.0
+  plausibility:
+    d: 6
+    mahalanobis: 3.9411
+    p_t12: 0.07588
+    p_t4: 0.188202
+  diagnostics:
+    reversal_share: 0.5299
+  instances:
+  - name: Ai Efficiency Shock
+    t0: '2026-08-26'
+    notes: 'NQ -6.1 pct; TWN -12.0 pct; SMP -13.7 pct spread; Tech IG OAS +1 bp; deferred gas NGC2 -3.3
+      pct; R 3.94; regime twin rates-leg gap 2.56 pct vs top-two scenario rates-leg spread 4.90 pct --
+      shock bet dominates. [WINDOW FLAG: deleveraging second-round peaks around days 5-15, so a 10-day
+      window understates this path; 21 days captures it]'
+ai_compute_supercycle:
+  probability: 0.24
+  description: Capex is guided up again, memory stays short, and power becomes the binding constraint
+    rather than silicon. The earnings path rises for both layers with hardware taking the larger share,
+    and efficiency gains are absorbed into volume rather than into lower spend.
+  horizon_days: 21
+  latent_shocks:
+    E_AI: 0.1799
+    RP_AI: -49.7
+    EFF: -0.0349
+    CR_AI: -7.0
+    ERP_G: -27.6
+    RSTAR: 53.5
+    TP: 17.9
+    BE: 21.3
+  regime_switches:
+    fed_reaction: hawkish
+    stock_bond_regime:
+      deflationary: 0.3
+      inflationary: 0.7
+    corr_shock: -1.0
+  plausibility:
+    d: 8
+    mahalanobis: 4.6392
+    p_t12: 0.059607
+    p_t4: 0.177307
+  diagnostics:
+    reversal_share: 0.1741
+  instances:
+  - name: Ai Compute Supercycle
+    t0: '2026-08-26'
+    notes: 'NQ +8.6 pct; TWN +10.7 pct; SMP +2.7 pct spread; Tech IG OAS -25 bp; deferred gas NGC2 +7.2
+      pct; R 4.64; regime twin rates-leg gap 1.49 pct vs top-two scenario rates-leg spread 4.90 pct --
+      shock bet dominates. [WINDOW FLAG: deleveraging second-round peaks around days 5-15, so a 10-day
+      window understates this path; 21 days captures it]'
+ai_credit_event:
+  probability: 0.28
+  description: The financing channel breaks before the demand channel does. Off-balance-sheet vehicles,
+    GPU-collateralised lending and vendor financing reprice together, and the lowest-rated hyperscaler
+    is the transmission point rather than the cause.
+  horizon_days: 21
+  latent_shocks:
+    E_AI: -0.094
+    RP_AI: 68.7
+    CR_AI: 19.0
+    ERP_G: 68.0
+    RSTAR: -32.5
+    TP: 8.7
+  regime_switches:
+    fed_reaction: dovish
+    stock_bond_regime:
+      deflationary: 0.55
+      inflationary: 0.45
+    corr_shock: 2.5
+  plausibility:
+    d: 6
+    mahalanobis: 3.8634
+    p_t12: 0.084455
+    p_t4: 0.19847
+  diagnostics:
+    reversal_share: 0.931
+  instances:
+  - name: Ai Credit Event
+    t0: '2026-08-26'
+    notes: 'NQ -12.0 pct; TWN -14.7 pct; SMP -2.7 pct spread; Tech IG OAS +35 bp; deferred gas NGC2 -3.2
+      pct; R 3.86; regime twin rates-leg gap 5.17 pct vs top-two scenario rates-leg spread 4.90 pct --
+      MIXTURE REQUIRED, correlation bet dominates the shock bet. [WINDOW FLAG: deleveraging second-round
+      peaks around days 5-15, so a 10-day window understates this path; 21 days captures it]'
+ai_supply_rupture:
+  probability: 0.12
+  description: Export controls, a foundry interruption or a memory allocation shock cuts quantity and
+    lifts price. Hardware earnings fall on volume even as unit pricing rises, efficiency goes backwards
+    because the available silicon is worse, and the breakeven leg moves on the goods-price passthrough.
+  horizon_days: 21
+  latent_shocks:
+    E_AI: -0.0995
+    RP_AI: 58.3
+    EFF: -0.0482
+    CR_AI: 7.4
+    ERP_G: 50.8
+    RSTAR: -2.1
+    TP: 19.0
+    BE: 32.7
+  regime_switches:
+    fed_reaction: hawkish
+    stock_bond_regime:
+      deflationary: 0.35
+      inflationary: 0.65
+    corr_shock: 1.0
+  plausibility:
+    d: 8
+    mahalanobis: 4.6352
+    p_t12: 0.059921
+    p_t4: 0.177739
+  diagnostics:
+    reversal_share: 0.9017
+  instances:
+  - name: Ai Supply Rupture
+    t0: '2026-08-26'
+    notes: 'NQ -15.5 pct; TWN -17.6 pct; SMP +1.0 pct spread; Tech IG OAS +21 bp; deferred gas NGC2 -2.5
+      pct; R 4.64; regime twin rates-leg gap 2.80 pct vs top-two scenario rates-leg spread 4.90 pct --
+      shock bet dominates. [WINDOW FLAG: deleveraging second-round peaks around days 5-15, so a 10-day
+      window understates this path; 21 days captures it]'

@@ -1,0 +1,3674 @@
+ai_capex_capitulation:
+  description: Hyperscaler boards blink on the 2027 capex path after a year in which guidance was raised
+    repeatedly and free cash flow went to zero. The earnings hit lands on the hardware layer first and
+    hardest, because order books are the thing being cut; the platform layer takes a smaller earnings
+    hit and a larger multiple hit. The discount-rate move is genuine but two-sided -- the real-rate leg
+    falls on the growth downgrade while the term-premium leg does not fall with it, because the marginal
+    seller of duration is a fiscal authority, not an AI story. Deleveraging lands in the memory and foundry
+    complex where 2026 positioning is most crowded.
+  primary_risk_factors:
+  - VIX M1 (vol pts)
+  - VIX M2 (vol pts)
+  - VSTOXX M1 (vol pts)
+  - VIX M3 (vol pts)
+  causal_chain:
+  - step: 1
+    mechanism: A hyperscaler guides the forward capex envelope below consensus and frames it as ROI discipline
+    affects:
+    - VIX M1 (vol pts)
+  - step: 2
+    mechanism: Order-book visibility shortens for accelerator, memory and networking suppliers
+    affects:
+    - VIX M2 (vol pts)
+  - step: 3
+    mechanism: The hardware bucket earnings path is marked down harder than the platform bucket
+    affects:
+    - VSTOXX M1 (vol pts)
+  - step: 4
+    mechanism: AI-complex equity risk premium widens; multiple compression exceeds the earnings move
+    affects:
+    - VIX M3 (vol pts)
+  - step: 5
+    mechanism: Taiwan and Korea amplify on concentration and on retail leverage
+    affects:
+    - VIX M1 (vol pts)
+  - step: 6
+    mechanism: Credit follows equity -- tech spreads widen while broad IG lags the move
+    affects:
+    - VIX M2 (vol pts)
+  - step: 7
+    mechanism: Real rates fall on the growth downgrade but term premium does not follow, because the duration
+      supply is fiscal
+    affects:
+    - VSTOXX M1 (vol pts)
+  - step: 8
+    mechanism: Deferred gas and power forwards give back the data-center load premium; the prompt gas
+      contract barely responds
+    affects:
+    - VIX M3 (vol pts)
+  instruments:
+    Nasdaq 100 (NQ):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.30 / w_pf 0.36 / w_other 0.34 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.114
+        ERP_G: -0.000374
+        E_AI: 0.66
+        RP_AI: -0.001104
+        RSTAR: -0.001478
+        TP: -0.001478
+      prior_mean: -16.7507
+      prior_strength: moderate
+    S&P 500 (ES):
+      tier: 2
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.13 / w_pf 0.22 / w_other 0.65 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.027
+        ERP_G: -0.000715
+        E_AI: 0.35
+        RP_AI: -0.000568
+        RSTAR: -0.001283
+        TP: -0.001283
+      prior_mean: -10.8052
+      prior_strength: moderate
+    Russell 2000 (RTY):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.05 / w_pf 0.03 / w_other 0.92 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0295
+        ERP_G: -0.001012
+        E_AI: 0.08
+        RP_AI: -0.000142
+        RSTAR: -0.001154
+        TP: -0.001154
+      prior_mean: -5.5051
+      prior_strength: moderate
+    Euro STOXX 50 (FESX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.08 / w_pf 0.04 / w_other 0.88 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.000968
+        E_AI: 0.12
+        RP_AI: -0.000216
+        RSTAR: -0.001184
+        TP: -0.001184
+      prior_mean: -6.3687
+      prior_strength: moderate
+    DAX 40 (FDAX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.06 / w_pf 0.03 / w_other 0.91 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0375
+        ERP_G: -0.001001
+        E_AI: 0.09
+        RP_AI: -0.000162
+        RSTAR: -0.001163
+        TP: -0.001163
+      prior_mean: -5.73
+      prior_strength: moderate
+    Nikkei 225 (NK):
+      tier: 2
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.22 / w_pf 0.06 / w_other 0.72 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.155
+        ERP_G: -0.000792
+        E_AI: 0.28
+        RP_AI: -0.000524
+        RSTAR: -0.001316
+        TP: -0.001316
+      prior_mean: -9.8074
+      prior_strength: moderate
+    TOPIX (TP1):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.11 / w_pf 0.04 / w_other 0.85 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.074
+        ERP_G: -0.000935
+        E_AI: 0.15
+        RP_AI: -0.000276
+        RSTAR: -0.001211
+        TP: -0.001211
+      prior_mean: -7.0354
+      prior_strength: diffuse
+    KOSPI 200 (K200):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.42 / w_pf 0.04 / w_other 0.54 with durations 20/14/11y and
+        amplifier 1.30; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.4186
+        ERP_G: -0.0007722
+        E_AI: 0.598
+        RP_AI: -0.0011648
+        RSTAR: -0.001937
+        TP: -0.001937
+      prior_mean: -17.3725
+      prior_strength: moderate
+    MSCI Taiwan (TWN):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.60 / w_pf 0.03 / w_other 0.37 with durations 20/14/11y and
+        amplifier 1.20; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.5634
+        ERP_G: -0.0004884
+        E_AI: 0.756
+        RP_AI: -0.0014904
+        RSTAR: -0.0019788
+        TP: -0.0019788
+      prior_mean: -20.1608
+      prior_strength: moderate
+    FTSE 100 (Z):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.01 / w_other 0.98 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0045
+        ERP_G: -0.001078
+        E_AI: 0.02
+        RP_AI: -3.4e-05
+        RSTAR: -0.001112
+        TP: -0.001112
+      prior_mean: -4.2114
+      prior_strength: moderate
+    ASX SPI 200 (AP):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.02 / w_other 0.97 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.001
+        ERP_G: -0.001067
+        E_AI: 0.03
+        RP_AI: -4.8e-05
+        RSTAR: -0.001115
+        TP: -0.001115
+      prior_mean: -4.4062
+      prior_strength: diffuse
+    HSCEI (HC):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.10 / w_pf 0.20 / w_other 0.70 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.01
+        ERP_G: -0.00077
+        E_AI: 0.3
+        RP_AI: -0.00048
+        RSTAR: -0.00125
+        TP: -0.00125
+      prior_mean: -9.7991
+      prior_strength: diffuse
+    Semi-minus-platform (SMP):
+      tier: 1
+      direction: '-'
+      mechanism: Equal-notional long semis short platform -- the EFF wedge beta_hw minus beta_pf (-0.80
+        less 0.35) plus a 6-year duration mismatch, so the spread carries a genuine rates exposure
+      derived_from:
+      - EFF
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -1.15
+        RP_AI: -0.0006
+        RSTAR: -0.0006
+        TP: -0.0006
+      prior_mean: -3.4086
+      prior_strength: tight
+    VIX M1 (vol pts):
+      tier: 2
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.03
+        EFF: -22.0
+        ERP_G: 0.038
+        RP_AI: 0.07
+      prior_mean_shock: 7.8284
+      carry: -1.3
+      prior_mean: 6.5284
+      prior_strength: moderate
+    VIX M2 (vol pts):
+      tier: 2
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.024
+        EFF: -16.0
+        ERP_G: 0.03
+        RP_AI: 0.055
+      prior_mean_shock: 6.164
+      carry: -0.95
+      prior_mean: 5.214
+      prior_strength: moderate
+    VIX M3 (vol pts):
+      tier: 3
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.019
+        EFF: -12.0
+        ERP_G: 0.023
+        RP_AI: 0.042
+      prior_mean_shock: 4.7204
+      carry: -0.7
+      prior_mean: 4.0204
+      prior_strength: diffuse
+    VSTOXX M1 (vol pts):
+      tier: 3
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.022
+        EFF: -9.0
+        ERP_G: 0.058
+        RP_AI: 0.036
+      prior_mean_shock: 6.1964
+      carry: -1.05
+      prior_mean: 5.1464
+      prior_strength: diffuse
+    US 2Y (ZT):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -1.9e-05
+        RSTAR: -0.00019
+        TP: -2.85e-05
+      prior_mean: 0.5066
+      prior_strength: diffuse
+    US 5Y (ZF):
+      tier: 2
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0001075
+        RSTAR: -0.0004085
+        TP: -0.0001935
+      prior_mean: 0.9761
+      prior_strength: moderate
+    US 10Y (ZN):
+      tier: 2
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000352
+        RSTAR: -0.000512
+        TP: -0.00064
+      prior_mean: 0.8755
+      prior_strength: moderate
+    US 30Y (ZB):
+      tier: 2
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0012375
+        RSTAR: -0.0009075
+        TP: -0.00165
+      prior_mean: 1.1025
+      prior_strength: moderate
+    Bund (FGBL):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000264
+        RSTAR: -0.000384
+        TP: -0.00048
+      prior_mean: 0.6559
+      prior_strength: diffuse
+    Buxl (FGBX):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000798
+        RSTAR: -0.000627
+        TP: -0.00114
+      prior_mean: 0.7604
+      prior_strength: diffuse
+    Gilt (G):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000405
+        RSTAR: -0.00054
+        TP: -0.000675
+      prior_mean: 0.9236
+      prior_strength: diffuse
+    JGB 10Y (JB):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.00013387
+        RSTAR: -0.00022312
+        TP: -0.0002975
+      prior_mean: 0.3644
+      prior_strength: diffuse
+    SOFR3M whites (SR3W):
+      tier: 3
+      direction: +
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -8.852e-05
+        TP: -5.21e-06
+      prior_mean: 0.2427
+      prior_strength: diffuse
+    SOFR3M reds (SR3R):
+      tier: 3
+      direction: +
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -0.00010915
+        TP: -1.559e-05
+      prior_mean: 0.2914
+      prior_strength: diffuse
+    Euribor3M whites (ERW):
+      tier: 3
+      direction: +
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -4.599e-05
+        TP: -3.07e-06
+      prior_mean: 0.1257
+      prior_strength: diffuse
+    Henry Hub Cal+2 (NGC2):
+      tier: 2
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.2
+        E_AI: 0.35
+      prior_mean: -5.4858
+      prior_strength: moderate
+    Henry Hub Cal+1 (NGC1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.12
+        E_AI: 0.21
+      prior_mean: -3.3285
+      prior_strength: moderate
+    Henry Hub M1 (NG1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.05
+        E_AI: 0.0875
+      prior_mean: -1.4006
+      prior_strength: moderate
+    PJM West Cal+1 (PJM):
+      tier: 2
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.3
+        E_AI: 0.55
+      prior_mean: -8.4843
+      prior_strength: moderate
+    TTF Cal+1 (TFC1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, ERP_G, E_AI
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.00025
+        E_AI: 0.1
+      prior_mean: -2.9258
+      prior_strength: diffuse
+    Uranium (UX):
+      tier: 3
+      direction: '-'
+      mechanism: Narrative beta on the AI power story far exceeds the fundamental balance; thin market,
+        execution haircut applies
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.35
+        E_AI: 0.6
+      prior_mean: -9.219
+      prior_strength: diffuse
+    WTI Crude (CL):
+      tier: 3
+      direction: '-'
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.0009
+      prior_mean: -4.7695
+      prior_strength: moderate
+    Brent Crude (CB):
+      tier: 3
+      direction: '-'
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.00085
+      prior_mean: -4.5106
+      prior_strength: diffuse
+    Copper (HG):
+      tier: 3
+      direction: '-'
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.001
+        E_AI: 0.05
+      prior_mean: -6.0455
+      prior_strength: diffuse
+    Aluminium (ALI):
+      tier: 3
+      direction: '-'
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.0007
+        E_AI: 0.03
+      prior_mean: -4.1941
+      prior_strength: diffuse
+    Silver (SI):
+      tier: 3
+      direction: +
+      mechanism: Real-rate instrument with an industrial leg; the AI channel is small and indirect
+      derived_from:
+      - ERP_G
+      - E_AI
+      - RSTAR
+      loadings:
+        ERP_G: -0.0004
+        E_AI: 0.04
+        RSTAR: -0.0015
+      prior_mean: 1.3776
+      prior_strength: moderate
+    Gold (GC):
+      tier: 3
+      direction: +
+      mechanism: Prices real rates, term premium and flight -- never AI compute demand
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - RSTAR
+      - TP
+      loadings:
+        CR_AI: 0.0004
+        ERP_G: 0.0006
+        RSTAR: -0.0025
+        TP: 0.0008
+      prior_mean: 12.1077
+      prior_strength: moderate
+    CDX IG (bps):
+      tier: 3
+      direction: +
+      mechanism: Loads on CR_AI, ERP_G
+      derived_from:
+      - CR_AI
+      - ERP_G
+      loadings:
+        CR_AI: 0.45
+        ERP_G: 0.12
+      prior_mean: 12.141
+      prior_strength: diffuse
+    Tech IG OAS (bps):
+      tier: 2
+      direction: +
+      mechanism: Loads on CR_AI, ERP_G, E_AI
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - E_AI
+      loadings:
+        CR_AI: 1.1
+        ERP_G: 0.1
+        E_AI: -80.0
+      prior_mean: 32.076
+      prior_strength: moderate
+ai_efficiency_shock:
+  description: A credible step-change in tokens-per-watt decouples the hardware and platform layers. Aggregate
+    compute demand does not fall -- Jevons keeps the capex envelope roughly intact -- but the per-unit
+    hardware content of a unit of intelligence does, so the earnings path splits in sign across the two
+    buckets. The index barely moves and dispersion does all the work, which is why an index-level VaR
+    shows almost nothing here. Implied correlation falls, so index vol can decline even as single-stock
+    vol rises.
+  primary_risk_factors:
+  - VIX M1 (vol pts)
+  - Semi-minus-platform (SMP)
+  - MSCI Taiwan (TWN)
+  - VSTOXX M1 (vol pts)
+  causal_chain:
+  - step: 1
+    mechanism: A credible tokens-per-watt disclosure or open-weight release resets the compute-per-unit-intelligence
+      assumption
+    affects:
+    - VIX M1 (vol pts)
+  - step: 2
+    mechanism: The hardware earnings path falls while the platform earnings path rises -- opposite signs,
+      same shock
+    affects:
+    - Semi-minus-platform (SMP)
+  - step: 3
+    mechanism: Semi-minus-platform is the primary expression; the headline index move is second order
+    affects:
+    - MSCI Taiwan (TWN)
+  - step: 4
+    mechanism: Implied correlation falls as constituents decouple, so index vol declines while single-stock
+      vol rises
+    affects:
+    - VSTOXX M1 (vol pts)
+  - step: 5
+    mechanism: Taiwan and Korea underperform the US indices on hardware concentration
+    affects:
+    - VIX M1 (vol pts)
+  - step: 6
+    mechanism: Power and deferred gas give back part of the load premium, damped by the Jevons offset
+      on volume
+    affects:
+    - Semi-minus-platform (SMP)
+  - step: 7
+    mechanism: Credit is close to unaffected -- this is a composition shock, not a solvency shock
+    affects:
+    - MSCI Taiwan (TWN)
+  - step: 8
+    mechanism: Real rates drift on the productivity read-across; the sign depends on whether the market
+      reads efficiency as growth or as deflation
+    affects:
+    - VSTOXX M1 (vol pts)
+  instruments:
+    Nasdaq 100 (NQ):
+      tier: 2
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.30 / w_pf 0.36 / w_other 0.34 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.114
+        ERP_G: -0.000374
+        E_AI: 0.66
+        RP_AI: -0.001104
+        RSTAR: -0.001478
+        TP: -0.001478
+      prior_mean: -6.1232
+      prior_strength: moderate
+    S&P 500 (ES):
+      tier: 2
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.13 / w_pf 0.22 / w_other 0.65 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.027
+        ERP_G: -0.000715
+        E_AI: 0.35
+        RP_AI: -0.000568
+        RSTAR: -0.001283
+        TP: -0.001283
+      prior_mean: -2.4981
+      prior_strength: moderate
+    Russell 2000 (RTY):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.05 / w_pf 0.03 / w_other 0.92 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0295
+        ERP_G: -0.001012
+        E_AI: 0.08
+        RP_AI: -0.000142
+        RSTAR: -0.001154
+        TP: -0.001154
+      prior_mean: -0.2318
+      prior_strength: moderate
+    Euro STOXX 50 (FESX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.08 / w_pf 0.04 / w_other 0.88 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.000968
+        E_AI: 0.12
+        RP_AI: -0.000216
+        RSTAR: -0.001184
+        TP: -0.001184
+      prior_mean: -0.8361
+      prior_strength: moderate
+    DAX 40 (FDAX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.06 / w_pf 0.03 / w_other 0.91 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0375
+        ERP_G: -0.001001
+        E_AI: 0.09
+        RP_AI: -0.000162
+        RSTAR: -0.001163
+        TP: -0.001163
+      prior_mean: -0.4199
+      prior_strength: moderate
+    Nikkei 225 (NK):
+      tier: 2
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.22 / w_pf 0.06 / w_other 0.72 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.155
+        ERP_G: -0.000792
+        E_AI: 0.28
+        RP_AI: -0.000524
+        RSTAR: -0.001316
+        TP: -0.001316
+      prior_mean: -3.5019
+      prior_strength: moderate
+    TOPIX (TP1):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.11 / w_pf 0.04 / w_other 0.85 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.074
+        ERP_G: -0.000935
+        E_AI: 0.15
+        RP_AI: -0.000276
+        RSTAR: -0.001211
+        TP: -0.001211
+      prior_mean: -1.396
+      prior_strength: diffuse
+    KOSPI 200 (K200):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.42 / w_pf 0.04 / w_other 0.54 with durations 20/14/11y and
+        amplifier 1.30; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.4186
+        ERP_G: -0.0007722
+        E_AI: 0.598
+        RP_AI: -0.0011648
+        RSTAR: -0.001937
+        TP: -0.001937
+      prior_mean: -9.0017
+      prior_strength: moderate
+    MSCI Taiwan (TWN):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.60 / w_pf 0.03 / w_other 0.37 with durations 20/14/11y and
+        amplifier 1.20; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.5634
+        ERP_G: -0.0004884
+        E_AI: 0.756
+        RP_AI: -0.0014904
+        RSTAR: -0.0019788
+        TP: -0.0019788
+      prior_mean: -11.9565
+      prior_strength: moderate
+    FTSE 100 (Z):
+      tier: 3
+      direction: +
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.01 / w_other 0.98 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0045
+        ERP_G: -0.001078
+        E_AI: 0.02
+        RP_AI: -3.4e-05
+        RSTAR: -0.001112
+        TP: -0.001112
+      prior_mean: 0.6076
+      prior_strength: moderate
+    ASX SPI 200 (AP):
+      tier: 3
+      direction: +
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.02 / w_other 0.97 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.001
+        ERP_G: -0.001067
+        E_AI: 0.03
+        RP_AI: -4.8e-05
+        RSTAR: -0.001115
+        TP: -0.001115
+      prior_mean: 0.5659
+      prior_strength: diffuse
+    HSCEI (HC):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.10 / w_pf 0.20 / w_other 0.70 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.01
+        ERP_G: -0.00077
+        E_AI: 0.3
+        RP_AI: -0.00048
+        RSTAR: -0.00125
+        TP: -0.00125
+      prior_mean: -1.8631
+      prior_strength: diffuse
+    Semi-minus-platform (SMP):
+      tier: 1
+      direction: '-'
+      mechanism: Equal-notional long semis short platform -- the EFF wedge beta_hw minus beta_pf (-0.80
+        less 0.35) plus a 6-year duration mismatch, so the spread carries a genuine rates exposure
+      derived_from:
+      - EFF
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -1.15
+        RP_AI: -0.0006
+        RSTAR: -0.0006
+        TP: -0.0006
+      prior_mean: -13.6918
+      prior_strength: tight
+    VIX M1 (vol pts):
+      tier: 2
+      direction: '-'
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.03
+        EFF: -22.0
+        ERP_G: 0.038
+        RP_AI: 0.07
+      prior_mean_shock: -1.045
+      carry: -1.3
+      prior_mean: -2.345
+      prior_strength: moderate
+    VIX M2 (vol pts):
+      tier: 2
+      direction: '-'
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.024
+        EFF: -16.0
+        ERP_G: 0.03
+        RP_AI: 0.055
+      prior_mean_shock: -0.6777
+      carry: -0.95
+      prior_mean: -1.6277
+      prior_strength: moderate
+    VIX M3 (vol pts):
+      tier: 3
+      direction: '-'
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.019
+        EFF: -12.0
+        ERP_G: 0.023
+        RP_AI: 0.042
+      prior_mean_shock: -0.4939
+      carry: -0.7
+      prior_mean: -1.1939
+      prior_strength: diffuse
+    VSTOXX M1 (vol pts):
+      tier: 3
+      direction: '-'
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.022
+        EFF: -9.0
+        ERP_G: 0.058
+        RP_AI: 0.036
+      prior_mean_shock: -0.6881
+      carry: -1.05
+      prior_mean: -1.7381
+      prior_strength: diffuse
+    US 2Y (ZT):
+      tier: 3
+      direction: '?'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -1.9e-05
+        RSTAR: -0.00019
+        TP: -2.85e-05
+      prior_mean: 0.017
+      prior_strength: diffuse
+    US 5Y (ZF):
+      tier: 3
+      direction: '?'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0001075
+        RSTAR: -0.0004085
+        TP: -0.0001935
+      prior_mean: -0.0256
+      prior_strength: diffuse
+    US 10Y (ZN):
+      tier: 2
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000352
+        RSTAR: -0.000512
+        TP: -0.00064
+      prior_mean: -0.2186
+      prior_strength: moderate
+    US 30Y (ZB):
+      tier: 2
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0012375
+        RSTAR: -0.0009075
+        TP: -0.00165
+      prior_mean: -0.6283
+      prior_strength: moderate
+    Bund (FGBL):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000264
+        RSTAR: -0.000384
+        TP: -0.00048
+      prior_mean: -0.164
+      prior_strength: diffuse
+    Buxl (FGBX):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000798
+        RSTAR: -0.000627
+        TP: -0.00114
+      prior_mean: -0.4345
+      prior_strength: diffuse
+    Gilt (G):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000405
+        RSTAR: -0.00054
+        TP: -0.000675
+      prior_mean: -0.2306
+      prior_strength: diffuse
+    JGB 10Y (JB):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.00013387
+        RSTAR: -0.00022312
+        TP: -0.0002975
+      prior_mean: -0.1041
+      prior_strength: diffuse
+    SOFR3M whites (SR3W):
+      tier: 3
+      direction: '?'
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -8.852e-05
+        TP: -5.21e-06
+      prior_mean: 0.0117
+      prior_strength: diffuse
+    SOFR3M reds (SR3R):
+      tier: 3
+      direction: '?'
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -0.00010915
+        TP: -1.559e-05
+      prior_mean: 0.0101
+      prior_strength: diffuse
+    Euribor3M whites (ERW):
+      tier: 3
+      direction: '?'
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -4.599e-05
+        TP: -3.07e-06
+      prior_mean: 0.0059
+      prior_strength: diffuse
+    Henry Hub Cal+2 (NGC2):
+      tier: 2
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.2
+        E_AI: 0.35
+      prior_mean: -3.2974
+      prior_strength: moderate
+    Henry Hub Cal+1 (NGC1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.12
+        E_AI: 0.21
+      prior_mean: -1.9917
+      prior_strength: moderate
+    Henry Hub M1 (NG1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.05
+        E_AI: 0.0875
+      prior_mean: -0.8347
+      prior_strength: moderate
+    PJM West Cal+1 (PJM):
+      tier: 2
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.3
+        E_AI: 0.55
+      prior_mean: -4.9797
+      prior_strength: moderate
+    TTF Cal+1 (TFC1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, ERP_G, E_AI
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.00025
+        E_AI: 0.1
+      prior_mean: -0.6081
+      prior_strength: diffuse
+    Uranium (UX):
+      tier: 3
+      direction: '-'
+      mechanism: Narrative beta on the AI power story far exceeds the fundamental balance; thin market,
+        execution haircut applies
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.35
+        E_AI: 0.6
+      prior_mean: -5.6619
+      prior_strength: diffuse
+    WTI Crude (CL):
+      tier: 3
+      direction: +
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.0009
+      prior_mean: 0.9677
+      prior_strength: moderate
+    Brent Crude (CB):
+      tier: 3
+      direction: +
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.00085
+      prior_mean: 0.9136
+      prior_strength: diffuse
+    Copper (HG):
+      tier: 3
+      direction: +
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.001
+        E_AI: 0.05
+      prior_mean: 0.9172
+      prior_strength: diffuse
+    Aluminium (ALI):
+      tier: 3
+      direction: +
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.0007
+        E_AI: 0.03
+      prior_mean: 0.6569
+      prior_strength: diffuse
+    Silver (SI):
+      tier: 3
+      direction: +
+      mechanism: Real-rate instrument with an industrial leg; the AI channel is small and indirect
+      derived_from:
+      - ERP_G
+      - E_AI
+      - RSTAR
+      loadings:
+        ERP_G: -0.0004
+        E_AI: 0.04
+        RSTAR: -0.0015
+      prior_mean: 0.5439
+      prior_strength: moderate
+    Gold (GC):
+      tier: 3
+      direction: +
+      mechanism: Prices real rates, term premium and flight -- never AI compute demand
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - RSTAR
+      - TP
+      loadings:
+        CR_AI: 0.0004
+        ERP_G: 0.0006
+        RSTAR: -0.0025
+        TP: 0.0008
+      prior_mean: 0.1341
+      prior_strength: moderate
+    CDX IG (bps):
+      tier: 3
+      direction: '-'
+      mechanism: Loads on CR_AI, ERP_G
+      derived_from:
+      - CR_AI
+      - ERP_G
+      loadings:
+        CR_AI: 0.45
+        ERP_G: 0.12
+      prior_mean: -1.284
+      prior_strength: diffuse
+    Tech IG OAS (bps):
+      tier: 2
+      direction: +
+      mechanism: Loads on CR_AI, ERP_G, E_AI
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - E_AI
+      loadings:
+        CR_AI: 1.1
+        ERP_G: 0.1
+        E_AI: -80.0
+      prior_mean: 1.442
+      prior_strength: moderate
+ai_compute_supercycle:
+  description: 'Capex is guided up again, memory stays short, and power becomes the binding constraint
+    rather than silicon. The earnings path rises for both layers with hardware taking the larger share,
+    and efficiency gains are absorbed into volume rather than into lower spend. The discount rate rises
+    with it: a real-economy investment boom lifts r-star, and the Fed reaction function under the current
+    chair is hawkish, so the equity rally comes with a bond sell-off rather than a rally.'
+  primary_risk_factors:
+  - VIX M1 (vol pts)
+  - VSTOXX M1 (vol pts)
+  - VIX M2 (vol pts)
+  - VIX M3 (vol pts)
+  causal_chain:
+  - step: 1
+    mechanism: Capex guidance is raised again and the constraint is named as power rather than silicon
+    affects:
+    - VIX M1 (vol pts)
+  - step: 2
+    mechanism: Both earnings buckets rise, hardware by more; efficiency gains are absorbed into volume
+    affects:
+    - VSTOXX M1 (vol pts)
+  - step: 3
+    mechanism: Power forwards and deferred gas lead the commodity complex; the prompt gas contract lags
+      by construction
+    affects:
+    - VIX M2 (vol pts)
+  - step: 4
+    mechanism: Uranium moves on narrative beta well ahead of any fundamental balance change
+    affects:
+    - VIX M3 (vol pts)
+  - step: 5
+    mechanism: AI-complex risk premium compresses and credit spreads tighten as the funding question recedes
+    affects:
+    - VIX M1 (vol pts)
+  - step: 6
+    mechanism: Real rates rise on the investment boom and the Fed reaction function is hawkish
+    affects:
+    - VSTOXX M1 (vol pts)
+  - step: 7
+    mechanism: The bond leg sells off with the equity rally -- the stock-bond correlation is positive
+      here
+    affects:
+    - VIX M2 (vol pts)
+  - step: 8
+    mechanism: Gold falls on the real-rate move despite the risk-on tone, because it is a real-rate instrument
+    affects:
+    - VIX M3 (vol pts)
+  instruments:
+    Nasdaq 100 (NQ):
+      tier: 1
+      direction: +
+      mechanism: DDM linearisation on w_hw 0.30 / w_pf 0.36 / w_other 0.34 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.114
+        ERP_G: -0.000374
+        E_AI: 0.66
+        RP_AI: -0.001104
+        RSTAR: -0.001478
+        TP: -0.001478
+      prior_mean: 8.5862
+      prior_strength: moderate
+    S&P 500 (ES):
+      tier: 2
+      direction: +
+      mechanism: DDM linearisation on w_hw 0.13 / w_pf 0.22 / w_other 0.65 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.027
+        ERP_G: -0.000715
+        E_AI: 0.35
+        RP_AI: -0.000568
+        RSTAR: -0.001283
+        TP: -0.001283
+      prior_mean: 2.0471
+      prior_strength: moderate
+    Russell 2000 (RTY):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.05 / w_pf 0.03 / w_other 0.92 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0295
+        ERP_G: -0.001012
+        E_AI: 0.08
+        RP_AI: -0.000142
+        RSTAR: -0.001154
+        TP: -0.001154
+      prior_mean: -3.1479
+      prior_strength: moderate
+    Euro STOXX 50 (FESX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.08 / w_pf 0.04 / w_other 0.88 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.000968
+        E_AI: 0.12
+        RP_AI: -0.000216
+        RSTAR: -0.001184
+        TP: -0.001184
+      prior_mean: -2.3473
+      prior_strength: moderate
+    DAX 40 (FDAX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.06 / w_pf 0.03 / w_other 0.91 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0375
+        ERP_G: -0.001001
+        E_AI: 0.09
+        RP_AI: -0.000162
+        RSTAR: -0.001163
+        TP: -0.001163
+      prior_mean: -2.9418
+      prior_strength: moderate
+    Nikkei 225 (NK):
+      tier: 2
+      direction: +
+      mechanism: DDM linearisation on w_hw 0.22 / w_pf 0.06 / w_other 0.72 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.155
+        ERP_G: -0.000792
+        E_AI: 0.28
+        RP_AI: -0.000524
+        RSTAR: -0.001316
+        TP: -0.001316
+      prior_mean: 0.9769
+      prior_strength: moderate
+    TOPIX (TP1):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.11 / w_pf 0.04 / w_other 0.85 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.074
+        ERP_G: -0.000935
+        E_AI: 0.15
+        RP_AI: -0.000276
+        RSTAR: -0.001211
+        TP: -0.001211
+      prior_mean: -1.7225
+      prior_strength: diffuse
+    KOSPI 200 (K200):
+      tier: 1
+      direction: +
+      mechanism: DDM linearisation on w_hw 0.42 / w_pf 0.04 / w_other 0.54 with durations 20/14/11y and
+        amplifier 1.30; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.4186
+        ERP_G: -0.0007722
+        E_AI: 0.598
+        RP_AI: -0.0011648
+        RSTAR: -0.001937
+        TP: -0.001937
+      prior_mean: 6.5124
+      prior_strength: moderate
+    MSCI Taiwan (TWN):
+      tier: 1
+      direction: +
+      mechanism: DDM linearisation on w_hw 0.60 / w_pf 0.03 / w_other 0.37 with durations 20/14/11y and
+        amplifier 1.20; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.5634
+        ERP_G: -0.0004884
+        E_AI: 0.756
+        RP_AI: -0.0014904
+        RSTAR: -0.0019788
+        TP: -0.0019788
+      prior_mean: 10.731
+      prior_strength: moderate
+    FTSE 100 (Z):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.01 / w_other 0.98 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0045
+        ERP_G: -0.001078
+        E_AI: 0.02
+        RP_AI: -3.4e-05
+        RSTAR: -0.001112
+        TP: -0.001112
+      prior_mean: -4.3237
+      prior_strength: moderate
+    ASX SPI 200 (AP):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.02 / w_other 0.97 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.001
+        ERP_G: -0.001067
+        E_AI: 0.03
+        RP_AI: -4.8e-05
+        RSTAR: -0.001115
+        TP: -0.001115
+      prior_mean: -4.146
+      prior_strength: diffuse
+    HSCEI (HC):
+      tier: 3
+      direction: +
+      mechanism: DDM linearisation on w_hw 0.10 / w_pf 0.20 / w_other 0.70 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.01
+        ERP_G: -0.00077
+        E_AI: 0.3
+        RP_AI: -0.00048
+        RSTAR: -0.00125
+        TP: -0.00125
+      prior_mean: 1.0229
+      prior_strength: diffuse
+    Semi-minus-platform (SMP):
+      tier: 1
+      direction: +
+      mechanism: Equal-notional long semis short platform -- the EFF wedge beta_hw minus beta_pf (-0.80
+        less 0.35) plus a 6-year duration mismatch, so the spread carries a genuine rates exposure
+      derived_from:
+      - EFF
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -1.15
+        RP_AI: -0.0006
+        RSTAR: -0.0006
+        TP: -0.0006
+      prior_mean: 2.7486
+      prior_strength: tight
+    VIX M1 (vol pts):
+      tier: 2
+      direction: '-'
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.03
+        EFF: -22.0
+        ERP_G: 0.038
+        RP_AI: 0.07
+      prior_mean_shock: -3.97
+      carry: -1.3
+      prior_mean: -5.27
+      prior_strength: moderate
+    VIX M2 (vol pts):
+      tier: 2
+      direction: '-'
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.024
+        EFF: -16.0
+        ERP_G: 0.03
+        RP_AI: 0.055
+      prior_mean_shock: -3.1711
+      carry: -0.95
+      prior_mean: -4.1211
+      prior_strength: moderate
+    VIX M3 (vol pts):
+      tier: 3
+      direction: '-'
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.019
+        EFF: -12.0
+        ERP_G: 0.023
+        RP_AI: 0.042
+      prior_mean_shock: -2.4364
+      carry: -0.7
+      prior_mean: -3.1364
+      prior_strength: diffuse
+    VSTOXX M1 (vol pts):
+      tier: 3
+      direction: '-'
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.022
+        EFF: -9.0
+        ERP_G: 0.058
+        RP_AI: 0.036
+      prior_mean_shock: -3.2299
+      carry: -1.05
+      prior_mean: -4.2799
+      prior_strength: diffuse
+    US 2Y (ZT):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -1.9e-05
+        RSTAR: -0.00019
+        TP: -2.85e-05
+      prior_mean: -1.1019
+      prior_strength: diffuse
+    US 5Y (ZF):
+      tier: 2
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0001075
+        RSTAR: -0.0004085
+        TP: -0.0001935
+      prior_mean: -2.7231
+      prior_strength: moderate
+    US 10Y (ZN):
+      tier: 2
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000352
+        RSTAR: -0.000512
+        TP: -0.00064
+      prior_mean: -4.5288
+      prior_strength: moderate
+    US 30Y (ZB):
+      tier: 2
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0012375
+        RSTAR: -0.0009075
+        TP: -0.00165
+      prior_mean: -9.9176
+      prior_strength: moderate
+    Bund (FGBL):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000264
+        RSTAR: -0.000384
+        TP: -0.00048
+      prior_mean: -3.4162
+      prior_strength: diffuse
+    Buxl (FGBX):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000798
+        RSTAR: -0.000627
+        TP: -0.00114
+      prior_mean: -6.849
+      prior_strength: diffuse
+    Gilt (G):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000405
+        RSTAR: -0.00054
+        TP: -0.000675
+      prior_mean: -4.8389
+      prior_strength: diffuse
+    JGB 10Y (JB):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.00013387
+        RSTAR: -0.00022312
+        TP: -0.0002975
+      prior_mean: -1.9913
+      prior_strength: diffuse
+    SOFR3M whites (SR3W):
+      tier: 3
+      direction: '-'
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -8.852e-05
+        TP: -5.21e-06
+      prior_mean: -0.4818
+      prior_strength: diffuse
+    SOFR3M reds (SR3R):
+      tier: 3
+      direction: '-'
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -0.00010915
+        TP: -1.559e-05
+      prior_mean: -0.61
+      prior_strength: diffuse
+    Euribor3M whites (ERW):
+      tier: 3
+      direction: '-'
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -4.599e-05
+        TP: -3.07e-06
+      prior_mean: -0.2512
+      prior_strength: diffuse
+    Henry Hub Cal+2 (NGC2):
+      tier: 2
+      direction: +
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.2
+        E_AI: 0.35
+      prior_mean: 7.2449
+      prior_strength: moderate
+    Henry Hub Cal+1 (NGC1):
+      tier: 3
+      direction: +
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.12
+        E_AI: 0.21
+      prior_mean: 4.286
+      prior_strength: moderate
+    Henry Hub M1 (NG1):
+      tier: 3
+      direction: +
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.05
+        E_AI: 0.0875
+      prior_mean: 1.764
+      prior_strength: moderate
+    PJM West Cal+1 (PJM):
+      tier: 1
+      direction: +
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.3
+        E_AI: 0.55
+      prior_mean: 11.5625
+      prior_strength: moderate
+    TTF Cal+1 (TFC1):
+      tier: 3
+      direction: +
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, ERP_G, E_AI
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.00025
+        E_AI: 0.1
+      prior_mean: 2.6993
+      prior_strength: diffuse
+    Uranium (UX):
+      tier: 2
+      direction: +
+      mechanism: Narrative beta on the AI power story far exceeds the fundamental balance; thin market,
+        execution haircut applies
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.35
+        E_AI: 0.6
+      prior_mean: 12.7672
+      prior_strength: moderate
+    WTI Crude (CL):
+      tier: 3
+      direction: +
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.0009
+      prior_mean: 2.5151
+      prior_strength: moderate
+    Brent Crude (CB):
+      tier: 3
+      direction: +
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.00085
+      prior_mean: 2.3737
+      prior_strength: diffuse
+    Copper (HG):
+      tier: 3
+      direction: +
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.001
+        E_AI: 0.05
+      prior_mean: 3.7273
+      prior_strength: diffuse
+    Aluminium (ALI):
+      tier: 3
+      direction: +
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.0007
+        E_AI: 0.03
+      prior_mean: 2.5025
+      prior_strength: diffuse
+    Silver (SI):
+      tier: 3
+      direction: '-'
+      mechanism: Real-rate instrument with an industrial leg; the AI channel is small and indirect
+      derived_from:
+      - ERP_G
+      - E_AI
+      - RSTAR
+      loadings:
+        ERP_G: -0.0004
+        E_AI: 0.04
+        RSTAR: -0.0015
+      prior_mean: -6.013
+      prior_strength: moderate
+    Gold (GC):
+      tier: 3
+      direction: '-'
+      mechanism: Prices real rates, term premium and flight -- never AI compute demand
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - RSTAR
+      - TP
+      loadings:
+        CR_AI: 0.0004
+        ERP_G: 0.0006
+        RSTAR: -0.0025
+        TP: 0.0008
+      prior_mean: -12.9589
+      prior_strength: moderate
+    CDX IG (bps):
+      tier: 3
+      direction: '-'
+      mechanism: Loads on CR_AI, ERP_G
+      derived_from:
+      - CR_AI
+      - ERP_G
+      loadings:
+        CR_AI: 0.45
+        ERP_G: 0.12
+      prior_mean: -6.462
+      prior_strength: diffuse
+    Tech IG OAS (bps):
+      tier: 2
+      direction: '-'
+      mechanism: Loads on CR_AI, ERP_G, E_AI
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - E_AI
+      loadings:
+        CR_AI: 1.1
+        ERP_G: 0.1
+        E_AI: -80.0
+      prior_mean: -24.852
+      prior_strength: moderate
+ai_credit_event:
+  description: The financing channel breaks before the demand channel does. Off-balance-sheet vehicles,
+    GPU-collateralised lending and vendor financing reprice together, and the lowest-rated hyperscaler
+    is the transmission point rather than the cause. The earnings path is marked down only modestly; the
+    damage is in the risk premium and in the cost of the marginal dollar of capex. Whether the rates leg
+    cushions or compounds the equity loss is the single largest uncertainty in the scenario and is priced
+    as a mixture, not asserted.
+  primary_risk_factors:
+  - VIX M1 (vol pts)
+  - VSTOXX M1 (vol pts)
+  - VIX M2 (vol pts)
+  - VIX M3 (vol pts)
+  causal_chain:
+  - step: 1
+    mechanism: A funding event at a leveraged AI borrower -- SPV, vendor financing or GPU-collateralised
+      paper -- fails to clear
+    affects:
+    - VIX M1 (vol pts)
+  - step: 2
+    mechanism: Tech spreads gap and the lowest-rated hyperscaler becomes the transmission point
+    affects:
+    - VSTOXX M1 (vol pts)
+  - step: 3
+    mechanism: New-issue concession widens and the marginal cost of the capex dollar rises
+    affects:
+    - VIX M2 (vol pts)
+  - step: 4
+    mechanism: Equity risk premium widens across both buckets; the earnings path is marked down only modestly
+    affects:
+    - VIX M3 (vol pts)
+  - step: 5
+    mechanism: Broad IG follows tech with a lag and a smaller beta
+    affects:
+    - VIX M1 (vol pts)
+  - step: 6
+    mechanism: Gold rallies on the credit-stress and flight channel plus the real-rate leg
+    affects:
+    - VSTOXX M1 (vol pts)
+  - step: 7
+    mechanism: The rates leg is regime-dependent -- flight-to-quality against fiscal and corporate supply
+      -- and is carried as a mixture
+    affects:
+    - VIX M2 (vol pts)
+  - step: 8
+    mechanism: Deferred gas and power give back the load premium as the buildout financing is questioned
+    affects:
+    - VIX M3 (vol pts)
+  instruments:
+    Nasdaq 100 (NQ):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.30 / w_pf 0.36 / w_other 0.34 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.114
+        ERP_G: -0.000374
+        E_AI: 0.66
+        RP_AI: -0.001104
+        RSTAR: -0.001478
+        TP: -0.001478
+      prior_mean: -12.027
+      prior_strength: moderate
+    S&P 500 (ES):
+      tier: 2
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.13 / w_pf 0.22 / w_other 0.65 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.027
+        ERP_G: -0.000715
+        E_AI: 0.35
+        RP_AI: -0.000568
+        RSTAR: -0.001283
+        TP: -0.001283
+      prior_mean: -8.6074
+      prior_strength: moderate
+    Russell 2000 (RTY):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.05 / w_pf 0.03 / w_other 0.92 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0295
+        ERP_G: -0.001012
+        E_AI: 0.08
+        RP_AI: -0.000142
+        RSTAR: -0.001154
+        TP: -0.001154
+      prior_mean: -5.6941
+      prior_strength: moderate
+    Euro STOXX 50 (FESX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.08 / w_pf 0.04 / w_other 0.88 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.000968
+        E_AI: 0.12
+        RP_AI: -0.000216
+        RSTAR: -0.001184
+        TP: -0.001184
+      prior_mean: -6.1774
+      prior_strength: moderate
+    DAX 40 (FDAX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.06 / w_pf 0.03 / w_other 0.91 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0375
+        ERP_G: -0.001001
+        E_AI: 0.09
+        RP_AI: -0.000162
+        RSTAR: -0.001163
+        TP: -0.001163
+      prior_mean: -5.8215
+      prior_strength: moderate
+    Nikkei 225 (NK):
+      tier: 2
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.22 / w_pf 0.06 / w_other 0.72 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.155
+        ERP_G: -0.000792
+        E_AI: 0.28
+        RP_AI: -0.000524
+        RSTAR: -0.001316
+        TP: -0.001316
+      prior_mean: -8.1354
+      prior_strength: moderate
+    TOPIX (TP1):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.11 / w_pf 0.04 / w_other 0.85 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.074
+        ERP_G: -0.000935
+        E_AI: 0.15
+        RP_AI: -0.000276
+        RSTAR: -0.001211
+        TP: -0.001211
+      prior_mean: -6.5571
+      prior_strength: diffuse
+    KOSPI 200 (K200):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.42 / w_pf 0.04 / w_other 0.54 with durations 20/14/11y and
+        amplifier 1.30; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.4186
+        ERP_G: -0.0007722
+        E_AI: 0.598
+        RP_AI: -0.0011648
+        RSTAR: -0.001937
+        TP: -0.001937
+      prior_mean: -13.2936
+      prior_strength: moderate
+    MSCI Taiwan (TWN):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.60 / w_pf 0.03 / w_other 0.37 with durations 20/14/11y and
+        amplifier 1.20; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.5634
+        ERP_G: -0.0004884
+        E_AI: 0.756
+        RP_AI: -0.0014904
+        RSTAR: -0.0019788
+        TP: -0.0019788
+      prior_mean: -14.749
+      prior_strength: moderate
+    FTSE 100 (Z):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.01 / w_other 0.98 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0045
+        ERP_G: -0.001078
+        E_AI: 0.02
+        RP_AI: -3.4e-05
+        RSTAR: -0.001112
+        TP: -0.001112
+      prior_mean: -4.9773
+      prior_strength: moderate
+    ASX SPI 200 (AP):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.02 / w_other 0.97 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.001
+        ERP_G: -0.001067
+        E_AI: 0.03
+        RP_AI: -4.8e-05
+        RSTAR: -0.001115
+        TP: -0.001115
+      prior_mean: -5.0801
+      prior_strength: diffuse
+    HSCEI (HC):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.10 / w_pf 0.20 / w_other 0.70 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.01
+        ERP_G: -0.00077
+        E_AI: 0.3
+        RP_AI: -0.00048
+        RSTAR: -0.00125
+        TP: -0.00125
+      prior_mean: -8.0372
+      prior_strength: diffuse
+    Semi-minus-platform (SMP):
+      tier: 1
+      direction: '-'
+      mechanism: Equal-notional long semis short platform -- the EFF wedge beta_hw minus beta_pf (-0.80
+        less 0.35) plus a 6-year duration mismatch, so the spread carries a genuine rates exposure
+      derived_from:
+      - EFF
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -1.15
+        RP_AI: -0.0006
+        RSTAR: -0.0006
+        TP: -0.0006
+      prior_mean: -2.658
+      prior_strength: tight
+    VIX M1 (vol pts):
+      tier: 2
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.03
+        EFF: -22.0
+        ERP_G: 0.038
+        RP_AI: 0.07
+      prior_mean_shock: 7.963
+      carry: -1.3
+      prior_mean: 6.663
+      prior_strength: moderate
+    VIX M2 (vol pts):
+      tier: 2
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.024
+        EFF: -16.0
+        ERP_G: 0.03
+        RP_AI: 0.055
+      prior_mean_shock: 6.2745
+      carry: -0.95
+      prior_mean: 5.3245
+      prior_strength: moderate
+    VIX M3 (vol pts):
+      tier: 3
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.019
+        EFF: -12.0
+        ERP_G: 0.023
+        RP_AI: 0.042
+      prior_mean_shock: 4.8104
+      carry: -0.7
+      prior_mean: 4.1104
+      prior_strength: diffuse
+    VSTOXX M1 (vol pts):
+      tier: 3
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.022
+        EFF: -9.0
+        ERP_G: 0.058
+        RP_AI: 0.036
+      prior_mean_shock: 6.8352
+      carry: -1.05
+      prior_mean: 5.7852
+      prior_strength: diffuse
+    US 2Y (ZT):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -1.9e-05
+        RSTAR: -0.00019
+        TP: -2.85e-05
+      prior_mean: 0.5945
+      prior_strength: diffuse
+    US 5Y (ZF):
+      tier: 2
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0001075
+        RSTAR: -0.0004085
+        TP: -0.0001935
+      prior_mean: 1.166
+      prior_strength: moderate
+    US 10Y (ZN):
+      tier: 2
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000352
+        RSTAR: -0.000512
+        TP: -0.00064
+      prior_mean: 1.1134
+      prior_strength: moderate
+    US 30Y (ZB):
+      tier: 2
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0012375
+        RSTAR: -0.0009075
+        TP: -0.00165
+      prior_mean: 1.5254
+      prior_strength: moderate
+    Bund (FGBL):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000264
+        RSTAR: -0.000384
+        TP: -0.00048
+      prior_mean: 0.8339
+      prior_strength: diffuse
+    Buxl (FGBX):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000798
+        RSTAR: -0.000627
+        TP: -0.00114
+      prior_mean: 1.0514
+      prior_strength: diffuse
+    Gilt (G):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000405
+        RSTAR: -0.00054
+        TP: -0.000675
+      prior_mean: 1.1746
+      prior_strength: diffuse
+    JGB 10Y (JB):
+      tier: 3
+      direction: +
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.00013387
+        RSTAR: -0.00022312
+        TP: -0.0002975
+      prior_mean: 0.4674
+      prior_strength: diffuse
+    SOFR3M whites (SR3W):
+      tier: 3
+      direction: +
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -8.852e-05
+        TP: -5.21e-06
+      prior_mean: 0.2836
+      prior_strength: diffuse
+    SOFR3M reds (SR3R):
+      tier: 3
+      direction: +
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -0.00010915
+        TP: -1.559e-05
+      prior_mean: 0.3417
+      prior_strength: diffuse
+    Euribor3M whites (ERW):
+      tier: 3
+      direction: +
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -4.599e-05
+        TP: -3.07e-06
+      prior_mean: 0.1469
+      prior_strength: diffuse
+    Henry Hub Cal+2 (NGC2):
+      tier: 2
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.2
+        E_AI: 0.35
+      prior_mean: -3.2365
+      prior_strength: moderate
+    Henry Hub Cal+1 (NGC1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.12
+        E_AI: 0.21
+      prior_mean: -1.9546
+      prior_strength: moderate
+    Henry Hub M1 (NG1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.05
+        E_AI: 0.0875
+      prior_mean: -0.8191
+      prior_strength: moderate
+    PJM West Cal+1 (PJM):
+      tier: 2
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.3
+        E_AI: 0.55
+      prior_mean: -5.0386
+      prior_strength: moderate
+    TTF Cal+1 (TFC1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, ERP_G, E_AI
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.00025
+        E_AI: 0.1
+      prior_mean: -2.6055
+      prior_strength: diffuse
+    Uranium (UX):
+      tier: 3
+      direction: '-'
+      mechanism: Narrative beta on the AI power story far exceeds the fundamental balance; thin market,
+        execution haircut applies
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.35
+        E_AI: 0.6
+      prior_mean: -5.4839
+      prior_strength: diffuse
+    WTI Crude (CL):
+      tier: 3
+      direction: '-'
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.0009
+      prior_mean: -5.9365
+      prior_strength: moderate
+    Brent Crude (CB):
+      tier: 3
+      direction: '-'
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.00085
+      prior_mean: -5.6161
+      prior_strength: diffuse
+    Copper (HG):
+      tier: 3
+      direction: '-'
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.001
+        E_AI: 0.05
+      prior_mean: -7.012
+      prior_strength: diffuse
+    Aluminium (ALI):
+      tier: 3
+      direction: '-'
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.0007
+        E_AI: 0.03
+      prior_mean: -4.917
+      prior_strength: diffuse
+    Silver (SI):
+      tier: 3
+      direction: +
+      mechanism: Real-rate instrument with an industrial leg; the AI channel is small and indirect
+      derived_from:
+      - ERP_G
+      - E_AI
+      - RSTAR
+      loadings:
+        ERP_G: -0.0004
+        E_AI: 0.04
+        RSTAR: -0.0015
+      prior_mean: 1.7949
+      prior_strength: moderate
+    Gold (GC):
+      tier: 2
+      direction: +
+      mechanism: Prices real rates, term premium and flight -- never AI compute demand
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - RSTAR
+      - TP
+      loadings:
+        CR_AI: 0.0004
+        ERP_G: 0.0006
+        RSTAR: -0.0025
+        TP: 0.0008
+      prior_mean: 14.6381
+      prior_strength: moderate
+    CDX IG (bps):
+      tier: 2
+      direction: +
+      mechanism: Loads on CR_AI, ERP_G
+      derived_from:
+      - CR_AI
+      - ERP_G
+      loadings:
+        CR_AI: 0.45
+        ERP_G: 0.12
+      prior_mean: 16.71
+      prior_strength: moderate
+    Tech IG OAS (bps):
+      tier: 1
+      direction: +
+      mechanism: Loads on CR_AI, ERP_G, E_AI
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - E_AI
+      loadings:
+        CR_AI: 1.1
+        ERP_G: 0.1
+        E_AI: -80.0
+      prior_mean: 35.22
+      prior_strength: moderate
+ai_supply_rupture:
+  description: Export controls, a foundry interruption or a memory allocation shock cuts quantity and
+    lifts price. Hardware earnings fall on volume even as unit pricing rises, efficiency goes backwards
+    because the available silicon is worse, and the breakeven leg moves on the goods-price passthrough.
+    Taiwan and Korea carry the concentration, and the gas and power legs are genuinely two-sided -- less
+    compute deployed but a more expensive grid -- so they are carried at ambiguous direction rather than
+    given a sign the mechanism does not support.
+  primary_risk_factors:
+  - VIX M1 (vol pts)
+  - VIX M2 (vol pts)
+  - VSTOXX M1 (vol pts)
+  - VIX M3 (vol pts)
+  causal_chain:
+  - step: 1
+    mechanism: An export-control action, foundry interruption or memory allocation shock cuts available
+      quantity
+    affects:
+    - VIX M1 (vol pts)
+  - step: 2
+    mechanism: Hardware earnings fall on volume even as realised unit pricing rises
+    affects:
+    - VIX M2 (vol pts)
+  - step: 3
+    mechanism: Effective efficiency goes backwards -- the available silicon per unit of intelligence is
+      worse
+    affects:
+    - VSTOXX M1 (vol pts)
+  - step: 4
+    mechanism: Taiwan and Korea take the concentration loss directly
+    affects:
+    - VIX M3 (vol pts)
+  - step: 5
+    mechanism: Breakevens rise on goods-price passthrough and the Fed reaction function turns hawkish
+    affects:
+    - VIX M1 (vol pts)
+  - step: 6
+    mechanism: Term premium rises with the inflation impulse; the real-rate leg is ambiguous
+    affects:
+    - VIX M2 (vol pts)
+  - step: 7
+    mechanism: Gold rallies on the flight and term-premium channels
+    affects:
+    - VSTOXX M1 (vol pts)
+  - step: 8
+    mechanism: Gas and power are genuinely two-sided -- less compute deployed against a more expensive
+      grid -- so no sign is asserted
+    affects:
+    - VIX M3 (vol pts)
+  instruments:
+    Nasdaq 100 (NQ):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.30 / w_pf 0.36 / w_other 0.34 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.114
+        ERP_G: -0.000374
+        E_AI: 0.66
+        RP_AI: -0.001104
+        RSTAR: -0.001478
+        TP: -0.001478
+      prior_mean: -15.5082
+      prior_strength: moderate
+    S&P 500 (ES):
+      tier: 2
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.13 / w_pf 0.22 / w_other 0.65 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.027
+        ERP_G: -0.000715
+        E_AI: 0.35
+        RP_AI: -0.000568
+        RSTAR: -0.001283
+        TP: -0.001283
+      prior_mean: -11.7188
+      prior_strength: moderate
+    Russell 2000 (RTY):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.05 / w_pf 0.03 / w_other 0.92 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0295
+        ERP_G: -0.001012
+        E_AI: 0.08
+        RP_AI: -0.000142
+        RSTAR: -0.001154
+        TP: -0.001154
+      prior_mean: -8.2157
+      prior_strength: moderate
+    Euro STOXX 50 (FESX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.08 / w_pf 0.04 / w_other 0.88 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.000968
+        E_AI: 0.12
+        RP_AI: -0.000216
+        RSTAR: -0.001184
+        TP: -0.001184
+      prior_mean: -8.7262
+      prior_strength: moderate
+    DAX 40 (FDAX):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.06 / w_pf 0.03 / w_other 0.91 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0375
+        ERP_G: -0.001001
+        E_AI: 0.09
+        RP_AI: -0.000162
+        RSTAR: -0.001163
+        TP: -0.001163
+      prior_mean: -8.3412
+      prior_strength: moderate
+    Nikkei 225 (NK):
+      tier: 2
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.22 / w_pf 0.06 / w_other 0.72 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.155
+        ERP_G: -0.000792
+        E_AI: 0.28
+        RP_AI: -0.000524
+        RSTAR: -0.001316
+        TP: -0.001316
+      prior_mean: -10.7217
+      prior_strength: moderate
+    TOPIX (TP1):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.11 / w_pf 0.04 / w_other 0.85 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.074
+        ERP_G: -0.000935
+        E_AI: 0.15
+        RP_AI: -0.000276
+        RSTAR: -0.001211
+        TP: -0.001211
+      prior_mean: -9.1002
+      prior_strength: diffuse
+    KOSPI 200 (K200):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.42 / w_pf 0.04 / w_other 0.54 with durations 20/14/11y and
+        amplifier 1.30; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.4186
+        ERP_G: -0.0007722
+        E_AI: 0.598
+        RP_AI: -0.0011648
+        RSTAR: -0.001937
+        TP: -0.001937
+      prior_mean: -16.4057
+      prior_strength: moderate
+    MSCI Taiwan (TWN):
+      tier: 1
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.60 / w_pf 0.03 / w_other 0.37 with durations 20/14/11y and
+        amplifier 1.20; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.5634
+        ERP_G: -0.0004884
+        E_AI: 0.756
+        RP_AI: -0.0014904
+        RSTAR: -0.0019788
+        TP: -0.0019788
+      prior_mean: -17.569
+      prior_strength: moderate
+    FTSE 100 (Z):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.01 / w_other 0.98 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.0045
+        ERP_G: -0.001078
+        E_AI: 0.02
+        RP_AI: -3.4e-05
+        RSTAR: -0.001112
+        TP: -0.001112
+      prior_mean: -7.4398
+      prior_strength: moderate
+    ASX SPI 200 (AP):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.01 / w_pf 0.02 / w_other 0.97 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.001
+        ERP_G: -0.001067
+        E_AI: 0.03
+        RP_AI: -4.8e-05
+        RSTAR: -0.001115
+        TP: -0.001115
+      prior_mean: -7.5759
+      prior_strength: diffuse
+    HSCEI (HC):
+      tier: 3
+      direction: '-'
+      mechanism: DDM linearisation on w_hw 0.10 / w_pf 0.20 / w_other 0.70 with durations 20/14/11y and
+        amplifier 1.00; loads on EFF, ERP_G, E_AI, RP_AI, RSTAR, TP
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -0.01
+        ERP_G: -0.00077
+        E_AI: 0.3
+        RP_AI: -0.00048
+        RSTAR: -0.00125
+        TP: -0.00125
+      prior_mean: -11.0942
+      prior_strength: diffuse
+    Semi-minus-platform (SMP):
+      tier: 2
+      direction: +
+      mechanism: Equal-notional long semis short platform -- the EFF wedge beta_hw minus beta_pf (-0.80
+        less 0.35) plus a 6-year duration mismatch, so the spread carries a genuine rates exposure
+      derived_from:
+      - EFF
+      - RP_AI
+      - RSTAR
+      - TP
+      loadings:
+        EFF: -1.15
+        RP_AI: -0.0006
+        RSTAR: -0.0006
+        TP: -0.0006
+      prior_mean: 1.0363
+      prior_strength: moderate
+    VIX M1 (vol pts):
+      tier: 2
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.03
+        EFF: -22.0
+        ERP_G: 0.038
+        RP_AI: 0.07
+      prior_mean_shock: 7.2938
+      carry: -1.3
+      prior_mean: 5.9938
+      prior_strength: moderate
+    VIX M2 (vol pts):
+      tier: 2
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.024
+        EFF: -16.0
+        ERP_G: 0.03
+        RP_AI: 0.055
+      prior_mean_shock: 5.6793
+      carry: -0.95
+      prior_mean: 4.7293
+      prior_strength: moderate
+    VIX M3 (vol pts):
+      tier: 3
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.019
+        EFF: -12.0
+        ERP_G: 0.023
+        RP_AI: 0.042
+      prior_mean_shock: 4.336
+      carry: -0.7
+      prior_mean: 3.636
+      prior_strength: diffuse
+    VSTOXX M1 (vol pts):
+      tier: 3
+      direction: +
+      mechanism: Index vol is a correlation instrument -- risk premia lift it, an efficiency shock damps
+        it via falling implied correlation even as single-stock vol rises
+      derived_from:
+      - CR_AI
+      - EFF
+      - ERP_G
+      - RP_AI
+      loadings:
+        CR_AI: 0.022
+        EFF: -9.0
+        ERP_G: 0.058
+        RP_AI: 0.036
+      prior_mean_shock: 5.6418
+      carry: -1.05
+      prior_mean: 4.5918
+      prior_strength: diffuse
+    US 2Y (ZT):
+      tier: 3
+      direction: '?'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -1.9e-05
+        RSTAR: -0.00019
+        TP: -2.85e-05
+      prior_mean: -0.0764
+      prior_strength: diffuse
+    US 5Y (ZF):
+      tier: 2
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0001075
+        RSTAR: -0.0004085
+        TP: -0.0001935
+      prior_mean: -0.6314
+      prior_strength: moderate
+    US 10Y (ZN):
+      tier: 2
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000352
+        RSTAR: -0.000512
+        TP: -0.00064
+      prior_mean: -2.2342
+      prior_strength: moderate
+    US 30Y (ZB):
+      tier: 2
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.0012375
+        RSTAR: -0.0009075
+        TP: -0.00165
+      prior_mean: -6.7523
+      prior_strength: moderate
+    Bund (FGBL):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000264
+        RSTAR: -0.000384
+        TP: -0.00048
+      prior_mean: -1.6804
+      prior_strength: diffuse
+    Buxl (FGBX):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000798
+        RSTAR: -0.000627
+        TP: -0.00114
+      prior_mean: -4.5376
+      prior_strength: diffuse
+    Gilt (G):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.000405
+        RSTAR: -0.00054
+        TP: -0.000675
+      prior_mean: -2.4626
+      prior_strength: diffuse
+    JGB 10Y (JB):
+      tier: 3
+      direction: '-'
+      mechanism: Modified duration times the yield move built from BE, RSTAR, TP; the policy path is solved
+        through the reaction function, never authored as a shock
+      derived_from:
+      - BE
+      - RSTAR
+      - TP
+      loadings:
+        BE: -0.00013387
+        RSTAR: -0.00022312
+        TP: -0.0002975
+      prior_mean: -0.9516
+      prior_strength: diffuse
+    SOFR3M whites (SR3W):
+      tier: 3
+      direction: '?'
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -8.852e-05
+        TP: -5.21e-06
+      prior_mean: 0.0087
+      prior_strength: diffuse
+    SOFR3M reds (SR3R):
+      tier: 3
+      direction: '?'
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -0.00010915
+        TP: -1.559e-05
+      prior_mean: -0.0067
+      prior_strength: diffuse
+    Euribor3M whites (ERW):
+      tier: 3
+      direction: '?'
+      mechanism: Front end responds to r-star through the reaction function; the policy path is solved,
+        not shocked
+      derived_from:
+      - RSTAR
+      - TP
+      loadings:
+        RSTAR: -4.599e-05
+        TP: -3.07e-06
+      prior_mean: 0.0038
+      prior_strength: diffuse
+    Henry Hub Cal+2 (NGC2):
+      tier: 2
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.2
+        E_AI: 0.35
+      prior_mean: -2.4871
+      prior_strength: moderate
+    Henry Hub Cal+1 (NGC1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.12
+        E_AI: 0.21
+      prior_mean: -1.4997
+      prior_strength: moderate
+    Henry Hub M1 (NG1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.05
+        E_AI: 0.0875
+      prior_mean: -0.6276
+      prior_strength: moderate
+    PJM West Cal+1 (PJM):
+      tier: 2
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, E_AI
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.3
+        E_AI: 0.55
+      prior_mean: -3.9465
+      prior_strength: moderate
+    TTF Cal+1 (TFC1):
+      tier: 3
+      direction: '-'
+      mechanism: Power-demand channel from the capex path damped by efficiency, scaled by the passthrough
+        ladder; loads on EFF, ERP_G, E_AI
+      derived_from:
+      - EFF
+      - ERP_G
+      - E_AI
+      loadings:
+        EFF: -0.05
+        ERP_G: -0.00025
+        E_AI: 0.1
+      prior_mean: -2.0037
+      prior_strength: diffuse
+    Uranium (UX):
+      tier: 3
+      direction: '-'
+      mechanism: Narrative beta on the AI power story far exceeds the fundamental balance; thin market,
+        execution haircut applies
+      derived_from:
+      - EFF
+      - E_AI
+      loadings:
+        EFF: -0.35
+        E_AI: 0.6
+      prior_mean: -4.1926
+      prior_strength: diffuse
+    WTI Crude (CL):
+      tier: 3
+      direction: '-'
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.0009
+      prior_mean: -4.4691
+      prior_strength: moderate
+    Brent Crude (CB):
+      tier: 3
+      direction: '-'
+      mechanism: No AI transmission path; carried on the global risk-appetite term only
+      derived_from:
+      - ERP_G
+      loadings:
+        ERP_G: -0.00085
+      prior_mean: -4.2261
+      prior_strength: diffuse
+    Copper (HG):
+      tier: 3
+      direction: '-'
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.001
+        E_AI: 0.05
+      prior_mean: -5.4248
+      prior_strength: diffuse
+    Aluminium (ALI):
+      tier: 3
+      direction: '-'
+      mechanism: AI is roughly 2-3 percent of the refined market; the move here is risk appetite and the
+        dollar, not AI demand
+      derived_from:
+      - ERP_G
+      - E_AI
+      loadings:
+        ERP_G: -0.0007
+        E_AI: 0.03
+      prior_mean: -3.7812
+      prior_strength: diffuse
+    Silver (SI):
+      tier: 3
+      direction: '-'
+      mechanism: Real-rate instrument with an industrial leg; the AI channel is small and indirect
+      derived_from:
+      - ERP_G
+      - E_AI
+      - RSTAR
+      loadings:
+        ERP_G: -0.0004
+        E_AI: 0.04
+        RSTAR: -0.0015
+      prior_mean: -2.0928
+      prior_strength: moderate
+    Gold (GC):
+      tier: 3
+      direction: +
+      mechanism: Prices real rates, term premium and flight -- never AI compute demand
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - RSTAR
+      - TP
+      loadings:
+        CR_AI: 0.0004
+        ERP_G: 0.0006
+        RSTAR: -0.0025
+        TP: 0.0008
+      prior_mean: 5.5369
+      prior_strength: moderate
+    CDX IG (bps):
+      tier: 3
+      direction: +
+      mechanism: Loads on CR_AI, ERP_G
+      derived_from:
+      - CR_AI
+      - ERP_G
+      loadings:
+        CR_AI: 0.45
+        ERP_G: 0.12
+      prior_mean: 9.426
+      prior_strength: diffuse
+    Tech IG OAS (bps):
+      tier: 2
+      direction: +
+      mechanism: Loads on CR_AI, ERP_G, E_AI
+      derived_from:
+      - CR_AI
+      - ERP_G
+      - E_AI
+      loadings:
+        CR_AI: 1.1
+        ERP_G: 0.1
+        E_AI: -80.0
+      prior_mean: 21.18
+      prior_strength: moderate
