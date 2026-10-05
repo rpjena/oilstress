@@ -1,0 +1,143 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# US MIDTERM 2026 — EVENTS CATALOG
+# anchor_date : 2026-10-05   (prediction-market snapshot Oct 5, 17:24 ET)
+# event_date  : 2026-11-03   (Tue; first full reaction = Wed 2026-11-04)
+# horizon     : 1M  (2026-11-03 close → ~2026-12-03 close)
+#
+# Model:  Δ_ik = Σ_f β_if · (x_fk − Σ_l p_l x_fl)   + common_k + overlay
+#         └ information shock, mean-zero under p ┘  └ non-martingale terms ┘
+# ─────────────────────────────────────────────────────────────────────────────
+meta:
+  anchor_date: "2026-10-05"
+  event_date: "2026-11-03"
+  horizon: "1M"
+  probability_source: >
+    Kalshi + Polymarket mid averages (DeFi Rate, 2026-10-05 17:24 ET):
+    House D 92%, Senate D 65%, R sweep ~8% (Kalshi 8.3c / Poly 7.5c),
+    R House + D Senate ~1% (Kalshi balance-of-power combo, late Sep).
+    Joint derived as DD = P(Senate D) - P(RD); DR = P(House D) - DD.
+  macro_backdrop:
+    fed_funds_target: "3.75-4.00% (hiked 25bp on 2026-09-16, first since 2023)"
+    next_fomc: ["2026-10-28 (pre-election, hike odds ~35%)", "2026-12-09 (hike odds ~70%)"]
+    ust10y: "~5.28% (2026-10-02), highest since 2002"
+    regime_note: >
+      Inflationary regime (Iran war month 7, WTI ~$91, Brent ~$100 in Sep).
+      Equity-bond correlation positive => a fiscal shock can be equity-NEGATIVE
+      via term premium. This is why RR has a two-branch treatment (see overlays).
+
+# ── Latent policy factors (state value x_fk per outcome, in "news units") ──
+factors:
+  FISC:  "Capacity for further fiscal expansion 2027-28 (reconciliation needs both chambers + President)"
+  REG:   "Deregulatory / crypto market-structure legislative agenda"
+  GRID:  "Policy-uncertainty / gridlock: oversight, appropriations & shutdown brinkmanship, investigations"
+  FEDI:  "Senate confirmation channel for Fed Board seats (perceived Fed-independence risk)"
+  WARP:  "War-powers / appropriations constraint on Iran operations (oil geopolitical risk premium)"
+
+outcomes:
+  DD:
+    label: "Dem House / Dem Senate"
+    prob_market: 0.64
+    state: {FISC: -0.2, REG: -0.3, GRID: 1.0, FEDI: 0.0, WARP: 1.0}
+    narrative: >
+      Consensus outcome. Full legislative gridlock vs the White House; Senate can
+      block nominations (incl. Fed governors); investigations; no reconciliation 2.0;
+      crypto/deregulation bills stall. Mostly priced -> small information shock.
+  DR:
+    label: "Dem House / Rep Senate"
+    prob_market: 0.27
+    state: {FISC: 0.0, REG: 0.1, GRID: 0.5, FEDI: 1.0, WARP: 0.4}
+    narrative: >
+      Classic split. House oversight + appropriations leverage; Senate keeps
+      confirming nominees. The live surprise is the Senate holding (priced 35%).
+  RR:
+    label: "Rep House / Rep Senate"
+    prob_market: 0.08
+    state: {FISC: 1.0, REG: 1.0, GRID: 0.0, FEDI: 1.0, WARP: 0.0}
+    narrative: >
+      Tail surprise (~8%). Trifecta preserved: second reconciliation package
+      (deficit-financed), deregulation & crypto agenda, no oversight drag.
+      Base branch = 'reflation trade'; severe branch = term-premium tantrum.
+  RD:
+    label: "Rep House / Dem Senate"
+    prob_market: 0.01
+    state: {FISC: 0.0, REG: 0.1, GRID: 0.5, FEDI: 0.0, WARP: 0.4}
+    narrative: >
+      Near-zero priced (2022 composition). Gridlock + Senate blocks nominations.
+      Kept for completeness; shocks dominated by the FEDI surprise.
+
+# ── Non-martingale components ──
+common:
+  event_vol_crush:
+    applies_to: [DD, DR, RR, RD]
+    description: >
+      Pre-event implied vol embeds an election premium that bleeds out on
+      resolution regardless of winner. Applied to VIX only (absolute pts).
+    shocks: {VIX: -1.5}
+
+overlays:          # tail add-ons, combined additively with an outcome
+  CONTESTED:
+    prob_subjective: 0.07
+    description: >
+      Senate control unresolved for >1 week (recounts / litigation in close races:
+      ME ~56% D, IA ~44% D, OH ~64% D, TX ~66% D as of anchor). Process risk,
+      US-origin => USD does not get the usual safe-haven bid; JPY, gold do.
+    analog: "2000-11-07 -> 2000-12-12 (Bush v Gore); 2025-04 US-origin risk-off for FX sign"
+    shocks:
+      ES: -3.0
+      NQ: -3.5
+      RTY: -4.0
+      VG: -2.0
+      GX: -2.0
+      NK: -3.0
+      HSI: -2.0
+      GC: 3.0
+      CL: -1.0
+      CO: -1.0
+      BTC: -8.0
+      DX: -0.5
+      EC: 0.5
+      JY: 2.0      # yen futures (JPY per USD inverse) +2% = USDJPY -2%
+      MP: -1.0     # MXN futures
+      ZT: -8       # bp yield
+      ZN: -10
+      SR3: -5
+      VIX: 6.0
+  TP_TANTRUM:
+    prob_subjective: "0.35 conditional on RR; 0.05 otherwise"
+    description: >
+      Fiscal-dominance read in a 5%+ 10y regime: term premium gaps higher,
+      equity-bond correlation positive, 'sell-America' => USD down, gold up.
+      Flips the sign of the RR equity response.
+    analog: "2025-04 (10y +~50bp/wk, DXY down ~4%); 2022-09 UK LDI; 1994 bond massacre"
+    shocks:
+      ES: -5.0
+      NQ: -6.5
+      RTY: -6.0
+      VG: -3.0
+      GX: -3.0
+      NK: -4.0
+      HSI: -3.0
+      GC: 4.0
+      CL: 0.0
+      CO: 0.0
+      BTC: -10.0
+      DX: -1.5
+      EC: 1.5
+      JY: 1.0
+      MP: -2.0
+      ZT: 15
+      ZN: 45
+      SR3: 15
+      VIX: 7.0
+
+# ── Historical analog windows for calibration / sign checks ──
+# outcome_type = realised control vs what was expected; used by calibrate_from_history()
+analogs:
+  - {name: "1994 midterm", t0: "1994-11-08", type: RR, confounders: "Fed +75bp 1994-11-15; hiking cycle (closest regime analog)"}
+  - {name: "2006 midterm", t0: "2006-11-07", type: DD, confounders: "Fed on hold"}
+  - {name: "2010 midterm", t0: "2010-11-02", type: RD, confounders: "QE2 announced 2010-11-03"}
+  - {name: "2014 midterm", t0: "2014-11-04", type: RR, confounders: "OPEC Thanksgiving oil crash"}
+  - {name: "2018 midterm", t0: "2018-11-06", type: DR, confounders: "Q4-18 Fed tightening sell-off; BTC hash war"}
+  - {name: "2022 midterm", t0: "2022-11-08", type: RD, confounders: "CPI surprise 2022-11-10; FTX collapse"}
+  - {name: "2016 presidential (sweep surprise)", t0: "2016-11-08", type: RR_elasticity, confounders: "none major"}
+  - {name: "2024 presidential (sweep)", t0: "2024-11-05", type: RR_elasticity, confounders: "Fed cut 2024-11-07"}

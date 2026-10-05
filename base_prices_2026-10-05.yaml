@@ -1,0 +1,27 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# US MIDTERM 2026 — BASE PRICES (anchor 2026-10-05; last full close 2026-10-02)
+# level: null  => not verified from a dated source; run refresh_base_prices()
+# stale: true  => sourced but older than 1 week
+# ─────────────────────────────────────────────────────────────────────────────
+anchor_date: "2026-10-05"
+fx_to_usd: {EUR: 1.13, JPY: null, HKD: 0.128}   # EUR from 2026-10-01 wrap; JPY needs refresh
+instruments:
+  ES:  {bbg: "SPX Index",      level: 7722.72, asof: "2026-10-02", ccy: USD, mult: 50,      src: "Tapeboard close"}
+  NQ:  {bbg: "NDX Index",      level: 30732.4, asof: "2026-09-22", ccy: USD, mult: 20,      src: "Saxo/CNBC via ThriveInMarkets", stale: true}
+  RTY: {bbg: "RTY Index",      level: 2832.89, asof: "2026-10-02", ccy: USD, mult: 50,      src: "Tapeboard close"}
+  VG:  {bbg: "SX5E Index",     level: 6367,    asof: "2026-09-08", ccy: EUR, mult: 10,      src: "Newsquawk close", stale: true}
+  GX:  {bbg: "DAX Index",      level: 25546,   asof: "2026-09-08", ccy: EUR, mult: 25,      src: "Newsquawk close", stale: true}
+  NK:  {bbg: "NKY Index",      level: null,    asof: null,         ccy: USD, mult: 5,       src: "REFRESH (CME NKD, $5 x index)"}
+  HSI: {bbg: "HSI Index",      level: null,    asof: null,         ccy: HKD, mult: 50,      src: "REFRESH"}
+  GC:  {bbg: "GC1 Comdty",     level: 4172.1,  asof: "2026-10-02", ccy: USD, mult: 100,     src: "Tapeboard close"}
+  CL:  {bbg: "CL1 Comdty",     level: 91.26,   asof: "2026-10-02", ccy: USD, mult: 1000,    src: "Tapeboard close"}
+  CO:  {bbg: "CO1 Comdty",     level: null,    asof: null,         ccy: USD, mult: 1000,    src: "REFRESH (traded ~$100 in Sep)"}
+  BTC: {bbg: "XBTUSD Curncy",  level: 84000,   asof: "2026-10-01", ccy: USD, mult: 5,       src: "Nexo desk (range 82-85k)"}
+  DX:  {bbg: "DXY Curncy",     level: 101.92,  asof: "2026-10-02", ccy: USD, mult: 1000,    src: "Tapeboard close"}
+  EC:  {bbg: "EURUSD Curncy",  level: 1.13,    asof: "2026-10-01", ccy: USD, mult: 125000,  src: "Nexo desk (approx)"}
+  JY:  {bbg: "JPYUSD Curncy",  level: null,    asof: null,         ccy: USD, mult: 12500000, src: "REFRESH (USDJPY ~160+ in summer; intervention Aug)"}
+  MP:  {bbg: "MXNUSD Curncy",  level: null,    asof: null,         ccy: USD, mult: 500000,  src: "REFRESH"}
+  ZT:  {bbg: "USGG2YR Index",  level: null,    asof: null,         ccy: USD, dv01: 38,      src: "REFRESH; dv01 $/bp per TU contract (approx)"}
+  ZN:  {bbg: "USGG10YR Index", level: 5.28,    asof: "2026-10-02", ccy: USD, dv01: 62,      src: "Tapeboard close; dv01 $/bp per TY contract (approx)"}
+  SR3: {bbg: "SFRH7 Comdty",   level: null,    asof: null,         ccy: USD, dv01: 25,      src: "REFRESH (rate = 100 - price)"}
+  VIX: {bbg: "VIX Index",      level: 15.31,   asof: "2026-10-02", ccy: USD, mult: 1000,    src: "Tapeboard close (VX $1000/pt)"}

@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# US MIDTERM 2026 — TRANSMISSION MAP
+# β_if = 1M response of instrument i to a +1 unit surprise in factor f.
+# Units: equities/commodities/crypto/FX futures = % price; ZT/ZN/SR3 = bp YIELD
+#        (price P&L via DV01, sign flipped); VIX = absolute vol points.
+# FX futures are quoted as USD per foreign unit: EC +1% = EURUSD +1%;
+#   JY +1% = JPY strengthens (USDJPY ≈ -1%); MP +1% = MXN strengthens.
+# vol_ann anchors the residual-noise scale to the CURRENT regime (2026-10-02).
+# tier: 1 direct channel | 2 secondary | 3 behavioural/weak
+# ─────────────────────────────────────────────────────────────────────────────
+factor_rationale:
+  FISC: >
+    Deficit-financed fiscal impulse in a 5%+ yield, Fed-hiking regime: front end
+    reprices hikes (ZT, SR3 up), term premium up (ZN up more), USD up via rate
+    differential, small caps (domestic, levered) outperform, gold down on real
+    rates; tariff-hawkish continuation weighs on EU/China equities, MXN.
+    Elasticity anchors: 2016 sweep (10y ≈ +50bp, RTY ≈ +11%, DXY ≈ +3-4% over 1M)
+    and 2024 sweep (BTC ≈ +40%, DXY ≈ +2.5%), scaled DOWN because a midterm
+    changes legislative capacity, not the executive.
+  REG: "Bank/small-cap deregulation and crypto market-structure legislation; BTC is the purest expression."
+  GRID: "Oversight, shutdown/appropriations brinkmanship, impeachment noise: mild risk-off, VIX up, gold up, front end down."
+  FEDI: "Senate controls Fed Board confirmations; R-Senate retention raises perceived political pressure on policy -> breakevens/term premium up, gold up, USD down, front end slightly down (dovish tilt)."
+  WARP: "D-controlled chambers raise odds of War-Powers / appropriations limits on Iran operations -> lower oil risk premium. Weak, historically rarely binding; link to iran-hormuz scenario probabilities."
+
+instruments:
+  ES:  {name: "S&P 500 E-mini",        group: EQ_US,  shock_type: relative, unit: "%",  tier: 2, vol_ann: 15.3,
+        betas: {FISC: 1.5,  REG: 0.8,  GRID: -1.0, FEDI: 0.0,  WARP: 0.3}}
+  NQ:  {name: "Nasdaq-100 E-mini",     group: EQ_US,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 19.0,
+        betas: {FISC: 1.0,  REG: 0.5,  GRID: -1.0, FEDI: 0.0,  WARP: 0.3}}
+  RTY: {name: "Russell 2000 E-mini",   group: EQ_US,  shock_type: relative, unit: "%",  tier: 1, vol_ann: 21.0,
+        betas: {FISC: 3.5,  REG: 1.0,  GRID: -1.5, FEDI: 0.0,  WARP: 0.2}}
+  VG:  {name: "Euro Stoxx 50",         group: EQ_EU,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 16.0,
+        betas: {FISC: -0.5, REG: 0.0,  GRID: -0.3, FEDI: 0.0,  WARP: 0.3}}
+  GX:  {name: "DAX",                   group: EQ_EU,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 17.5,
+        betas: {FISC: -0.5, REG: 0.0,  GRID: -0.3, FEDI: 0.0,  WARP: 0.3}}
+  NK:  {name: "Nikkei 225 (CME NKD)",  group: EQ_AS,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 19.0,
+        betas: {FISC: 1.0,  REG: 0.2,  GRID: -0.8, FEDI: 0.0,  WARP: 0.3}}
+  HSI: {name: "Hang Seng",             group: EQ_AS,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 22.0,
+        betas: {FISC: -0.8, REG: 0.0,  GRID: -0.3, FEDI: 0.0,  WARP: 0.2}}
+  GC:  {name: "Gold",                  group: CMDTY,  shock_type: relative, unit: "%",  tier: 2, vol_ann: 21.0,
+        betas: {FISC: -1.0, REG: 0.0,  GRID: 1.5,  FEDI: 2.0,  WARP: -0.5}}
+  CL:  {name: "WTI crude",             group: CMDTY,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 35.0,
+        betas: {FISC: 1.0,  REG: 0.0,  GRID: -0.5, FEDI: 0.0,  WARP: -3.0}}
+  CO:  {name: "Brent crude",           group: CMDTY,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 33.0,
+        betas: {FISC: 1.0,  REG: 0.0,  GRID: -0.5, FEDI: 0.0,  WARP: -3.0}}
+  BTC: {name: "Bitcoin (CME)",         group: CRYPTO, shock_type: relative, unit: "%",  tier: 1, vol_ann: 52.0,
+        betas: {FISC: 3.0,  REG: 12.0, GRID: -3.0, FEDI: 3.0,  WARP: 0.0}}
+  DX:  {name: "US Dollar Index",       group: FX,     shock_type: relative, unit: "%",  tier: 2, vol_ann: 6.5,
+        betas: {FISC: 1.2,  REG: 0.0,  GRID: -0.5, FEDI: -0.6, WARP: 0.0}}
+  EC:  {name: "EUR/USD (6E)",          group: FX,     shock_type: relative, unit: "%",  tier: 2, vol_ann: 6.5,
+        betas: {FISC: -1.2, REG: 0.0,  GRID: 0.4,  FEDI: 0.5,  WARP: 0.2}}
+  JY:  {name: "JPY/USD (6J)",          group: FX,     shock_type: relative, unit: "%",  tier: 2, vol_ann: 10.0,
+        betas: {FISC: -1.5, REG: 0.0,  GRID: 0.8,  FEDI: 0.5,  WARP: 0.0}}
+  MP:  {name: "MXN/USD (6M)",          group: FX,     shock_type: relative, unit: "%",  tier: 2, vol_ann: 11.0,
+        betas: {FISC: -1.0, REG: 0.0,  GRID: -0.3, FEDI: 0.0,  WARP: 0.0}}
+  ZT:  {name: "UST 2y (yield)",        group: RATES,  shock_type: yield_bp, unit: "bp", tier: 1, vol_ann_bp: 75,
+        betas: {FISC: 12,   REG: 0,    GRID: -3,   FEDI: -2,   WARP: -1}}
+  ZN:  {name: "UST 10y (yield)",       group: RATES,  shock_type: yield_bp, unit: "bp", tier: 1, vol_ann_bp: 90,
+        betas: {FISC: 18,   REG: 0,    GRID: -5,   FEDI: 6,    WARP: -2}}
+  SR3: {name: "SOFR Mar-27 (rate)",    group: STIR,   shock_type: yield_bp, unit: "bp", tier: 1, vol_ann_bp: 65,
+        betas: {FISC: 12,   REG: 0,    GRID: -3,   FEDI: -3,   WARP: -1}}
+  VIX: {name: "VIX",                   group: VOL,    shock_type: absolute, unit: "pts", tier: 1, vol_ann_pts: 14,
+        betas: {FISC: -0.8, REG: -0.4, GRID: 1.5,  FEDI: 0.3,  WARP: -0.3}}
