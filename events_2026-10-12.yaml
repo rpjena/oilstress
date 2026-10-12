@@ -1,0 +1,161 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# US MIDTERM 2026 — EVENTS CATALOG
+# anchor_date : 2026-10-12   (prediction markets 2026-10-12 03:40–04:06 ET; prices = 2026-10-09 close)
+# event_date  : 2026-11-03   (Tue; first full reaction = Wed 2026-11-04)
+# horizon     : 1M  (2026-11-03 close → ~2026-12-03 close)
+# supersedes  : events_2026-10-05.yaml   (see changelog at bottom)
+#
+# Model:  Δ_ik = Σ_f β_if · (x_fk − Σ_l p_l x_fl)   + common_k(h) + overlay
+#         └ information shock, mean-zero under p ┘  └ non-martingale terms ┘
+# ─────────────────────────────────────────────────────────────────────────────
+meta:
+  anchor_date: "2026-10-12"
+  price_date: "2026-10-09"
+  event_date: "2026-11-03"
+  horizon: "1M"
+  probability_source: >
+    DeFi Rate balance-of-power page, observed 2026-10-12 04:06 ET.
+    Kalshi / Polymarket: DD 61c/62c, DR 30c/29c, RR 11c/9c (midpoints 10.5c/8.5c on the
+    control page), RD 0.80c/0.90c, Polymarket 'Other' 0.2c.
+    Used: DD 0.615, DR 0.295, RR 0.095 (midpoint average), RD 0.0085 → renormalised in engine.
+    Consistency check: P(Senate D) = DD+RD = 0.624 vs headline 62% ✓; P(House D) = DD+DR = 0.910 vs 90–91% ✓.
+  macro_backdrop:
+    fed_funds_target: "3.75-4.00% (hiked 25bp on 2026-09-16)"
+    fomc_pricing: "2026-10-28 hike 16% (was ~35% on 10-05); 2026-12-09 hike ~74%; ≥1 more hike in 2026 78% (DeFi Rate 10-12)"
+    ust: "2y 4.80%, 10y 5.24%, 30y 5.60% (Treasury.gov 2026-10-09); 10y intraday 24y high ~5.35-5.37% on 10-07/10-08"
+    cpi_next: "Sep CPI 2026-10-14 08:30 ET; headline m/m forecasts 0.53-0.6% (record petrol), core ~0.2%; Aug headline y/y 3.4%"
+    oil: >
+      WTI ~$91.7, Brent Dec ~$104.7 (10-09). Physical dislocation: EIA spot Brent $125.4, WTI $96.2 (10-06).
+      Hurricane Isaias shut in ~63% of US Gulf oil (1.3 mb/d) on 10-08/10-09 — transient, expected to
+      resolve before 11-03; not modelled as an election channel.
+    iran: >
+      War in month 7. June interim deal collapsed. 2026-10-08: Trump says US will NOT attack Iran before
+      the Nov 3 midterms; 'productive' talks; Iran reply to US Hormuz counter-proposal due 'within days'.
+      Reports (10-08) that operational strike plans are complete. Pledge expires inside our 1M window.
+      Congress passed an Iran War Powers concurrent resolution in June 2026 (Senate 50-48 on 06-23 with
+      Murkowski, Collins, Paul, Cassidy); White House calls it symbolic; legal force contested.
+    fiscal: "FY27 CR (H.R. 6500) funds government through 2026-12-11 → lame-duck appropriations fight at the edge of the window"
+    politics: "Generic ballot D+9 (Silver Bulletin, ~10-07); Trump approval ~38%"
+    regime_note: >
+      Inflationary regime, 10y at 24-year highs, positive equity–bond correlation. A fiscal shock can be
+      equity-NEGATIVE via term premium → RR has a two-branch treatment (TP_TANTRUM overlay).
+
+# ── Latent policy factors ──
+factors:
+  FISC:  "Capacity for further fiscal expansion 2027-28 (reconciliation needs both chambers + President)"
+  REG:   "Deregulatory / crypto market-structure legislative agenda"
+  GRID:  "Policy-uncertainty / gridlock: oversight, appropriations & shutdown brinkmanship (Dec-11 CR cliff), investigations"
+  FEDI:  "Senate confirmation channel for Fed Board seats (perceived Fed-independence risk)"
+  WARP:  "INCREMENTAL war-powers / appropriations constraint on Iran operations from a change in control (beyond the June-2026 WPR already passed)"
+
+outcomes:
+  DD:
+    label: "Dem House / Dem Senate"
+    prob_market: 0.615
+    state: {FISC: -0.2, REG: -0.3, GRID: 1.0, FEDI: 0.0, WARP: 0.6}
+    narrative: >
+      Consensus outcome but softening (−4pt w/w on both venues). Full gridlock vs the White House from
+      Jan-2027; Senate can block Fed nominations; investigations; no reconciliation 2.0. Lame-duck (current
+      R Congress) still owns the Dec-11 funding cliff — incentive to pass longer CR/omnibus before handover.
+  DR:
+    label: "Dem House / Rep Senate"
+    prob_market: 0.295
+    state: {FISC: 0.0, REG: 0.1, GRID: 0.5, FEDI: 1.0, WARP: 0.3}
+    narrative: >
+      Classic split. House oversight + power of the purse; Senate keeps confirming nominees.
+      The live surprise is the Senate holding (priced ~38%); key races ME 57%, OH 60%, TX 64%, MI 67% (D).
+  RR:
+    label: "Rep House / Rep Senate"
+    prob_market: 0.095
+    state: {FISC: 1.0, REG: 1.0, GRID: 0.0, FEDI: 1.0, WARP: 0.0}
+    narrative: >
+      Tail surprise (~9.5%, up from 8%). Trifecta preserved: second reconciliation package (deficit-financed)
+      into a 5.2%+ 10y; deregulation & crypto agenda; no oversight drag. Base branch = reflation trade;
+      TP_TANTRUM branch = term-premium shock. Most exposed to IRAN_POSTELECTION overlay (pledge lapses, no
+      new congressional constraint).
+  RD:
+    label: "Rep House / Dem Senate"
+    prob_market: 0.0085
+    state: {FISC: 0.0, REG: 0.1, GRID: 0.5, FEDI: 0.0, WARP: 0.3}
+    narrative: "Near-zero priced. Gridlock + Senate blocks nominations. Kept for completeness."
+
+# ── Non-martingale components ──
+common:
+  event_vol_crush:
+    applies_to: [DD, DR, RR, RD]
+    description: >
+      Pre-event implied vol embeds an election premium that bleeds out on resolution regardless of winner.
+      BACKTEST (2006-2022, real data): VIX day-1 change mean −1.21 (4/5 negative; t=0.4 vs −1.5);
+      1M change mean −0.61, range −3.3..+3.3 → the crush is a DAY-1 effect, not a 1M drift.
+      Horizon-keyed from this anchor.
+    shocks_by_horizon:
+      1D: {VIX: -1.5}
+      1M: {VIX: 0.0}
+
+overlays:          # tail add-ons, combined additively with the listed outcomes
+  CONTESTED:
+    prob_subjective: 0.07
+    combine_with: [DD, DR]
+    review_2026-10-12: >
+      Unchanged. Number of Senate races in the 40-65% band widened (KS moved lean-R → toss-up per Cook);
+      ME 57 / IA 43 / OH 60 / TX 64. Evidence points marginally up; kept at 0.07 pending a race-level
+      recount-margin model (not yet built).
+    description: >
+      Senate control unresolved for >1 week (recounts / litigation). US-origin process risk ⇒ USD does
+      not get the usual haven bid; JPY and gold do.
+    analog: "2000-11-07 -> 2000-12-12 (Bush v Gore); 2025-04 US-origin risk-off for FX sign"
+    shocks: {ES: -3.0, NQ: -3.5, RTY: -4.0, VG: -2.0, GX: -2.0, NK: -3.0, HSI: -2.0, GC: 3.0, CL: -1.0,
+             CO: -1.0, BTC: -8.0, DX: -0.5, EC: 0.5, JY: 2.0, MP: -1.0, ZT: -8, ZN: -10, SR3: -5, VIX: 6.0}
+  TP_TANTRUM:
+    prob_subjective: "0.35 conditional on RR; 0.05 otherwise"
+    combine_with: [RR]
+    review_2026-10-12: >
+      Probability unchanged. Fragility evidence rose (10y 24y high 5.35-5.37% intraday on 10-07/08; CBO
+      net debt path 101% → >175% GDP by 2056 cited in coverage), but no new information specific to the
+      RR conditional. Note the shock now starts from 5.24% → 10y ≈ 6.0% in the combo.
+    description: >
+      Fiscal-dominance read: term premium gaps higher, positive equity-bond correlation, 'sell-America' ⇒
+      USD down, gold up. Flips the sign of the RR equity response.
+    analog: "2025-04 (10y +~50bp/wk, DXY down ~4%); 2022-09 UK LDI; 1994 bond massacre"
+    shocks: {ES: -5.0, NQ: -6.5, RTY: -6.0, VG: -3.0, GX: -3.0, NK: -4.0, HSI: -3.0, GC: 4.0, CL: 0.0,
+             CO: 0.0, BTC: -10.0, DX: -1.5, EC: 1.5, JY: 1.0, MP: -2.0, ZT: 15, ZN: 45, SR3: 15, VIX: 7.0}
+  IRAN_POSTELECTION:            # NEW 2026-10-12
+    prob_subjective: "0.30 conditional on RR; 0.20 on DR; 0.15 on DD/RD (strike resumption within the 1M window)"
+    combine_with: [RR, DR, DD]
+    description: >
+      Trump's 'no attack before Nov 3' pledge lapses on election day; strike plans reportedly complete.
+      Resumption risk sits inside the post-election window for EVERY outcome — it is not a midterm
+      channel, but it is the largest confounder of the window. Outcome-dependence is weak because the
+      June-2026 War Powers resolution already passed under R control.
+      Evidence for sign/scale: 2026-10-08 strike-plan reports moved Brent +$5 (~+5%) intraday before the
+      pledge reversed it.
+    shocks_source: "iran-hormuz scenario framework — Escalation branch (last anchored 2026-07-09; REFRESH before use)"
+    shocks: null     # deliberately not invented here; engine skips with a warning until linked
+
+# ── Historical analog windows (used by backtest/backtest_priors.py) ──
+analogs:
+  - {name: "2006 midterm", t0: "2006-11-07", type: DD, prior: "IEM 11-01: D House 74%, D Senate 33%", confounders: "Rumsfeld resignation 11-08"}
+  - {name: "2010 midterm", t0: "2010-11-02", type: RD, prior: "Intrade 11-01: R House 93.8%, R Senate 14.5%", confounders: "QE2 announced 2010-11-03 (inside day-1 window)"}
+  - {name: "2014 midterm", t0: "2014-11-04", type: RR, prior: "538: R Senate 76%; WaPo: R House 99%", confounders: "OPEC Thanksgiving oil crash"}
+  - {name: "2018 midterm", t0: "2018-11-06", type: DR, prior: "538: D House ~86%, R Senate ~81%", confounders: "Q4-18 Fed tightening sell-off"}
+  - {name: "2022 midterm", t0: "2022-11-08", type: RD, prior: "538 Deluxe: R House 84%, R Senate 59%", confounders: "FTX collapse 11-09; CPI 11-10"}
+  - {name: "2016 presidential (sweep surprise)", t0: "2016-11-08", type: RR_elasticity, note: "IN-SAMPLE calibration anchor — not a test"}
+  - {name: "2024 presidential (sweep)", t0: "2024-11-05", type: RR_elasticity, note: "IN-SAMPLE calibration anchor — not a test"}
+
+# ── Known scheduled confounders inside the 1M window (verify dates before use) ──
+window_calendar:
+  - "2026-11-03 Election day; Iran no-strike pledge expires"
+  - "Early Nov: October jobs report (BLS schedule — verify date)"
+  - "Mid Nov: October CPI (BLS schedule — verify date)"
+  - "2026-12-09 FOMC (just outside 1M window; hike ~74% priced → path repricing happens inside window)"
+  - "2026-12-11 CR expiry (lame-duck appropriations; just outside window, priced inside)"
+
+changelog:
+  "2026-10-12":
+    - "Probabilities: DD 0.64→0.615, DR 0.27→0.295, RR 0.08→0.095, RD 0.01→0.0085 (DeFi Rate 10-12)."
+    - "WARP states rescaled DD 1.0→0.6, DR/RD 0.4→0.3: June-2026 War Powers resolution already passed under R control, so the incremental constraint from D control is smaller."
+    - "event_vol_crush made horizon-keyed (1D −1.5, 1M 0.0) per backtest of 2006-2022 midterms."
+    - "New overlay IRAN_POSTELECTION (pledge lapses 11-03); shocks linked to Iran-Hormuz Escalation, not invented."
+    - "Overlays now declare combine_with (engine builds combos from config)."
+    - "CONTESTED and TP_TANTRUM probabilities reviewed, unchanged (reasons recorded)."
+    - "Added window_calendar of scheduled confounders; analogs carry sourced priors."
