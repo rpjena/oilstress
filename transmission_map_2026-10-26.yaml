@@ -1,0 +1,98 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# US MIDTERM 2026 — TRANSMISSION MAP   (anchor 2026-10-26; supersedes 2026-10-22)
+# β_if = 1M response of instrument i to a +1 unit surprise in factor f.
+# Units: equities/commodities/crypto/FX futures = % price; ZT/ZN/SR3 = bp YIELD
+#        (price P&L via DV01, sign flipped); VIX = absolute vol points.
+# FX futures are quoted as USD per foreign unit: EC +1% = EURUSD +1%;
+#   JY +1% = JPY strengthens (USDJPY ≈ -1%); MP +1% = MXN strengthens.
+# vol_ann anchors the residual-noise scale to the CURRENT regime (2026-10-23 close). vol_ann affects only the
+# adverse-residual P&L, never the scenario shocks.
+# tier: 1 direct channel | 2 secondary | 3 behavioural/weak
+#
+# PROVENANCE: all β are structural PRIORS (sign from channel, magnitude from 2016/2024 sweep
+# analogs scaled for midterm legislative vs executive powers). They are NOT fitted.
+# Out-of-sample backtest on 2006/2010/2014/2018/2022 (backtest/RESULTS.md): power ≈ 0 at 1M
+# (|pred|/σ = 0.07); day-1 sign agreement 12/43; the only informative event (2006 Senate flip)
+# got rates right and equities wrong. FISC/REG were never exercised by a midterm surprise.
+# ─────────────────────────────────────────────────────────────────────────────
+factor_rationale:
+  FISC: >
+    Deficit-financed fiscal impulse in a 5%+ yield, Fed-hiking regime: front end
+    reprices hikes (ZT, SR3 up), term premium up (ZN up more), USD up via rate
+    differential, small caps (domestic, levered) outperform, gold down on real
+    rates; tariff-hawkish continuation weighs on EU/China equities, MXN.
+    Elasticity anchors: 2016 sweep (10y ≈ +50bp, RTY ≈ +11%, DXY ≈ +3-4% over 1M)
+    and 2024 sweep (BTC ≈ +40%, DXY ≈ +2.5%), scaled DOWN because a midterm
+    changes legislative capacity, not the executive.
+  REG: "Bank/small-cap deregulation and crypto market-structure legislation; BTC is the purest expression."
+  GRID: >
+    Oversight, shutdown/appropriations brinkmanship (Dec-11 CR cliff), impeachment noise: mild risk-off,
+    VIX up, gold up, front end down. US-equity GRID betas HALVED on 2026-10-12: in the 2006 Senate-flip
+    surprise (GRID +0.47) the S&P rose +0.2% d1 / +1.8% 1M vs a predicted -1.3%, consistent with the
+    "gridlock is good" pattern. One event => shrink toward 0, do not flip the sign.
+  FEDI: "Senate controls Fed Board confirmations; R-Senate retention raises perceived political pressure on policy -> breakevens/term premium up, gold up, USD down, front end slightly down (dovish tilt)."
+  WARP: >
+    D-controlled chambers raise odds of binding War-Powers / appropriations limits on Iran operations ->
+    lower oil risk premium. Betas UNCHANGED; the 2026-10-12 update rescales the factor STATES instead
+    (June-2026 WPR passed under R control => smaller incremental effect). Changing both would double count.
+    Strike-resumption risk after the 11-03 pledge lapse is an overlay (IRAN_POSTELECTION), not WARP.
+
+instruments:
+  ES:  {name: "S&P 500 E-mini",        group: EQ_US,  shock_type: relative, unit: "%",  tier: 2, vol_ann: 19.5,
+        betas: {FISC: 1.5,  REG: 0.8,  GRID: -0.5, FEDI: 0.0,  WARP: 0.3}}
+  NQ:  {name: "Nasdaq-100 E-mini",     group: EQ_US,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 24.9,
+        betas: {FISC: 1.0,  REG: 0.5,  GRID: -0.5, FEDI: 0.0,  WARP: 0.3}}
+  RTY: {name: "Russell 2000 E-mini",   group: EQ_US,  shock_type: relative, unit: "%",  tier: 1, vol_ann: 27.5,
+        betas: {FISC: 3.5,  REG: 1.0,  GRID: -0.75, FEDI: 0.0, WARP: 0.2}}
+  VG:  {name: "Euro Stoxx 50",         group: EQ_EU,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 16.0,
+        betas: {FISC: -0.5, REG: 0.0,  GRID: -0.3, FEDI: 0.0,  WARP: 0.3}}
+  GX:  {name: "DAX",                   group: EQ_EU,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 17.5,
+        betas: {FISC: -0.5, REG: 0.0,  GRID: -0.3, FEDI: 0.0,  WARP: 0.3}}
+  NK:  {name: "Nikkei 225 (CME NKD)",  group: EQ_AS,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 19.0,
+        betas: {FISC: 1.0,  REG: 0.2,  GRID: -0.8, FEDI: 0.0,  WARP: 0.3}}
+  HSI: {name: "Hang Seng",             group: EQ_AS,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 22.0,
+        betas: {FISC: -0.8, REG: 0.0,  GRID: -0.3, FEDI: 0.0,  WARP: 0.2}}
+  GC:  {name: "Gold",                  group: CMDTY,  shock_type: relative, unit: "%",  tier: 2, vol_ann: 21.0,
+        betas: {FISC: -1.0, REG: 0.0,  GRID: 1.5,  FEDI: 2.0,  WARP: -0.5}}
+  CL:  {name: "WTI crude",             group: CMDTY,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 35.0,
+        betas: {FISC: 1.0,  REG: 0.0,  GRID: -0.5, FEDI: 0.0,  WARP: -3.0}}
+  CO:  {name: "Brent crude",           group: CMDTY,  shock_type: relative, unit: "%",  tier: 3, vol_ann: 33.0,
+        betas: {FISC: 1.0,  REG: 0.0,  GRID: -0.5, FEDI: 0.0,  WARP: -3.0}}
+  BTC: {name: "Bitcoin (CME)",         group: CRYPTO, shock_type: relative, unit: "%",  tier: 1, vol_ann: 52.0,
+        betas: {FISC: 3.0,  REG: 12.0, GRID: -3.0, FEDI: 3.0,  WARP: 0.0}}
+  DX:  {name: "US Dollar Index",       group: FX,     shock_type: relative, unit: "%",  tier: 2, vol_ann: 6.5,
+        betas: {FISC: 1.2,  REG: 0.0,  GRID: -0.5, FEDI: -0.6, WARP: 0.0}}
+  EC:  {name: "EUR/USD (6E)",          group: FX,     shock_type: relative, unit: "%",  tier: 2, vol_ann: 6.5,
+        betas: {FISC: -1.2, REG: 0.0,  GRID: 0.4,  FEDI: 0.5,  WARP: 0.2}}
+  JY:  {name: "JPY/USD (6J)",          group: FX,     shock_type: relative, unit: "%",  tier: 2, vol_ann: 10.0,
+        betas: {FISC: -1.5, REG: 0.0,  GRID: 0.8,  FEDI: 0.5,  WARP: 0.0}}
+  MP:  {name: "MXN/USD (6M)",          group: FX,     shock_type: relative, unit: "%",  tier: 2, vol_ann: 11.0,
+        betas: {FISC: -1.0, REG: 0.0,  GRID: -0.3, FEDI: 0.0,  WARP: 0.0}}
+  ZT:  {name: "UST 2y (yield)",        group: RATES,  shock_type: yield_bp, unit: "bp", tier: 1, vol_ann_bp: 75,
+        betas: {FISC: 12,   REG: 0,    GRID: -3,   FEDI: -2,   WARP: -1}}
+  ZN:  {name: "UST 10y (yield)",       group: RATES,  shock_type: yield_bp, unit: "bp", tier: 1, vol_ann_bp: 90,
+        betas: {FISC: 18,   REG: 0,    GRID: -5,   FEDI: 6,    WARP: -2}}
+  SR3: {name: "SOFR Mar-27 (rate)",    group: STIR,   shock_type: yield_bp, unit: "bp", tier: 1, vol_ann_bp: 65,
+        betas: {FISC: 12,   REG: 0,    GRID: -3,   FEDI: -3,   WARP: -1}}
+  VIX: {name: "VIX",                   group: VOL,    shock_type: absolute, unit: "pts", tier: 1, vol_ann_pts: 14,
+        betas: {FISC: -0.8, REG: -0.4, GRID: 1.5,  FEDI: 0.3,  WARP: -0.3}}
+
+changelog:
+  "2026-10-26":
+    - "ES vol_ann 16.7 -> 19.5 (VIX 19.45 on 2026-10-23)."
+    - "NQ 21.4 -> 24.9, RTY 23.6 -> 27.5: PROXY, base vols (19.0 / 21.0 at VIX 14.84) scaled by 19.45/14.84 = 1.311."
+    - "Betas reviewed: unchanged. Oil vol anchors (CL 35 / CO 33) likely low given +6% w/w Brent — flagged, no sourced OVX."
+  "2026-10-22":
+    - "ES vol_ann 20.0 -> 16.7 (VIX 16.68 on 2026-10-21)."
+    - "NQ 25.6 -> 21.4, RTY 28.3 -> 23.6: PROXY, base vols (19.0 / 21.0 at VIX 14.84) scaled by 16.68/14.84 = 1.124."
+    - "Betas reviewed: unchanged."
+  "2026-10-19":
+    - "ES vol_ann 14.8 -> 20.0 (VIX 19.99 on 2026-10-16)."
+    - "NQ 19.0 -> 25.6 and RTY 21.0 -> 28.3: PROXY, scaled by the VIX ratio 19.99/14.84 = 1.347 (VXN/RVX not sourced; refresh on BBG)."
+    - "Other vol anchors unchanged (no sourced implied vols); WTI moved +10% w/w so CL/CO 35/33 may be low — flagged."
+    - "All betas reviewed: no channel-level evidence to change them. The AI-credit selloff raises NQ rate sensitivity, but that acts through the RR TP_TANTRUM branch (NQ -6.5), not the factor betas."
+  "2026-10-12":
+    - "ES/NQ GRID beta -1.0 -> -0.5; RTY GRID beta -1.5 -> -0.75 (backtest: 2006 gridlock surprise, equities rose)."
+    - "ES vol_ann 15.3 -> 14.8 (VIX 14.84 on 2026-10-09). Other vol anchors reviewed, unchanged."
+    - "WARP betas unchanged by design; state rescaling lives in events_2026-10-12.yaml."
+    - "All other betas reviewed against the week's news: no channel-level evidence to change them."

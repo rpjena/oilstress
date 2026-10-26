@@ -1,0 +1,75 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# US MIDTERM 2026 — BASE PRICES   (anchor 2026-10-26; all levels = Fri 2026-10-23 close unless stated)
+# Rules applied:
+#   • every level carries asof + src; where sources disagree all are recorded (xcheck)
+#   • level: null  => no dated, quotable source reachable; run refresh_base_prices() (xbbg)
+#   • approx: true => desk / article level, not an official close
+#   • SYNCHRONOUS SNAPSHOT at the 23-Oct close.
+#   • CONTRACT RULE (enforced from this anchor): the contract live for the WHOLE window 11-03 → ~12-03.
+#     CORRECTION: anchors 10-12..10-22 used Brent Dec (COZ6), which expires 2026-10-30 — before the event,
+#     violating this rule. WTI Dec (CLZ6, last trade ~11-20) and gold Dec (GCZ6, first notice 11-30) also
+#     roll inside the window. Window contracts are COF7 / CLF7 / GCG7, but no dated settle for them was
+#     reachable, so the levels below remain the Dec settles, flagged. % shocks transfer across adjacent
+#     contracts; only the $ notional per % changes (Brent Dec–Jan backwardation was $3.47 on 10-01,
+#     FinanceFeeds → Dec overstates Jan notional by ~3-4%). Refresh on BBG.
+# ─────────────────────────────────────────────────────────────────────────────
+anchor_date: "2026-10-26"
+price_date: "2026-10-23"
+fx_to_usd:
+  EUR: 1.1204                    # Closing Look 10-23
+  JPY: 0.0063771                 # 1/156.81 (Closing Look 10-23)
+  HKD: 0.128                     # HKD peg band 7.75-7.85; mid used
+instruments:
+  ES:  {bbg: "SPX Index",      level: 7623.68,  asof: "2026-10-23", ccy: USD, mult: 50,
+        src: "Tapeboard / Closing Look / Investomine (all 7,623.68)", xcheck: "investrade 7,623"}
+  NQ:  {bbg: "NDX Index",      level: 28957.53, asof: "2026-10-23", ccy: USD, mult: 20,
+        src: "FRED NASDAQ100", xcheck: "FRED 10-21 close 29,822.52 — the 10-22 anchor used a midday 29,863 (+0.14% too high); corrected here"}
+  RTY: {bbg: "RTY Index",      level: 2775.90,  asof: "2026-10-23", ccy: USD, mult: 50,
+        src: "Tapeboard / Closing Look / Investomine", xcheck: "investrade 2,775"}
+  VG:  {bbg: "SX5E Index",     level: 6065.15,  asof: "2026-10-23", ccy: EUR, mult: 10,
+        src: "ChainCatcher citing Gate market data (−0.36%)",
+        xcheck: "CONFLICT: Newsquawk European wrap 10-23 says Euro Stoxx 50 −0.9% (intraday wrap). Single close source — verify on BBG"}
+  GX:  {bbg: "DAX Index",      level: 25181.65, asof: "2026-10-23", ccy: EUR, mult: 25,
+        src: "Armenpress European Stocks 23-10-26 (−0.75%)",
+        xcheck: "Investomine 25,181.65; Gate 25,170.56 (−0.79%); Closing Look 25,152.30 (−0.86%) — 0.12% spread"}
+  NK:  {bbg: "NKY Index",      level: 62693.16, asof: "2026-10-23", ccy: USD, mult: 5,
+        src: "FRED NIKKEI225", xcheck: "Armenpress and Closing Look 62,693.16; FRED confirms 10-21 close 64,621.24 used last anchor"}
+  HSI: {bbg: "HSI Index",      level: 23093.37, asof: "2026-10-23", ccy: HKD, mult: 50,
+        src: "Armenpress Asian Stocks 23-10-26 (+0.69%)", xcheck: "Closing Look 23,093.37"}
+  GC:  {bbg: "GCZ6 Comdty",    level: 4007.90,  asof: "2026-10-23", ccy: USD, mult: 100,
+        src: "investrade Dec gold close", xcheck: "Investomine 4,007.90; Tapeboard 4,010.00; Newsquawk spot range 3,986-4,034",
+        contract_note: "Dec FND 11-30 inside window; window contract GCG7 — refresh"}
+  CL:  {bbg: "CLZ6 Comdty",    level: 103.27,   asof: "2026-10-23", ccy: USD, mult: 1000,
+        src: "Closing Look / investrade WTI Dec close", xcheck: "Tapeboard 103.44",
+        contract_note: "Dec last trade ~11-20 inside window; window contract CLF7 — refresh"}
+  CO:  {bbg: "COZ6 Comdty",    level: 116.72,   asof: "2026-10-23", ccy: USD, mult: 1000,
+        src: "FinanceFeeds / Closing Look Brent Dec settle (highest since 04-29)", xcheck: "investrade 116.72; late-Friday quotes 117.23-117.30",
+        contract_note: "Dec EXPIRES 10-30, BEFORE the event; window contract COF7 — refresh (Dec-Jan backwardation $3.47 on 10-01)"}
+  BTC: {bbg: "XBTUSD Curncy",  level: 81230,    asof: "2026-10-23", ccy: USD, mult: 5, approx: true,
+        src: "Closing Look 'about $81,230', roughly flat", xcheck: "single source"}
+  DX:  {bbg: "DXY Curncy",     level: 101.79,   asof: "2026-10-23", ccy: USD, mult: 1000,
+        src: "Closing Look", xcheck: "Investomine 101.81; Tapeboard 101.75"}
+  EC:  {bbg: "EURUSD Curncy",  level: 1.1204,   asof: "2026-10-23", ccy: USD, mult: 125000,
+        src: "Closing Look", xcheck: "Investomine 1.1203; investrade 1.1193"}
+  JY:  {bbg: "JPYUSD Curncy",  level: 0.0063771, asof: "2026-10-23", ccy: USD, mult: 12500000,
+        src: "1/156.81; USDJPY from Closing Look (−0.83% d/d, yen haven bid)", xcheck: "investrade 156.86; Newsquawk ~156.79"}
+  MP:  {bbg: "MXNUSD Curncy",  level: 0.053571, asof: "2026-10-23", ccy: USD, mult: 500000,
+        src: "1/18.667; Banxico FIX 10-23 via eldolar.info", xcheck: "interbank range 18.645-18.694; DOF 18.7005"}
+  ZT:  {bbg: "USGG2YR Index",  level: 4.69,     asof: "2026-10-23", ccy: USD, dv01: 38,
+        src: "Treasury.gov par yield", xcheck: "Closing Look 4.686; Investomine 4.69", note: "dv01 $/bp per TU contract (approx)"}
+  ZN:  {bbg: "USGG10YR Index", level: 5.00,     asof: "2026-10-23", ccy: USD, dv01: 62,
+        src: "Treasury.gov par yield", xcheck: "Closing Look 4.999; Tapeboard 4.99; investrade 4.987", note: "dv01 $/bp per TY contract (approx)"}
+  SR3: {bbg: "SFRH7 Comdty",   level: null,     asof: null,         ccy: USD, dv01: 25,
+        src: "REFRESH — no quotable Mar-27 SOFR futures level. P&L unaffected (dv01-based).",
+        context: "3m bill 4.22% (Treasury.gov 10-23); Oct hike ~5%, Dec hike 71-79%"}
+  VIX: {bbg: "VIX Index",      level: 19.45,    asof: "2026-10-23", ccy: USD, mult: 1000,
+        src: "Tapeboard / Closing Look / Investomine (all 19.45)", xcheck: "FRED VIXCLS 10-22 19.03 (10-23 not yet posted)"}
+
+changelog:
+  "2026-10-26":
+    - "Rolled all levels to 2026-10-23 close."
+    - "CORRECTION: contract rule now enforced in documentation; prior Brent Dec anchoring flagged (expires before event). Window-contract levels (COF7/CLF7/GCG7) not sourced — Dec settles retained and flagged."
+    - "NQ now from FRED close (fixes the 10-22 midday-level issue)."
+    - "FRED added as cross-check source (NASDAQ100, NIKKEI225, VIXCLS, DCOILBRENTEU)."
+  "2026-10-22":
+    - "Rolled to 2026-10-21 close (synchronous snapshot); overnight Asia/oil recorded, not used."
