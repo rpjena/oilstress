@@ -1,0 +1,73 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# US MIDTERM 2026 — BASE PRICES   (anchor 2026-10-28; all levels = Tue 2026-10-27 close unless stated)
+# Rules applied:
+#   • every level carries asof + src; where sources disagree all are recorded (xcheck)
+#   • level: null  => no dated, quotable source reachable; run refresh_base_prices() (xbbg)
+#   • approx: true => desk / derived level, not an official close
+#   • stale: true  => last available close is older than the snapshot date (stated)
+#   • SYNCHRONOUS SNAPSHOT at the 27-Oct close, except where flagged stale.
+#   • CONTRACT RULE: the contract live for the whole window 11-03 → ~12-03.
+#     From this anchor oil is on JANUARY (CLF7 / COF7), DERIVED as 10-27 Dec settle minus the Dec–Jan
+#     spread observed 10-28 intraday (Mitrade: Brent Dec 115.29 / Jan 110.71 → $4.58; WTI Dec ~101.09 /
+#     Jan ~99.07 → ~$2.02). Assumes the spread was unchanged between the 10-27 settle and 10-28 intraday.
+#     Shocks are % so this only affects $ notional. Gold stays on Dec (contango small); flagged.
+# FOMC decision 2026-10-28 14:00 ET is AFTER this snapshot.
+# ─────────────────────────────────────────────────────────────────────────────
+anchor_date: "2026-10-28"
+price_date: "2026-10-27"
+fx_to_usd:
+  EUR: 1.1131                    # Closing Look 10-27
+  JPY: 0.0063319                 # 1/157.93 (Closing Look 10-27)
+  HKD: 0.128                     # HKD peg band 7.75-7.85; mid used
+instruments:
+  ES:  {bbg: "SPX Index",      level: 7722.60,  asof: "2026-10-27", ccy: USD, mult: 50,
+        src: "Closing Look (cappnotes)", xcheck: "investrade 7,722"}
+  NQ:  {bbg: "NDX Index",      level: 29651.44, asof: "2026-10-27", ccy: USD, mult: 20,
+        src: "FRED NASDAQ100", xcheck: "Nasdaq Comp 26,477.81 (+1.18%) per Closing Look/investrade"}
+  RTY: {bbg: "RTY Index",      level: 2818.87,  asof: "2026-10-27", ccy: USD, mult: 50,
+        src: "Closing Look", xcheck: "investrade 2,818"}
+  VG:  {bbg: "SX5E Index",     level: 6113,     asof: "2026-10-26", ccy: EUR, mult: 10, stale: true,
+        src: "ad-hoc-news: 10-26 close 6,113 (+45, +0.7%; prev 6,068)",
+        xcheck: "No 10-27 SX5E close found. Stoxx 600 +0.47% and DAX +0.71% on 10-27 → stale level likely ~0.5% low. 10-23 prev close 6,068 vs last anchor's 6,065.15 (Gate) — consistent within 0.05%"}
+  GX:  {bbg: "DAX Index",      level: 25590.77, asof: "2026-10-27", ccy: EUR, mult: 25,
+        src: "Armenpress European Stocks 27-10-26 (+0.71%)", xcheck: "Closing Look 25,590.77"}
+  NK:  {bbg: "NKY Index",      level: 63268.37, asof: "2026-10-27", ccy: USD, mult: 5,
+        src: "FRED NIKKEI225", xcheck: "Closing Look 63,268.37 (+1.73%)"}
+  HSI: {bbg: "HSI Index",      level: 23041.32, asof: "2026-10-27", ccy: HKD, mult: 50,
+        src: "Closing Look (−0.73%)", xcheck: "single source"}
+  GC:  {bbg: "GCZ6 Comdty",    level: 4074.60,  asof: "2026-10-27", ccy: USD, mult: 100,
+        src: "investrade Dec gold close", xcheck: "Closing Look 4,073.10",
+        contract_note: "Dec FND 11-30 inside window; GCG7 not sourced (contango small) — refresh"}
+  CL:  {bbg: "CLF7 Comdty",    level: 97.88,    asof: "2026-10-27", ccy: USD, mult: 1000, approx: true,
+        src: "DERIVED: Dec settle 99.90 (Rigzone/investrade/Closing Look) − Dec–Jan spread ~2.02 (Mitrade 10-28 intraday)",
+        xcheck: "Dec settle 99.90 recorded; refresh CLF7 settle on BBG"}
+  CO:  {bbg: "COF7 Comdty",    level: 109.30,   asof: "2026-10-27", ccy: USD, mult: 1000, approx: true,
+        src: "DERIVED: Dec settle 113.88 (Rigzone/investrade/Closing Look) − Dec–Jan spread 4.58 (Mitrade 10-28 intraday)",
+        xcheck: "Dec (expires 10-30) settle 113.88 recorded; refresh COF7 settle on BBG"}
+  BTC: {bbg: "XBTUSD Curncy",  level: 80624,    asof: "2026-10-27", ccy: USD, mult: 5, approx: true,
+        src: "Closing Look 'about $80,624' (+1.0%)", xcheck: "single source"}
+  DX:  {bbg: "DXY Curncy",     level: 102.37,   asof: "2026-10-27", ccy: USD, mult: 1000,
+        src: "Closing Look (+0.40%)", xcheck: "single source"}
+  EC:  {bbg: "EURUSD Curncy",  level: 1.1131,   asof: "2026-10-27", ccy: USD, mult: 125000,
+        src: "Closing Look (−0.43%)", xcheck: "investrade 1.1136"}
+  JY:  {bbg: "JPYUSD Curncy",  level: 0.0063319, asof: "2026-10-27", ccy: USD, mult: 12500000,
+        src: "1/157.93; USDJPY from Closing Look", xcheck: "investrade 157.86"}
+  MP:  {bbg: "MXNUSD Curncy",  level: 0.053612, asof: "2026-10-27", ccy: USD, mult: 500000,
+        src: "1/18.6525; Banxico FIX 10-27 via eldolar.info", xcheck: "interbank range 18.619-18.70; DOF 18.5798"}
+  ZT:  {bbg: "USGG2YR Index",  level: 4.70,     asof: "2026-10-27", ccy: USD, dv01: 38,
+        src: "Treasury.gov par yield", xcheck: "Closing Look 4.737 (market close vs Treasury par — 3bp gap noted)", note: "dv01 $/bp per TU contract (approx)"}
+  ZN:  {bbg: "USGG10YR Index", level: 4.99,     asof: "2026-10-27", ccy: USD, dv01: 62,
+        src: "Treasury.gov par yield", xcheck: "Closing Look 4.995; investrade 4.992", note: "dv01 $/bp per TY contract (approx)"}
+  SR3: {bbg: "SFRH7 Comdty",   level: null,     asof: null,         ccy: USD, dv01: 25,
+        src: "REFRESH — no quotable Mar-27 SOFR futures level. P&L unaffected (dv01-based).",
+        context: "3m bill 4.22% (Treasury.gov 10-27); Oct hike ~6%, Dec hike 74-83%"}
+  VIX: {bbg: "VIX Index",      level: 17.52,    asof: "2026-10-27", ccy: USD, mult: 1000,
+        src: "Closing Look (−4.73%)", xcheck: "FRED VIXCLS 10-26 18.39 (10-27 not yet posted); implies 10-27 ≈ 18.39 × 0.9527 = 17.52 ✓"}
+
+changelog:
+  "2026-10-28":
+    - "Rolled to 2026-10-27 close."
+    - "CONTRACT RULE now enforced for oil: CL/CO moved to January (CLF7/COF7), derived from Dec settle minus observed Dec–Jan spread, flagged approx."
+    - "SX5E stale (10-26 close; no 10-27 close found) — flagged."
+  "2026-10-26":
+    - "Rolled to 2026-10-23 close; contract-rule correction documented; NQ from FRED."
