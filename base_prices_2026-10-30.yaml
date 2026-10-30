@@ -1,0 +1,72 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# US MIDTERM 2026 — BASE PRICES   (anchor 2026-10-30; all levels = Thu 2026-10-29 close unless stated)
+# Parent: base_prices_2026-10-26.yaml (the 2026-10-28 run is ignored and archived in config/_ignored/).
+# Rules applied:
+#   • every level carries asof + src; where sources disagree all are recorded (xcheck)
+#   • level: null  => no dated, quotable source reachable; run refresh_base_prices() (xbbg)
+#   • approx: true => desk / article level, not an official close
+#   • stale: true  => last available official close is older than the snapshot (stated)
+#   • SYNCHRONOUS SNAPSHOT at the 29-Oct close, except where flagged stale.
+#   • CONTRACT RULE (from parent): the contract live for the whole window 11-03 → ~12-03.
+#     Brent: the Dec contract expires TODAY (10-30), so the base moves to January using its ACTUAL
+#     10-29 settle (no derivation needed). WTI Dec (last trade ~11-20) and gold Dec (FND 11-30) still roll
+#     inside the window; CLF7 / GCG7 settles not sourced — Dec retained, flagged.
+# ─────────────────────────────────────────────────────────────────────────────
+anchor_date: "2026-10-30"
+price_date: "2026-10-29"
+fx_to_usd:
+  EUR: 1.1181                    # Closing Look 10-29
+  JPY: 0.0063440                 # 1/157.63 (Closing Look 10-29)
+  HKD: 0.128                     # HKD peg band 7.75-7.85; mid used
+instruments:
+  ES:  {bbg: "SPX Index",      level: 7720.39,  asof: "2026-10-29", ccy: USD, mult: 50,
+        src: "Closing Look / ad-hoc-news / Wall Street Republic (all 7,720.39)", xcheck: "investrade 7,720"}
+  NQ:  {bbg: "NDX Index",      level: 29813.16, asof: "2026-10-28", ccy: USD, mult: 20, stale: true,
+        src: "FRED NASDAQ100 10-28 close (10-29 not yet posted)",
+        xcheck: "No 10-29 NDX close found. Nasdaq Composite −1.38% on 10-29 (Alphabet −12.6%) → stale level likely ~1.4-1.8% HIGH. Refresh on BBG"}
+  RTY: {bbg: "RTY Index",      level: 2859.22,  asof: "2026-10-29", ccy: USD, mult: 50,
+        src: "Closing Look (+1.01%)", xcheck: "Yahoo snapshot 2,859.22; investrade 2,859"}
+  VG:  {bbg: "SX5E Index",     level: 6207.45,  asof: "2026-10-29", ccy: EUR, mult: 10,
+        src: "ad-hoc-news 10-29 (+0.64%; prev 6,167.81)", xcheck: "single source; Stoxx 600 +0.77% (Closing Look) consistent"}
+  GX:  {bbg: "DAX Index",      level: 26039.68, asof: "2026-10-29", ccy: EUR, mult: 25,
+        src: "Closing Look (+1.31%)", xcheck: "Armstrong Economics 26,039.68"}
+  NK:  {bbg: "NKY Index",      level: 64659.47, asof: "2026-10-29", ccy: USD, mult: 5,
+        src: "Armenpress Asian Stocks 29-10-26 (+1.10%)", xcheck: "Closing Look and Armstrong 64,659.47; FRED 10-28 63,954.19 × 1.011 = 64,658 ✓"}
+  HSI: {bbg: "HSI Index",      level: 22958.65, asof: "2026-10-29", ccy: HKD, mult: 50,
+        src: "Armenpress Asian Stocks 29-10-26 (−0.59%)", xcheck: "Closing Look and Armstrong 22,958.65"}
+  GC:  {bbg: "GCZ6 Comdty",    level: 4031.70,  asof: "2026-10-29", ccy: USD, mult: 100,
+        src: "Closing Look Dec gold", xcheck: "investrade 4,031.40; Armstrong spot ~4,025.5; Yahoo later 4,024.3",
+        contract_note: "Dec FND 11-30 inside window; GCG7 not sourced (contango small) — refresh"}
+  CL:  {bbg: "CLZ6 Comdty",    level: 102.00,   asof: "2026-10-29", ccy: USD, mult: 1000,
+        src: "Rigzone / Nation Thailand / Closing Look WTI Dec settle", xcheck: "investrade 102.00; Armstrong intraday 102.94",
+        contract_note: "Dec last trade ~11-20 inside window; CLF7 not sourced — refresh"}
+  CO:  {bbg: "COF7 Comdty",    level: 110.80,   asof: "2026-10-29", ccy: USD, mult: 1000,
+        src: "Rigzone / Nation Thailand: Brent JANUARY settle (−0.8%)",
+        xcheck: "investrade table 110.63 (likely last, not settle); Brent Dec (expiring 10-30) settled 114.88 — Dec–Jan $4.08"}
+  BTC: {bbg: "XBTUSD Curncy",  level: 78926,    asof: "2026-10-29", ccy: USD, mult: 5, approx: true,
+        src: "Closing Look '~$78,926' (−2.88%)", xcheck: "Yahoo later snapshot 77,851 (−4.18%)"}
+  DX:  {bbg: "DXY Curncy",     level: 101.87,   asof: "2026-10-29", ccy: USD, mult: 1000,
+        src: "Closing Look (−0.31%)", xcheck: "single source"}
+  EC:  {bbg: "EURUSD Curncy",  level: 1.1181,   asof: "2026-10-29", ccy: USD, mult: 125000,
+        src: "Closing Look (+0.46%)", xcheck: "Armstrong 1.11778; investrade 1.1162 (internally inconsistent article)"}
+  JY:  {bbg: "JPYUSD Curncy",  level: 0.0063440, asof: "2026-10-29", ccy: USD, mult: 12500000,
+        src: "1/157.63; USDJPY from Closing Look", xcheck: "Armstrong 157.679; investrade 157.93"}
+  MP:  {bbg: "MXNUSD Curncy",  level: 0.053149, asof: "2026-10-29", ccy: USD, mult: 500000,
+        src: "1/18.8148; Banxico FIX 10-29 via eldolar.info", xcheck: "interbank range 18.768-18.868; DOF 18.6673"}
+  ZT:  {bbg: "USGG2YR Index",  level: 4.61,     asof: "2026-10-29", ccy: USD, dv01: 38,
+        src: "Treasury.gov par yield", xcheck: "Closing Look 4.61%", note: "dv01 $/bp per TU contract (approx)"}
+  ZN:  {bbg: "USGG10YR Index", level: 4.98,     asof: "2026-10-29", ccy: USD, dv01: 62,
+        src: "Treasury.gov par yield", xcheck: "Closing Look 4.98; investrade 4.988; Yahoo 4.989", note: "dv01 $/bp per TY contract (approx)"}
+  SR3: {bbg: "SFRH7 Comdty",   level: null,     asof: null,         ccy: USD, dv01: 25,
+        src: "REFRESH — no quotable Mar-27 SOFR futures level. P&L unaffected (dv01-based).",
+        context: "3m bill 4.18% (Treasury.gov 10-29); Dec hike 77%; Mar-27 hike 54% (Kalshi)"}
+  VIX: {bbg: "VIX Index",      level: 17.20,    asof: "2026-10-29", ccy: USD, mult: 1000,
+        src: "Closing Look (+1.71%)", xcheck: "Yahoo 17.20; FRED 10-28 16.91 × 1.0171 = 17.20 ✓"}
+
+changelog:
+  "2026-10-30":
+    - "Parent 2026-10-26 (2026-10-28 run ignored). Rolled to 2026-10-29 close."
+    - "Brent moved to January (COF7) on its ACTUAL settle 110.80 because the Dec contract expires 10-30."
+    - "NQ stale (FRED 10-28 close; 10-29 not yet posted) — likely 1.4-1.8% high."
+  "2026-10-26":
+    - "Rolled to 2026-10-23 close; contract-rule correction documented; NQ from FRED."
