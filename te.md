@@ -21,7 +21,7 @@ TE is estimated precisely and the drift is estimated very poorly. That is why ri
 models forecast TE, and why cumulative performance keeps surprising people.
  
  
-1. DEFINITIONS (BOOK, II.1.6.1 - II.1.6.4)
+1. DEFINITIONS 
 -----------------------------------------
 Portfolio and benchmark one-period returns:
     R_P,t = V_P,t / V_P,t-1 - 1          R_B,t = V_B,t / V_B,t-1 - 1
@@ -60,7 +60,7 @@ Ex ante MATE (II.1.57, corrected):
     (the book prints V(Y)^2; it should be V(Y) = TE^2)
  
  
-2. THE BOOK'S ARGUMENT
+2. THE ARGUMENT
 ----------------------
 Claim: TE is a valid measure of active risk only for funds that TRACK the benchmark
 (E[a] = 0). For active funds it ignores the risk that the mean active return differs
@@ -107,7 +107,7 @@ Book's proposed properties of an active-risk metric (II.1.7):
 The book says TE has neither.
  
  
-3. WHERE THE BOOK IS RIGHT, AND WHERE IT OVERREACHES
+3. WHERE THIS IS RIGHT, AND WHERE IT OVERREACHES
 ---------------------------------------------------
 Right:
   - TE is dispersion about E[a], not about 0 and not about the target.
